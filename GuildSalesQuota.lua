@@ -118,7 +118,7 @@ function GuildSalesQuota:CreateSettingsWindow()
         displayName         = "Guild Sales Quota",
         author              = "ziggr",
         version             = self.version,
-        --slashCommand        = "/gg",
+        slashCommand        = "/gg",
         registerForRefresh  = true,
         registerForDefaults = false,
     }
@@ -349,13 +349,13 @@ function GuildSalesQuota:SaveGuildIndex(guild_index)
     guildId = GetGuildId(guild_index)
     self.fetching[guild_index] = true
     self:SetStatus(guild_index, "downloading history...")
-    RequestGuildHistoryCategoryNewest(guildId, GUILD_HISTORY_BANK)
+    --ZZ RequestGuildHistoryCategoryNewest(guildId, GUILD_HISTORY_BANK)
 
                         -- Start an asynchronous callback chain to slowly
                         -- poll ESO servers for all history. Chain will
                         -- callback itself until done, then callback
                         -- into the actual processing of that data.
-    self:ServerDataPoll(guild_index)
+    --ZZself:ServerDataPoll(guild_index)
 end
 
 -- Async poll to fetch ALL guild bank history data from the ESO server
