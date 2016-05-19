@@ -1,31 +1,31 @@
 local LAM2 = LibStub("LibAddonMenu-2.0")
 
-local GuildGoldDeposits = {}
-GuildGoldDeposits.name            = "GuildGoldDeposits"
-GuildGoldDeposits.version         = "2.3.7.2"
-GuildGoldDeposits.savedVarVersion = 2
-GuildGoldDeposits.default = {
+local GuildSalesQuota = {}
+GuildSalesQuota.name            = "GuildSalesQuota"
+GuildSalesQuota.version         = "2.3.7.2"
+GuildSalesQuota.savedVarVersion = 2
+GuildSalesQuota.default = {
       enable_guild  = { true, true, true, true, true }
     , history = {}
 }
-GuildGoldDeposits.max_guild_ct = 5
-GuildGoldDeposits.fetching = { false, false, false, false, false }
+GuildSalesQuota.max_guild_ct = 5
+GuildSalesQuota.fetching = { false, false, false, false, false }
 
 
                         -- fetched_str_list[guild_index] = { list of event strings }
                         -- loaded from the current "Save Now" run.
-GuildGoldDeposits.fetched_str_list = {}
-GuildGoldDeposits.guild_name = {} -- guild_name[guild_index] = "My Aweseome Guild"
+GuildSalesQuota.fetched_str_list = {}
+GuildSalesQuota.guild_name = {} -- guild_name[guild_index] = "My Aweseome Guild"
 
                         -- retry_ct[guild_index] = how many retries after
                         -- distrusting "nah, no more history"
-GuildGoldDeposits.retry_ct   = { 0, 0, 0, 0, 0 }
-GuildGoldDeposits.max_retry_ct = 3
+GuildSalesQuota.retry_ct   = { 0, 0, 0, 0, 0 }
+GuildSalesQuota.max_retry_ct = 3
 
 
                         -- how many days to store in SavedVariables
                         -- (not yet implemented)
-GuildGoldDeposits.max_day_ct = 30
+GuildSalesQuota.max_day_ct = 30
 
 local TIMESTAMPS_CLOSE_SECS = 10
 
@@ -56,7 +56,7 @@ function Event:FromInfo(event_type, since_secs, user, amount)
 end
 
 function Event:FromString(str)
-    ts, amt, user = GuildGoldDeposits:split(str)
+    ts, amt, user = GuildSalesQuota:split(str)
     o = { time   = ts
         , amount = amt
         , user   = user
@@ -83,16 +83,16 @@ end
 
 -- Init ----------------------------------------------------------------------
 
-function GuildGoldDeposits.OnAddOnLoaded(event, addonName)
-    if addonName ~= GuildGoldDeposits.name then return end
-    if not GuildGoldDeposits.version then return end
-    if not GuildGoldDeposits.default then return end
-    GuildGoldDeposits:Initialize()
+function GuildSalesQuota.OnAddOnLoaded(event, addonName)
+    if addonName ~= GuildSalesQuota.name then return end
+    if not GuildSalesQuota.version then return end
+    if not GuildSalesQuota.default then return end
+    GuildSalesQuota:Initialize()
 end
 
-function GuildGoldDeposits:Initialize()
+function GuildSalesQuota:Initialize()
     self.savedVariables = ZO_SavedVars:NewAccountWide(
-                              "GuildGoldDepositsVars"
+                              "GuildSalesQuotaVars"
                             , self.savedVarVersion
                             , nil
                             , self.default
@@ -103,19 +103,19 @@ end
 
 -- UI ------------------------------------------------------------------------
 
-function GuildGoldDeposits.ref_cb(guild_index)
-    return "GuildGoldDeposits_cbg" .. guild_index
+function GuildSalesQuota.ref_cb(guild_index)
+    return "GuildSalesQuota_cbg" .. guild_index
 end
 
-function GuildGoldDeposits.ref_desc(guild_index)
-    return "GuildGoldDeposits_desc" .. guild_index
+function GuildSalesQuota.ref_desc(guild_index)
+    return "GuildSalesQuota_desc" .. guild_index
 end
 
-function GuildGoldDeposits:CreateSettingsWindow()
+function GuildSalesQuota:CreateSettingsWindow()
     local panelData = {
         type                = "panel",
-        name                = "Guild Gold Deposits",
-        displayName         = "Guild Gold Deposits",
+        name                = "Guild Sales Quota",
+        displayName         = "Guild Sales Quota",
         author              = "ziggr",
         version             = self.version,
         --slashCommand        = "/gg",
@@ -128,7 +128,7 @@ function GuildGoldDeposits:CreateSettingsWindow()
     local optionsData = {
         { type      = "button"
         , name      = "Save Data Now"
-        , tooltip   = "Save guild gold deposit data to file now."
+        , tooltip   = "Save guild sales data to file now."
         , func      = function() self:SaveNow() end
         },
         { type      = "header"
@@ -164,15 +164,15 @@ function GuildGoldDeposits:CreateSettingsWindow()
             })
     end
 
-    LAM2:RegisterOptionControls("GuildGoldDeposits", optionsData)
+    LAM2:RegisterOptionControls("GuildSalesQuota", optionsData)
     CALLBACK_MANAGER:RegisterCallback("LAM-PanelControlsCreated"
             , self.OnPanelControlsCreated)
 end
 
 -- Delay initialization of options panel: don't waste time fetching
 -- guild names until a human actually opens our panel.
-function GuildGoldDeposits.OnPanelControlsCreated(panel)
-    self = GuildGoldDeposits
+function GuildSalesQuota.OnPanelControlsCreated(panel)
+    self = GuildSalesQuota
     guild_ct = GetNumGuilds()
     for guild_index = 1,self.max_guild_ct do
         exists = guild_index <= guild_ct
@@ -182,7 +182,7 @@ function GuildGoldDeposits.OnPanelControlsCreated(panel)
 end
 
 -- Data portion of init UI
-function GuildGoldDeposits:InitGuildSettings(guild_index, exists)
+function GuildSalesQuota:InitGuildSettings(guild_index, exists)
     if exists then
         guildId   = GetGuildId(guild_index)
         guildName = GetGuildName(guildId)
@@ -193,7 +193,7 @@ function GuildGoldDeposits:InitGuildSettings(guild_index, exists)
 end
 
 -- UI portion of init UI
-function GuildGoldDeposits:InitGuildControls(guild_index, exists)
+function GuildSalesQuota:InitGuildControls(guild_index, exists)
     cb = _G[self.ref_cb(guild_index)]
     if exists and cb and cb.label then
         cb.label:SetText(self.guild_name[guild_index])
@@ -212,7 +212,7 @@ end
 -- I cannot get LibAddonMenu-2.0 "description" items to dynamically update
 -- their text. SetText() has no effect. But SetText() works on "checkbox"
 -- items, so beat those into a text-like UI element.
-function GuildGoldDeposits.ConvertCheckboxToText(desc)
+function GuildSalesQuota.ConvertCheckboxToText(desc)
     if not desc then return end
     desc:SetHandler("OnMouseEnter", nil)
     desc:SetHandler("OnMouseExit",  nil)
@@ -225,7 +225,7 @@ end
 -- Display Status ------------------------------------------------------------
 
 -- Update the per-guild text label with what's going on with that guild data.
-function GuildGoldDeposits:SetStatus(guild_index, msg)
+function GuildSalesQuota:SetStatus(guild_index, msg)
     --d("status " .. tostring(guild_index) .. ":" .. tostring(msg))
     x = _G[self.ref_desc(guild_index)]
     if not x then return end
@@ -234,17 +234,17 @@ function GuildGoldDeposits:SetStatus(guild_index, msg)
 end
 
 -- Set status to "Newest: @user 100,000g  11 hours ago"
-function GuildGoldDeposits:SetStatusNewestSaved(guild_index)
+function GuildSalesQuota:SetStatusNewestSaved(guild_index)
     event = self:SavedHistoryNewest(guild_index)
     self:SetStatusNewest(guild_index, event)
 end
 
-function GuildGoldDeposits:SetStatusNewestFetched(guild_index)
+function GuildSalesQuota:SetStatusNewestFetched(guild_index)
     event = self:FetchedNewest(guild_index)
     self:SetStatusNewest(guild_index, event)
 end
 
-function GuildGoldDeposits:SetStatusNewest(guild_index, event)
+function GuildSalesQuota:SetStatusNewest(guild_index, event)
     if not event then return end
 
     now_ts = GetTimeStamp()
@@ -263,7 +263,7 @@ end
 
 -- Lua lacks a split() function. Here's a cheesy hardwired one that works
 -- for our specific need.
-function GuildGoldDeposits:split(str)
+function GuildSalesQuota:split(str)
     t1 = string.find(str, '\t')
     t2 = string.find(str, '\t', 1 + t1)
     return   string.sub(str, 1,      t1 - 1)
@@ -272,7 +272,7 @@ function GuildGoldDeposits:split(str)
 end
 
 -- Convert an event to a compact string that a line-parser can easily consume.
-function GuildGoldDeposits:EventToString(event)
+function GuildSalesQuota:EventToString(event)
                         -- tab-delimited fields
                         -- date     seconds since the epoch
                         -- amount
@@ -287,7 +287,7 @@ function GuildGoldDeposits:EventToString(event)
             .. '\t' .. tostring(event.user)
 end
 
-function GuildGoldDeposits:StringToEvent(str)
+function GuildSalesQuota:StringToEvent(str)
     ts, amt, user = self:split(str)
     return { time   = ts
            , amount = amt
@@ -297,7 +297,7 @@ end
 
 -- Return the one newest event, if any, from our previous save.
 -- Return nil if not.
-function GuildGoldDeposits:SavedHistoryNewest(guild_index)
+function GuildSalesQuota:SavedHistoryNewest(guild_index)
     guildName = GetGuildName(guildId)
     if not self.savedVariables then return nil end
     if not self.savedVariables.history then return nil end
@@ -306,7 +306,7 @@ end
 
 -- Return the Event of the most recent event string from
 -- a list of event strings.
-function GuildGoldDeposits:Newest(str_list)
+function GuildSalesQuota:Newest(str_list)
     if not str_list then return nil end
     if not (1 <= #str_list) then return nil end
     newest_event = self:StringToEvent(str_list[1])
@@ -328,7 +328,7 @@ end
 -- the clock skew caused by the items using relative time, but relative
 -- to _what_?
 
-function GuildGoldDeposits:SaveNow()
+function GuildSalesQuota:SaveNow()
     self.fetched_str_list = {}
     for guild_index = 1, self.max_guild_ct do
         if self.savedVariables.enable_guild[guild_index] then
@@ -340,12 +340,12 @@ function GuildGoldDeposits:SaveNow()
 end
 
 -- User doesn't want this guild. Respond with "okay, skipping"
-function GuildGoldDeposits:SkipGuildIndex(guild_index)
+function GuildSalesQuota:SkipGuildIndex(guild_index)
     self:SetStatus(guild_index, "skipped")
 end
 
 -- Download one guild's history
-function GuildGoldDeposits:SaveGuildIndex(guild_index)
+function GuildSalesQuota:SaveGuildIndex(guild_index)
     guildId = GetGuildId(guild_index)
     self.fetching[guild_index] = true
     self:SetStatus(guild_index, "downloading history...")
@@ -360,7 +360,7 @@ end
 
 -- Async poll to fetch ALL guild bank history data from the ESO server
 -- Calls ServerDataComplete() once all data is loaded.
-function GuildGoldDeposits:ServerDataPoll(guild_index)
+function GuildSalesQuota:ServerDataPoll(guild_index)
     guildId = GetGuildId(guild_index)
     more = DoesGuildHistoryCategoryHaveMoreEvents(guildId, GUILD_HISTORY_BANK)
     event_ct = GetNumGuildEvents(guildId, GUILD_HISTORY_BANK)
@@ -381,7 +381,7 @@ end
 
 -- Now that all data from the ESO server is loaded into the ESO client,
 -- extract gold deposits and write to savedVars.
-function GuildGoldDeposits:ServerDataComplete(guild_index)
+function GuildSalesQuota:ServerDataComplete(guild_index)
                         -- Avoid infinite noise if a Lua error in here
                         -- causes a repeated callback. Mostly useful when
                         -- debugging, shouldn't be an issue when we're
@@ -422,7 +422,7 @@ function GuildGoldDeposits:ServerDataComplete(guild_index)
     end
 end
 
-function GuildGoldDeposits:FetchedEventCt()
+function GuildSalesQuota:FetchedEventCt()
     total_ct = 0
     for _,fetched_str_list in pairs(self.fetched_str_list) do
         if fetched_str_list then
@@ -432,14 +432,14 @@ function GuildGoldDeposits:FetchedEventCt()
     return total_ct
 end
 
-function GuildGoldDeposits:StillFetchingAny()
+function GuildSalesQuota:StillFetchingAny()
     for _,v in pairs(self.fetching) do
         if v then return true end
     end
     return false
 end
 
-function GuildGoldDeposits:RecordEvent(guild_index, event)
+function GuildSalesQuota:RecordEvent(guild_index, event)
     if not self.fetched_str_list[guild_index] then
         self.fetched_str_list[guild_index] = {}
     end
@@ -447,13 +447,13 @@ function GuildGoldDeposits:RecordEvent(guild_index, event)
     table.insert(t, event:ToString())
 end
 
-function GuildGoldDeposits:FetchedNewest(guild_index)
+function GuildSalesQuota:FetchedNewest(guild_index)
     return self:Newest(self.fetched_str_list[guild_index])
 end
 
 -- Postamble -----------------------------------------------------------------
 
-EVENT_MANAGER:RegisterForEvent( GuildGoldDeposits.name
+EVENT_MANAGER:RegisterForEvent( GuildSalesQuota.name
                               , EVENT_ADD_ON_LOADED
-                              , GuildGoldDeposits.OnAddOnLoaded
+                              , GuildSalesQuota.OnAddOnLoaded
                               )
