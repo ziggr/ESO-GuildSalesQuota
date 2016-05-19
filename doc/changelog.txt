@@ -1,3 +1,5 @@
+--------- saving old text as a template, but this has to go before 1.0 release --------------
+
 [B]2.3.7.2 2016-03-27[/B]
 [LIST]
 [*]Update ESO API to latest version.

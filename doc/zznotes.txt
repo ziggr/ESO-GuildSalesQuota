@@ -1,0 +1,184 @@
+These are the 8 "rankIndex" values
+
+1  ZO_CreateStringId("MM_INDEX_TODAY",     "Today")
+2  ZO_CreateStringId("MM_INDEX_3DAY",      "Yesterday")
+3  ZO_CreateStringId("MM_INDEX_THISWEEK",  "This Week")
+4  ZO_CreateStringId("MM_INDEX_LASTWEEK",  "Last Week")
+5  ZO_CreateStringId("MM_INDEX_PRIORWEEK", "Prior Week")
+6  ZO_CreateStringId("MM_INDEX_7DAY",      "7 Days")
+7  ZO_CreateStringId("MM_INDEX_10DAY",     "10 Days")
+8  ZO_CreateStringId("MM_INDEX_28DAY",     "30 Days")
+
+These control the UI display. Items 3 and 4 are probably what we want.
+
+Not sure how to get just that info.  The other option is to just get ALL MM data and sort it ourself.
+
+
+See how MM sorts events into the 8 above buckets:
+
+  function MMGuild:addSaleByDate(sellerName, date, amount, stack, wasKiosk, sort, searchText)
+    if sellerName == nil then return end
+    if date == nil then return end
+    if (date >= self.oneStart )                             then self:addSale(sellerName, 1, amount, stack, wasKiosk, sort, searchText) end;
+    if (date >= self.twoStart and date < self.oneStart)     then self:addSale(sellerName, 2, amount, stack, wasKiosk, sort, searchText) end;
+    if (date >= self.threeStart)                            then self:addSale(sellerName, 3, amount, stack, wasKiosk, sort, searchText) end;
+    if (date >= self.fourStart and date < self.fourEnd)     then self:addSale(sellerName, 4, amount, stack, wasKiosk, sort, searchText) end;
+    if (date >= self.fiveStart and date < self.fiveEnd)     then self:addSale(sellerName, 5, amount, stack, wasKiosk, sort, searchText) end;
+    if (date >= self.sixStart)                              then self:addSale(sellerName, 6, amount, stack, wasKiosk, sort, searchText) end;
+    if (date >= self.sevenStart)                            then self:addSale(sellerName, 7, amount, stack, wasKiosk, sort, searchText) end;
+    if (date >= self.eightStart)                            then self:addSale(sellerName, 8, amount, stack, wasKiosk, sort, searchText) end;
+  end
+
+So where do those date brackets get initialized?
+
+  function MMGuild:new(_name)
+      o = {}   -- create object if user does not provide one
+      setmetatable(o, self)
+      self.__index = self
+
+      o.guildName = _name
+      o.sellers = {}
+      o.ranks = {}
+      o.count = {}
+      o.stack = {}
+      o.sales = {}
+      o.tax = {}
+
+      local weekCutoff = 1420462800 -- 1st Monday in Jan 2015 at 8am EST
+      -- For EU Server
+      --weekCutoff = weekCutoff + (14 * 3600) -- move to first Tuesday at 3am GMT
+
+      while weekCutoff + (7 * 86400) < GetTimeStamp() do
+        weekCutoff = weekCutoff + (7 * 86400)
+      end
+
+      local dayCutoff = weekCutoff - (8 * 3600) -- Move back to Midnight EST Monday Morning
+      -- For EU Server
+      --local dayCutoff = weekCutoff - (3 * 3600) -- Move back to Midnight GMT Tuesday Morning
+
+
+      while dayCutoff + 86400 < GetTimeStamp() do
+        dayCutoff = dayCutoff + 86400
+      end
+      -- let's do local time
+      dayCutoff    = GetTimeStamp() - GetSecondsSinceMidnight()
+
+      o.oneStart   = dayCutoff -- Today
+
+      o.twoStart   = o.oneStart - 86400 -- yesterday
+
+      o.threeStart = weekCutoff -- back up to Monday for this week
+
+      o.fourStart  = o.threeStart - 7 * 86400 -- last week start
+      o.fourEnd    = o.threeStart -- last week end
+
+      o.fiveStart  = o.fourStart - 7 * 86400 -- prior week start
+      o.fiveEnd    = o.fourStart -- prior week end
+
+      o.sixStart   = GetTimeStamp() - 10 * 86400 -- last 10 days
+      o.sevenStart = GetTimeStamp() - 30 * 86400 -- last 30 days
+      o.eightStart = GetTimeStamp() - 7 * 86400 -- last 7 days
+      return o
+  end
+
+So there's your time calcs.  Best to just reach into MMGuild to use theirs.
+
+Can we get a list of sellers?
+
+Can we get per-seller data within any of the above 8 buckets?
+
+MMGuild:addSale() shows that MMGuild.sales[n] is a scalar, not a list of data:
+
+    self.sales[rankIndex] = (self.sales[rankIndex] or 0) + amount
+
+
+Looks like sales records ara big vat under MasterMerchant, indexed by item not seller:
+
+function MasterMerchant:itemHasSales(itemLink)
+  local itemID = tonumber(string.match(itemLink, '|H.-:item:(.-):'))
+  local itemIndex = MasterMerchant.makeIndexFromLink(itemLink)
+  return self.salesData[itemID] and self.salesData[itemID][itemIndex] and self.salesData[itemID][itemIndex]['sales'] and #self.salesData[itemID][itemIndex]['sales'] > 0
+end
+
+So you'll probably have to do a table scan, and bucketize your own data.
+
+What's a  MasterMerchant.salesData[itemID][][] record?
+
+itemID is some integer like 45061
+
+MM00DataSavedVariables =
+{
+    ["Default"] =
+    {
+        ["MasterMerchant"] =
+        {
+            ["$AccountWide"] =
+            {
+                ["ItemsConverted"] = true,
+                ["SalesData"] =
+                {
+                    ...
+                    [45061] =           <== itemID
+                    {
+                        ...
+                        ["1:0:1:12:0"] =        <== itemIndex
+                        {
+                            ["sales"] =             <== begin sales records
+                            {
+                                [1] =
+                                {
+                                    ["buyer"] = "@helsina42",
+                                    ["guild"] = "Eastmarch Trade Company",
+                                    ["itemLink"] = "|H0:item:45061:30:1:0:0:0:0:0:0:0:0:0:0:0:0:4:0:0:0:10000:0|hiron sabatons^p|h",
+                                    ["price"] = 500,
+                                    ["quant"] = 1,
+                                    ["seller"] = "@Sugzug",
+                                    ["timestamp"] = 1444334575,
+                                    ["wasKiosk"] = false,
+                                },
+                                ...
+                                [12] =
+                                {
+                                    ["buyer"] = "@NYBDA",
+                                    ["guild"] = "Bleakrock Barter Co",
+                                    ["id"] = "589390323",
+                                    ["itemLink"] = "|H0:item:45061:30:1:0:0:0:0:0:0:0:0:0:0:0:0:2:0:0:0:10000:0|h|h",
+                                    ["price"] = 154,
+                                    ["quant"] = 1,
+                                    ["seller"] = "@wiccax",
+                                    ["timestamp"] = 1460912027,
+                                    ["wasKiosk"] = true,
+                                },
+                            },
+                            ["itemIcon"] = "/esoui/art/icons/gear_redguard_heavy_feet_a.dds",
+                            ["itemAdderText"] = "rr01 white normal apparel impenetrable feet",
+                            ["itemDesc"] = "iron sabatons^p",
+                        },
+
+
+So yeah, it's a table scan with a lot of nested for:
+
+    -- ZZ fakeycode
+
+    for itemID,x in pairs(salesData) do
+        for itemIndex, xx in pairs(x) do
+            for i, sales_record in ipairs(xx["sales"]) do
+                accumulate_record(sales_record)
+
+function accumulate_record(sales_record)
+
+    tbi = calc_time_bucket_index(sales_record.timestamp)
+    if not tbi then return end
+
+    seller = sales_record.seller
+    roster_record = roster[seller] or new
+    roster_record.add_sale(tbi, sales_record)
+
+roster_record:
+    seller
+    time_buckets[]      <- sum of sales within that time bucket
+
+
+And then some sort of injection into Gmen add-on to include optional columns for sales data.
+
+Ideally we'd have an in-game UI too, but that's work. Fail that.
