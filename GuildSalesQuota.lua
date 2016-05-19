@@ -6,79 +6,86 @@ GuildSalesQuota.version         = "2.3.7.2"
 GuildSalesQuota.savedVarVersion = 2
 GuildSalesQuota.default = {
       enable_guild  = { true, true, true, true, true }
-    , history = {}
+    , user_records = {}
 }
 GuildSalesQuota.max_guild_ct = 5
 GuildSalesQuota.fetching = { false, false, false, false, false }
 
+GuildSalesQuota.guild_name  = {} -- guild_name [guild_index] = "My Guild"
+GuildSalesQuota.guild_index = {} -- guild_index["My Guild" ] = 1
 
-                        -- fetched_str_list[guild_index] = { list of event strings }
-                        -- loaded from the current "Save Now" run.
-GuildSalesQuota.fetched_str_list = {}
-GuildSalesQuota.guild_name = {} -- guild_name[guild_index] = "My Aweseome Guild"
+                        -- key = user_id
+                        -- value = UserRecord
+GuildSalesQuota.user_records = {}
 
-                        -- retry_ct[guild_index] = how many retries after
-                        -- distrusting "nah, no more history"
-GuildSalesQuota.retry_ct   = { 0, 0, 0, 0, 0 }
-GuildSalesQuota.max_retry_ct = 3
-
-
-                        -- how many days to store in SavedVariables
-                        -- (not yet implemented)
-GuildSalesQuota.max_day_ct = 30
-
-local TIMESTAMPS_CLOSE_SECS = 10
-
--- Indices into the 3-element "event" split.
-local I_TIMESTAMP = 1
-local I_AMOUNT    = 2
-local I_USER      = 3
-
--- Event ---------------------------------------------------------------------
+-- UserRecord ----------------------------------------------------------------
 -- One row in our savedVariables history
 --
--- Knows how to convert to/from string
--- Knows how to convert from GetGuildEventInfo().
--- Named fields instead of table indices.
+-- Knows how to add a sale/purchase to a specific guild by index
+local UserRecord = {
+--    user_id = nil     -- @account string
 --
-local Event = {}
+--                      -- UserGuildTotals struct, one per guild with any of
+--                      -- guild membership, sale, or purchase.
+--  , g       = { nil, nil, nil, nil, nil }
+}
 
--- If this is a gold deposit, return a row. If not, return nil.
-function Event:FromInfo(event_type, since_secs, user, amount)
-    if event_type ~= GUILD_EVENT_BANKGOLD_ADDED then return nil end
-    o = { time   = GetTimeStamp() - since_secs
-        , user   = user
-        , amount = amount
+local UserGuildTotals = {
+--    is_member = false   -- latch true during GetGuildMember loops
+--  , bought    = 0       -- gold totals for this user in this guild's store
+--  , sold      = 0
+}
+
+function UserRecord:FromUserID(user_id)
+    o = { user_id = user_id
+        , g       = { nil, nil, nil, nil, nil }
         }
     setmetatable(o, self)
     self.__index = self
     return o
 end
 
-function Event:FromString(str)
-    ts, amt, user = GuildSalesQuota:split(str)
-    o = { time   = ts
-        , amount = amt
-        , user   = user
+function UserGuildTotals:New()
+    o = { is_member = false
+        , bought    = 0
+        , sold      = 0
         }
     setmetatable(o, self)
     self.__index = self
     return o
 end
 
-function Event:ToString()
-                        -- tab-delimited fields
-                        -- date     seconds since the epoch
-                        -- amount
-                        -- user     unquoted, can contain all sorts of
-                        --          noise but unlikely to contian a
-                        --          tab character.
-                        --
-                        -- using tostring() here so that this function can work
-                        -- when debugging nil event elements.
-    return tostring(self.time)
-            .. '\t' .. tostring(self.amount)
-            .. '\t' .. tostring(self.user)
+function UserRecord:SetIsGuildMember(guild_index, is_member)
+    ugt = self:UGT(guild_index)
+    v = true            -- default to true if left nil.
+    if is_member == false then v = false end
+    ugt.is_member = v
+end
+
+-- Lazy-create list elements upon demand.
+function UserRecord:UGT(guild_index)
+    if not self.g[guild_index] then
+        self.g[guild_index] = UserGuildTotals:New()
+    end
+    return self.g[guild_index]
+end
+
+function UserRecord:AddSold(guild_index, amount)
+    ugt = self.UGT(guild_index)
+    ugt.sold = ugt.sold + amount
+end
+
+function UserRecord.AddBought(guild_index, amount)
+    ugt = self.UGT(guild_index)
+    ugt.bought = ugt.bought + amount
+end
+
+-- Lazy-create UserRecord instances on demand.
+function GuildSalesQuota:UR(user_id)
+    if not self.user_records[user_id] then
+        self.user_records[user_id] = UserRecord:FromUserID(user_id)
+    end
+    return self.user_records[user_id]
 end
 
 -- Init ----------------------------------------------------------------------
@@ -118,7 +125,7 @@ function GuildSalesQuota:CreateSettingsWindow()
         displayName         = "Guild Sales Quota",
         author              = "ziggr",
         version             = self.version,
-        slashCommand        = "/gg",
+        slashCommand        = "/gg",            -- !!! COMMENT THIS OUT BEFORE PUBLISHING
         registerForRefresh  = true,
         registerForDefaults = false,
     }
@@ -187,6 +194,7 @@ function GuildSalesQuota:InitGuildSettings(guild_index, exists)
         guildId   = GetGuildId(guild_index)
         guildName = GetGuildName(guildId)
         self.guild_name[guild_index] = guildName
+        self.guild_index[guildName]  = guild_index
     else
         self.savedVariables.enable_guild[guild_index] = false
     end
@@ -204,7 +212,6 @@ function GuildSalesQuota:InitGuildControls(guild_index, exists)
 
     desc = _G[self.ref_desc(guild_index)]
     self.ConvertCheckboxToText(desc)
-    self:SetStatusNewestSaved(guild_index)
 end
 
 -- Coerce a checkbox to act like a text label.
@@ -233,93 +240,7 @@ function GuildSalesQuota:SetStatus(guild_index, msg)
     desc:SetText("  " .. msg)
 end
 
--- Set status to "Newest: @user 100,000g  11 hours ago"
-function GuildSalesQuota:SetStatusNewestSaved(guild_index)
-    event = self:SavedHistoryNewest(guild_index)
-    self:SetStatusNewest(guild_index, event)
-end
-
-function GuildSalesQuota:SetStatusNewestFetched(guild_index)
-    event = self:FetchedNewest(guild_index)
-    self:SetStatusNewest(guild_index, event)
-end
-
-function GuildSalesQuota:SetStatusNewest(guild_index, event)
-    if not event then return end
-
-    now_ts = GetTimeStamp()
-    ago_secs = GetDiffBetweenTimeStamps(now_ts, event.time)
-    ago_str  = FormatTimeSeconds(ago_secs
-                    , TIME_FORMAT_STYLE_SHOW_LARGEST_UNIT_DESCRIPTIVE -- "22 hours"
-                    , TIME_FORMAT_PRECISION_SECONDS
-                    , TIME_FORMAT_DIRECTION_DESCENDING
-                    )
-
-    self:SetStatus(guild_index, "Newest: " .. event.user
-                     .. " " .. event.amount .. "g  " .. ago_str .. " ago")
-end
-
--- Parse/Format SavedVariables history ----------------------------------------
-
--- Lua lacks a split() function. Here's a cheesy hardwired one that works
--- for our specific need.
-function GuildSalesQuota:split(str)
-    t1 = string.find(str, '\t')
-    t2 = string.find(str, '\t', 1 + t1)
-    return   string.sub(str, 1,      t1 - 1)
-           , string.sub(str, 1 + t1, t2 - 1)
-           , string.sub(str, 1 + t2)
-end
-
--- Convert an event to a compact string that a line-parser can easily consume.
-function GuildSalesQuota:EventToString(event)
-                        -- tab-delimited fields
-                        -- date     seconds since the epoch
-                        -- amount
-                        -- user     unquoted, can contain all sorts of
-                        --          noise but unlikely to contian a
-                        --          tab character.
-                        --
-                        -- using tostring() here so that this function can work
-                        -- when debugging nil event elements.
-    return tostring(event.time)
-            .. '\t' .. tostring(event.amount)
-            .. '\t' .. tostring(event.user)
-end
-
-function GuildSalesQuota:StringToEvent(str)
-    ts, amt, user = self:split(str)
-    return { time   = ts
-           , amount = amt
-           , user   = user
-           }
-end
-
--- Return the one newest event, if any, from our previous save.
--- Return nil if not.
-function GuildSalesQuota:SavedHistoryNewest(guild_index)
-    guildName = GetGuildName(guildId)
-    if not self.savedVariables then return nil end
-    if not self.savedVariables.history then return nil end
-    return self:Newest(self.savedVariables.history[guildName])
-end
-
--- Return the Event of the most recent event string from
--- a list of event strings.
-function GuildSalesQuota:Newest(str_list)
-    if not str_list then return nil end
-    if not (1 <= #str_list) then return nil end
-    newest_event = self:StringToEvent(str_list[1])
-    for _,line in ipairs(str_list) do
-        e = self:StringToEvent(line)
-        if newest_event.time < e.time then
-            newest_event = e
-        end
-    end
-    return newest_event
-end
-
--- Fetch Guild Data from the server ------------------------------------------
+-- Fetch Guild Data from the server and Master Merchant ----------------------
 --
 -- Fetch _all_ events for each guild. Server holds no more than 10 days, no
 -- more than 500 events.
@@ -337,6 +258,7 @@ function GuildSalesQuota:SaveNow()
             self:SkipGuildIndex(guild_index)
         end
     end
+    -- ### Scan MM
 end
 
 -- User doesn't want this guild. Respond with "okay, skipping"
@@ -348,107 +270,16 @@ end
 function GuildSalesQuota:SaveGuildIndex(guild_index)
     guildId = GetGuildId(guild_index)
     self.fetching[guild_index] = true
-    self:SetStatus(guild_index, "downloading history...")
-    --ZZ RequestGuildHistoryCategoryNewest(guildId, GUILD_HISTORY_BANK)
+    ct = GetNumGuildMembers(guildId)
 
-                        -- Start an asynchronous callback chain to slowly
-                        -- poll ESO servers for all history. Chain will
-                        -- callback itself until done, then callback
-                        -- into the actual processing of that data.
-    --ZZself:ServerDataPoll(guild_index)
-end
-
--- Async poll to fetch ALL guild bank history data from the ESO server
--- Calls ServerDataComplete() once all data is loaded.
-function GuildSalesQuota:ServerDataPoll(guild_index)
-    guildId = GetGuildId(guild_index)
-    more = DoesGuildHistoryCategoryHaveMoreEvents(guildId, GUILD_HISTORY_BANK)
-    event_ct = GetNumGuildEvents(guildId, GUILD_HISTORY_BANK)
-    self:SetStatus(guild_index, "fetching events: " .. event_ct .. " ...")
-    can_retry =    (not self.retry_ct[guild_index])
-                or (self.retry_ct[guild_index] < self.max_retry_ct)
-    if more or can_retry then
-        RequestGuildHistoryCategoryOlder(guildId, GUILD_HISTORY_BANK)
-        delay_ms = 0.5 * 1000
-        zo_callLater(function() self:ServerDataPoll(guild_index) end, delay_ms)
-        if not more then
-            self.retry_ct[guild_index] = 1 + self.retry_ct[guild_index]
-        end
-    else
-        self:ServerDataComplete(guild_index)
+                        -- Fetch complete guild member list
+    self:SetStatus(guild_index, "downloading " .. ct .. " member names...")
+    for i = 1, ct do
+        user_id = GetGuildMemberInfo(guildId, i)
+        ur = self:UR(user_id)
+        ur:SetIsGuildMember(guild_index)
     end
-end
-
--- Now that all data from the ESO server is loaded into the ESO client,
--- extract gold deposits and write to savedVars.
-function GuildSalesQuota:ServerDataComplete(guild_index)
-                        -- Avoid infinite noise if a Lua error in here
-                        -- causes a repeated callback. Mostly useful when
-                        -- debugging, shouldn't be an issue when we're
-                        -- not buggy.
-    if not self.fetching[guild_index] then return end
-
-                        -- Latch false (until next time user clicks "Save Now")
-                        -- so that we know not to re-complete this guild.
-                        -- And so we know when all guilds are complete.
-    self.fetching[guild_index] = false
-
-    guildId = GetGuildId(guild_index)
-    guild_name = self.guild_name[guild_index]
-    event_ct = GetNumGuildEvents(guildId, GUILD_HISTORY_BANK)
-    --self:SetStatus(guild_index, "scanning events: " .. event_ct .. " ...")
-    for i = 1, event_ct do
-        t, s, u, a = GetGuildEventInfo(guildId, GUILD_HISTORY_BANK, i)
-        event = Event:FromInfo(t, s, u, a)
-        if event then
-            self:RecordEvent(guild_index, event)
-        end
-    end
-    found_ct = 0
-    if self.fetched_str_list[guild_index] then
-        found_ct = #self.fetched_str_list[guild_index]
-    end
-    self.savedVariables.history[guild_name] = self.fetched_str_list[guild_index]
-    self:SetStatusNewestFetched(guild_index)
-
-                        -- I got sick of forgetting to relog, and I _wrote_
-                        -- this thing. I can only imagine how many poor
-                        -- unsuspecting users will get caught by "Oh, forgot to
-                        -- relog!" if I don't add a reminder.
-    if not self:StillFetchingAny() then
-        ct = self:FetchedEventCt()
-        d(self.name .. ": saved " ..tostring(ct).. " deposit record(s)." )
-        d(self.name .. ": Log out or Quit to write file.")
-    end
-end
-
-function GuildSalesQuota:FetchedEventCt()
-    total_ct = 0
-    for _,fetched_str_list in pairs(self.fetched_str_list) do
-        if fetched_str_list then
-            total_ct = total_ct + #fetched_str_list
-        end
-    end
-    return total_ct
-end
-
-function GuildSalesQuota:StillFetchingAny()
-    for _,v in pairs(self.fetching) do
-        if v then return true end
-    end
-    return false
-end
-
-function GuildSalesQuota:RecordEvent(guild_index, event)
-    if not self.fetched_str_list[guild_index] then
-        self.fetched_str_list[guild_index] = {}
-    end
-    t = self.fetched_str_list[guild_index]
-    table.insert(t, event:ToString())
-end
-
-function GuildSalesQuota:FetchedNewest(guild_index)
-    return self:Newest(self.fetched_str_list[guild_index])
+    self:SetStatus(guild_index, ct .. " members")
 end
 
 -- Postamble -----------------------------------------------------------------
