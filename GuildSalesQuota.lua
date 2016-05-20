@@ -41,6 +41,12 @@ function UserGuildTotals:Add(b)
     self.sold      = self.sold       + b.sold
 end
 
+function UserGuildTotals:ToString()
+    return tostring(self.is_member)
+            .. " " .. tostring(self.bought)
+            .. " " .. tostring(self.sold)
+end
+
 function UserGuildTotals:New()
     local o = { is_member = false
               , bought    = 0
@@ -68,7 +74,7 @@ local UserRecord = {
 -- For summary reports
 function UserRecord:Sum()
     local r = UserGuildTotals:New()
-    for _, ugt in ipairs(self.g) do
+    for _, ugt in pairs(self.g) do
         r:Add(ugt)
     end
     return r
@@ -108,6 +114,18 @@ function UserRecord:FromUserID(user_id)
     return o
 end
 
+function UserRecord:ToString()
+    local s = self.user_id
+    for guild_index = 1, GuildSalesQuota.max_guild_ct do
+        local ugt = self.g[guild_index]
+        if ugt then
+            s = s .. "\t" .. ugt:ToString()
+        else
+            s = s .. "\t"
+        end
+    end
+    return s
+end
 
 -- Lazy-create UserRecord instances on demand.
 function GuildSalesQuota:UR(user_id)
@@ -115,6 +133,15 @@ function GuildSalesQuota:UR(user_id)
         self.user_records[user_id] = UserRecord:FromUserID(user_id)
     end
     return self.user_records[user_id]
+end
+
+-- Return a more compact list-of-strings representation
+function GuildSalesQuota:CompressedUserRecords()
+    local line_list = {}
+    for _, ur in pairs(self.user_records) do
+        table.insert(line_list, ur:ToString())
+    end    
+    return line_list
 end
 
 -- Init ----------------------------------------------------------------------
@@ -277,6 +304,15 @@ function GuildSalesQuota:SetStatus(guild_index, msg)
     desc:SetText("  " .. msg)
 end
 
+-- numbered list of guild names, suitable for savedVariables.guild_name
+function GuildSalesQuota:GuildNameList()
+    local r = {}
+    for guild_index = 1, self.max_guild_ct do
+        r[guild_index] = self.guild_name[guild_index]
+    end
+    return r
+end
+    
 -- Fetch Guild Data from the server and Master Merchant ----------------------
 --
 -- Fetch _all_ events for each guild. Server holds no more than 10 days, no
@@ -288,6 +324,7 @@ end
 
 function GuildSalesQuota:SaveNow()
     self.fetched_str_list = {}
+    self.savedVariables.guild_name = self:GuildNameList()
     for guild_index = 1, self.max_guild_ct do
         if self.savedVariables.enable_guild[guild_index] then
             self:SaveGuildIndex(guild_index)
@@ -301,16 +338,17 @@ function GuildSalesQuota:SaveNow()
     end
 
     self:MMScan()
-    self.savedVariables.user_records = self.user_records
+    --self.savedVariables.user_records = self.user_records
+    self.savedVariables.user_records = self:CompressedUserRecords()
 
     local r = self:SummaryCount()
 
-    d("# user_ct   : " .. tostring(r.user_ct  ))
-    d("# buyer_ct  : " .. tostring(r.buyer_ct ))
-    d("# seller_ct : " .. tostring(r.seller_ct))
-    d("# member_ct : " .. tostring(r.member_ct))
-    d("# bought    : " .. tostring(r.bought   ))
-    d("# sold      : " .. tostring(r.sold     )) --
+    -- d("# user_ct   : " .. tostring(r.user_ct  ))
+    -- d("# buyer_ct  : " .. tostring(r.buyer_ct ))
+    -- d("# seller_ct : " .. tostring(r.seller_ct))
+    -- d("# member_ct : " .. tostring(r.member_ct))
+    -- d("# bought    : " .. tostring(r.bought   ))
+    -- d("# sold      : " .. tostring(r.sold     )) --
 
     d(self.name .. ": saved " ..tostring(r.user_ct).. " user record(s)." )
     d(self.name .. ": " .. tostring(r.seller_ct) .. " seller(s), "
@@ -351,7 +389,7 @@ end
 function GuildSalesQuota:MMScan()
     self:CalcLastWeekTS()
 
-    d("MMScan start")
+    -- d("MMScan start")
                         -- O(n) table scan of all MM data.
                         --- This will take a while...
     local salesData = MasterMerchant.salesData
@@ -372,7 +410,7 @@ function GuildSalesQuota:MMScan()
         end
     end
 
-    d("MMScan done  itemID_ct=" .. itemID_ct .. " sale_ct=" .. sale_ct)
+    -- d("MMScan done  itemID_ct=" .. itemID_ct .. " sale_ct=" .. sale_ct)
 
 end
 
@@ -399,7 +437,7 @@ function GuildSalesQuota:AddMMSale(mm_sales_record)
         return 0
     end
 
-    d("# buyer " .. mm.buyer .. "  seller " .. mm.seller)
+    -- d("# buyer " .. mm.buyer .. "  seller " .. mm.seller)
     self:UR(mm.buyer ):AddBought(guild_index, mm.price)
     self:UR(mm.seller):AddSold  (guild_index, mm.price)
     return 1
@@ -413,12 +451,12 @@ function GuildSalesQuota:SummaryCount()
               , bought    = 0
               , sold      = 0
               }
-    for _, ur in pairs(self.savedVariables.user_records) do
+    for _, ur in pairs(self.user_records) do
         r.user_ct = r.user_ct + 1
         ugt_sum = ur:Sum()
-        if ugt_sum.is_member then r.member_ct = r.member_ct + 1 end
-        if ugt_sum.bought    then r.buyer_ct  = r.buyer_ct  + 1 end
-        if ugt_sum.sold      then r.seller_ct = r.seller_ct + 1 end
+        if ugt_sum.is_member   then r.member_ct = r.member_ct + 1 end
+        if ugt_sum.bought > 0  then r.buyer_ct  = r.buyer_ct  + 1 end
+        if ugt_sum.sold   > 0  then r.seller_ct = r.seller_ct + 1 end
         r.bought = r.bought + ugt_sum.bought
         r.sold   = r.sold   + ugt_sum.sold
     end
