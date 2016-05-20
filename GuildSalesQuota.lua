@@ -14,6 +14,11 @@ GuildSalesQuota.fetching = { false, false, false, false, false }
 GuildSalesQuota.guild_name  = {} -- guild_name [guild_index] = "My Guild"
 GuildSalesQuota.guild_index = {} -- guild_index["My Guild" ] = 1
 
+                        -- When does "Last Week" begin and end. Seconds
+                        -- since the epoch. Filled in at start of MMScan()
+GuildSalesQuota.last_week_begin_ts = 0
+GuildSalesQuota.last_week_end_ts   = 0
+
                         -- key = user_id
                         -- value = UserRecord
 GuildSalesQuota.user_records = {}
@@ -258,7 +263,14 @@ function GuildSalesQuota:SaveNow()
             self:SkipGuildIndex(guild_index)
         end
     end
-    -- ### Scan MM
+    if not self.user_records then
+        d("No guild members to report. Nothing to do.")
+        return
+    end
+
+    self:MMScan()
+    -- self.savedVariables.user_records = self.user_records
+
 end
 
 -- User doesn't want this guild. Respond with "okay, skipping"
@@ -280,6 +292,68 @@ function GuildSalesQuota:SaveGuildIndex(guild_index)
         ur:SetIsGuildMember(guild_index)
     end
     self:SetStatus(guild_index, ct .. " members")
+end
+
+-- Master Merchant -----------------------------------------------------------
+
+-- Scan through every single sale recorded in Master Merchant, and if it was
+-- a sale through one of our requested guild stores, AND sometime during
+-- "Last Week", then credit the seller and buyer with the gold amount.
+
+function GuildSalesQuota:MMScan()
+    self.CalcLastWeekTS()
+
+    d("MMScan start")
+                        -- O(n) table scan of all MM data.
+                        --- This will take a while...
+    salesData = MasterMerchant.salesData
+    itemID_ct = 0
+    sale_ct = 0
+    for itemID,t in pairs(salesData) do
+        itemID_ct = itemID_ct + 1
+        for itemIndex,tt in pairs(t) do
+            sales = tt["sales"]
+            if sales then
+                for i, mm_sales_record in ipairs(sales) do
+                    s = self:AddMMSale(mm_sales_record)
+                    if s then
+                        sale_ct = sale_ct + 1
+                    end
+                end
+            end
+        end
+    end
+
+    d("MMScan done  itemID_ct=" .. itemID_ct .. " sale_ct=" .. sale_ct)
+
+end
+
+-- Fill in begin/end timestamps for "Last Week"
+function GuildSalesQuota:CalcLastWeekTS()
+                        -- Let MM calculate start/end times for "Last Week"
+    mmg = MMGuild:new("_not_really_a_guild")
+    last_week_begin_ts = mmg.fourStart
+    last_week_end_ts   = mmg.fourEnd
+end
+
+
+function GuildSalesQuota:AddMMSale(mm_sales_record)
+    mm = mm_sales_record  -- for less typing
+
+                        -- Track only sales within guilds we care about.
+    guild_index = self.guild_index[mm.guild]
+    if not guild_index then return 0 end
+    if not self.savedVariables.enable_guild[guild_index] then return 0 end
+
+                        -- Track only sales within "last week"
+    if mm.timestamp < self.last_week_begin_ts
+            or self.last_week_end_ts < mm.timestamp then
+        return 0
+    end
+
+    self.UR(mm.buyer ):AddBought(guild_index, mm.price)
+    self.UR(mm.seller):AddSold  (guild_index, mm.price)
+    return 1
 end
 
 -- Postamble -----------------------------------------------------------------
