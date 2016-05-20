@@ -42,10 +42,10 @@ function UserGuildTotals:Add(b)
 end
 
 function UserGuildTotals:New()
-    o = { is_member = false
-        , bought    = 0
-        , sold      = 0
-        }
+    local o = { is_member = false
+              , bought    = 0
+              , sold      = 0
+              }
     setmetatable(o, self)
     self.__index = self
     return o
@@ -67,7 +67,7 @@ local UserRecord = {
 
 -- For summary reports
 function UserRecord:Sum()
-    r = UserGuildTotals:New()
+    local r = UserGuildTotals:New()
     for _, ugt in ipairs(self.g) do
         r:Add(ugt)
     end
@@ -75,8 +75,8 @@ function UserRecord:Sum()
 end
 
 function UserRecord:SetIsGuildMember(guild_index, is_member)
-    ugt = self:UGT(guild_index)
-    v = true            -- default to true if left nil.
+    local ugt = self:UGT(guild_index)
+    local v = true            -- default to true if left nil.
     if is_member == false then v = false end
     ugt.is_member = v
 end
@@ -90,19 +90,19 @@ function UserRecord:UGT(guild_index)
 end
 
 function UserRecord:AddSold(guild_index, amount)
-    ugt = self.UGT(guild_index)
+    local ugt = self:UGT(guild_index)
     ugt.sold = ugt.sold + amount
 end
 
-function UserRecord.AddBought(guild_index, amount)
-    ugt = self.UGT(guild_index)
+function UserRecord:AddBought(guild_index, amount)
+    local ugt = self:UGT(guild_index)
     ugt.bought = ugt.bought + amount
 end
 
 function UserRecord:FromUserID(user_id)
-    o = { user_id = user_id
-        , g       = { nil, nil, nil, nil, nil }
-        }
+    local o = { user_id = user_id
+              , g       = { nil, nil, nil, nil, nil }
+              }
     setmetatable(o, self)
     self.__index = self
     return o
@@ -182,7 +182,6 @@ function GuildSalesQuota:CreateSettingsWindow()
                           end
             , setFunc   = function(e)
                             self.savedVariables.enable_guild[guild_index] = e
-                            d("# Set " .. tostring(e))
                           end
             , reference = self.ref_cb(guild_index)
             })
@@ -210,7 +209,7 @@ end
 -- guild names until a human actually opens our panel.
 function GuildSalesQuota.OnPanelControlsCreated(panel)
     self = GuildSalesQuota
-    guild_ct = GetNumGuilds()
+    local guild_ct = GetNumGuilds()
     for guild_index = 1,self.max_guild_ct do
         exists = guild_index <= guild_ct
         self:InitGuildSettings(guild_index, exists)
@@ -221,8 +220,8 @@ end
 -- Data portion of init UI
 function GuildSalesQuota:InitGuildSettings(guild_index, exists)
     if exists then
-        guildId   = GetGuildId(guild_index)
-        guildName = GetGuildName(guildId)
+        local guildId   = GetGuildId(guild_index)
+        local guildName = GetGuildName(guildId)
         self.guild_name[guild_index] = guildName
         self.guild_index[guildName]  = guild_index
     else
@@ -232,7 +231,7 @@ end
 
 -- UI portion of init UI
 function GuildSalesQuota:InitGuildControls(guild_index, exists)
-    cb = _G[self.ref_cb(guild_index)]
+    local cb = _G[self.ref_cb(guild_index)]
     if exists and cb and cb.label then
         cb.label:SetText(self.guild_name[guild_index])
     end
@@ -240,7 +239,7 @@ function GuildSalesQuota:InitGuildControls(guild_index, exists)
         cb:SetHidden(not exists)
     end
 
-    desc = _G[self.ref_desc(guild_index)]
+    local desc = _G[self.ref_desc(guild_index)]
     self.ConvertCheckboxToText(desc)
 end
 
@@ -263,10 +262,9 @@ end
 
 -- Update the per-guild text label with what's going on with that guild data.
 function GuildSalesQuota:SetStatus(guild_index, msg)
-    --d("status " .. tostring(guild_index) .. ":" .. tostring(msg))
-    x = _G[self.ref_desc(guild_index)]
+    local x = _G[self.ref_desc(guild_index)]
     if not x then return end
-    desc = x.label
+    local desc = x.label
     desc:SetText("  " .. msg)
 end
 
@@ -296,7 +294,7 @@ function GuildSalesQuota:SaveNow()
     self:MMScan()
     self.savedVariables.user_records = self.user_records
 
-    r = self:SummaryCount()
+    local r = self:SummaryCount()
 
     d("# user_ct   : " .. tostring(r.user_ct  ))
     d("# buyer_ct  : " .. tostring(r.buyer_ct ))
@@ -319,15 +317,15 @@ end
 -- Download one guild's roster
 -- Happens nearly instantaneously.
 function GuildSalesQuota:SaveGuildIndex(guild_index)
-    guildId = GetGuildId(guild_index)
+    local guildId = GetGuildId(guild_index)
     self.fetching[guild_index] = true
-    ct = GetNumGuildMembers(guildId)
+    local ct = GetNumGuildMembers(guildId)
 
                         -- Fetch complete guild member list
     self:SetStatus(guild_index, "downloading " .. ct .. " member names...")
     for i = 1, ct do
-        user_id = GetGuildMemberInfo(guildId, i)
-        ur = self:UR(user_id)
+        local user_id = GetGuildMemberInfo(guildId, i)
+        local ur = self:UR(user_id)
         ur:SetIsGuildMember(guild_index)
     end
     self:SetStatus(guild_index, ct .. " members")
@@ -342,21 +340,21 @@ end
 -- Happens nearly instantaneously.
 --
 function GuildSalesQuota:MMScan()
-    self.CalcLastWeekTS()
+    self:CalcLastWeekTS()
 
     d("MMScan start")
                         -- O(n) table scan of all MM data.
                         --- This will take a while...
-    salesData = MasterMerchant.salesData
-    itemID_ct = 0
-    sale_ct = 0
+    local salesData = MasterMerchant.salesData
+    local itemID_ct = 0
+    local sale_ct = 0
     for itemID,t in pairs(salesData) do
         itemID_ct = itemID_ct + 1
         for itemIndex,tt in pairs(t) do
-            sales = tt["sales"]
+            local sales = tt["sales"]
             if sales then
                 for i, mm_sales_record in ipairs(sales) do
-                    s = self:AddMMSale(mm_sales_record)
+                    local s = self:AddMMSale(mm_sales_record)
                     if s then
                         sale_ct = sale_ct + 1
                     end
@@ -372,17 +370,17 @@ end
 -- Fill in begin/end timestamps for "Last Week"
 function GuildSalesQuota:CalcLastWeekTS()
                         -- Let MM calculate start/end times for "Last Week"
-    mmg = MMGuild:new("_not_really_a_guild")
-    last_week_begin_ts = mmg.fourStart
-    last_week_end_ts   = mmg.fourEnd
+    local mmg = MMGuild:new("_not_really_a_guild")
+    self.last_week_begin_ts = mmg.fourStart
+    self.last_week_end_ts   = mmg.fourEnd
 end
 
 
 function GuildSalesQuota:AddMMSale(mm_sales_record)
-    mm = mm_sales_record  -- for less typing
+    local mm = mm_sales_record  -- for less typing
 
                         -- Track only sales within guilds we care about.
-    guild_index = self.guild_index[mm.guild]
+    local guild_index = self.guild_index[mm.guild]
     if not guild_index then return 0 end
     if not self.savedVariables.enable_guild[guild_index] then return 0 end
 
@@ -392,19 +390,20 @@ function GuildSalesQuota:AddMMSale(mm_sales_record)
         return 0
     end
 
-    self.UR(mm.buyer ):AddBought(guild_index, mm.price)
-    self.UR(mm.seller):AddSold  (guild_index, mm.price)
+    d("# buyer " .. mm.buyer .. "  seller " .. mm.seller)
+    self:UR(mm.buyer ):AddBought(guild_index, mm.price)
+    self:UR(mm.seller):AddSold  (guild_index, mm.price)
     return 1
 end
 
 function GuildSalesQuota:SummaryCount()
-    r = { user_ct   = 0
-        , buyer_ct  = 0
-        , seller_ct = 0
-        , member_ct = 0
-        , bought    = 0
-        , sold      = 0
-    }
+    local r = { user_ct   = 0
+              , buyer_ct  = 0
+              , seller_ct = 0
+              , member_ct = 0
+              , bought    = 0
+              , sold      = 0
+              }
     for _, ur in pairs(self.savedVariables.user_records) do
         r.user_ct = r.user_ct + 1
         ugt_sum = ur:Sum()
