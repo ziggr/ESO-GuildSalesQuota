@@ -3,7 +3,7 @@ local LAM2 = LibStub("LibAddonMenu-2.0")
 local GuildSalesQuota = {}
 GuildSalesQuota.name            = "GuildSalesQuota"
 GuildSalesQuota.version         = "2.3.7.2"
-GuildSalesQuota.savedVarVersion = 2
+GuildSalesQuota.savedVarVersion = 1
 GuildSalesQuota.default = {
       enable_guild  = { true, true, true, true, true }
     , user_records = {}
@@ -23,31 +23,22 @@ GuildSalesQuota.last_week_end_ts   = 0
                         -- value = UserRecord
 GuildSalesQuota.user_records = {}
 
--- UserRecord ----------------------------------------------------------------
--- One row in our savedVariables history
+-- UserGuildTotals -----------------------------------------------------------
+-- sub-element of UserRecord
 --
--- Knows how to add a sale/purchase to a specific guild by index
-local UserRecord = {
---    user_id = nil     -- @account string
+-- One user's membership and buy/sell totals for one guild.
 --
---                      -- UserGuildTotals struct, one per guild with any of
---                      -- guild membership, sale, or purchase.
---  , g       = { nil, nil, nil, nil, nil }
-}
-
 local UserGuildTotals = {
 --    is_member = false   -- latch true during GetGuildMember loops
 --  , bought    = 0       -- gold totals for this user in this guild's store
 --  , sold      = 0
 }
 
-function UserRecord:FromUserID(user_id)
-    o = { user_id = user_id
-        , g       = { nil, nil, nil, nil, nil }
-        }
-    setmetatable(o, self)
-    self.__index = self
-    return o
+function UserGuildTotals:Add(b)
+    if not b then return end
+    self.is_member = self.is_member or b.is_member
+    self.bought    = self.bought     + b.bought
+    self.sold      = self.sold       + b.sold
 end
 
 function UserGuildTotals:New()
@@ -58,6 +49,29 @@ function UserGuildTotals:New()
     setmetatable(o, self)
     self.__index = self
     return o
+end
+
+-- UserRecord ----------------------------------------------------------------
+-- One row in our savedVariables history
+--
+-- One user's membership and buy/sell totals for each guild.
+--
+-- Knows how to add a sale/purchase to a specific guild by index
+local UserRecord = {
+--    user_id = nil     -- @account string
+--
+--                      -- UserGuildTotals struct, one per guild with any of
+--                      -- guild membership, sale, or purchase.
+--  , g       = { nil, nil, nil, nil, nil }
+}
+
+-- For summary reports
+function UserRecord:Sum()
+    r = UserGuildTotals:New()
+    for _, ugt in ipairs(self.g) do
+        r:Add(ugt)
+    end
+    return r
 end
 
 function UserRecord:SetIsGuildMember(guild_index, is_member)
@@ -84,6 +98,16 @@ function UserRecord.AddBought(guild_index, amount)
     ugt = self.UGT(guild_index)
     ugt.bought = ugt.bought + amount
 end
+
+function UserRecord:FromUserID(user_id)
+    o = { user_id = user_id
+        , g       = { nil, nil, nil, nil, nil }
+        }
+    setmetatable(o, self)
+    self.__index = self
+    return o
+end
+
 
 -- Lazy-create UserRecord instances on demand.
 function GuildSalesQuota:UR(user_id)
@@ -158,6 +182,7 @@ function GuildSalesQuota:CreateSettingsWindow()
                           end
             , setFunc   = function(e)
                             self.savedVariables.enable_guild[guild_index] = e
+                            d("# Set " .. tostring(e))
                           end
             , reference = self.ref_cb(guild_index)
             })
@@ -269,8 +294,21 @@ function GuildSalesQuota:SaveNow()
     end
 
     self:MMScan()
-    -- self.savedVariables.user_records = self.user_records
+    self.savedVariables.user_records = self.user_records
 
+    r = self:SummaryCount()
+
+    d("# user_ct   : " .. tostring(r.user_ct  ))
+    d("# buyer_ct  : " .. tostring(r.buyer_ct ))
+    d("# seller_ct : " .. tostring(r.seller_ct))
+    d("# member_ct : " .. tostring(r.member_ct))
+    d("# bought    : " .. tostring(r.bought   ))
+    d("# sold      : " .. tostring(r.sold     )) --
+
+    d(self.name .. ": saved " ..tostring(r.user_ct).. " user record(s)." )
+    d(self.name .. ": " .. tostring(r.seller_ct) .. " seller(s), "
+                        .. tostring(r.buyer_ct) .. " buyer(s)." )
+    d(self.name .. ": Log out or Quit to write file.")
 end
 
 -- User doesn't want this guild. Respond with "okay, skipping"
@@ -278,7 +316,8 @@ function GuildSalesQuota:SkipGuildIndex(guild_index)
     self:SetStatus(guild_index, "skipped")
 end
 
--- Download one guild's history
+-- Download one guild's roster
+-- Happens nearly instantaneously.
 function GuildSalesQuota:SaveGuildIndex(guild_index)
     guildId = GetGuildId(guild_index)
     self.fetching[guild_index] = true
@@ -299,7 +338,9 @@ end
 -- Scan through every single sale recorded in Master Merchant, and if it was
 -- a sale through one of our requested guild stores, AND sometime during
 -- "Last Week", then credit the seller and buyer with the gold amount.
-
+--
+-- Happens nearly instantaneously.
+--
 function GuildSalesQuota:MMScan()
     self.CalcLastWeekTS()
 
@@ -354,6 +395,26 @@ function GuildSalesQuota:AddMMSale(mm_sales_record)
     self.UR(mm.buyer ):AddBought(guild_index, mm.price)
     self.UR(mm.seller):AddSold  (guild_index, mm.price)
     return 1
+end
+
+function GuildSalesQuota:SummaryCount()
+    r = { user_ct   = 0
+        , buyer_ct  = 0
+        , seller_ct = 0
+        , member_ct = 0
+        , bought    = 0
+        , sold      = 0
+    }
+    for _, ur in pairs(self.savedVariables.user_records) do
+        r.user_ct = r.user_ct + 1
+        ugt_sum = ur:Sum()
+        if ugt_sum.is_member then r.member_ct = r.member_ct + 1 end
+        if ugt_sum.bought    then r.buyer_ct  = r.buyer_ct  + 1 end
+        if ugt_sum.sold      then r.seller_ct = r.seller_ct + 1 end
+        r.bought = r.bought + ugt_sum.bought
+        r.sold   = r.sold   + ugt_sum.sold
+    end
+    return r
 end
 
 -- Postamble -----------------------------------------------------------------
