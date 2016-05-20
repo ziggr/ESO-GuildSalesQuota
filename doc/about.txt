@@ -1,6 +1,18 @@
-Does you guild have a sales quota? Which members have sold something through your trader and which have not?
+Does your guild enforce a sales quota? Use [URL="http://www.esoui.com/downloads/info928-MasterMerchant.html"]Master Merchant[/URL] to see top sellers? If so, you can do all this from within Master Merchant and do not need this add-on.
 
-This add-on scans your Master Merchant sales history and summarizes each seller's and buyer's sales for this and last week. This add-on then saves all sales records a SavedVariables file. It can then convert that SavedVariables file to a CSV comma-separated-value file suitable for import into a spreadsheet. It also fetches your guild membership list from the ESO server so that you can find members who lack recent sales.
+But if you also want to record sales to a spreadsheet, that's where this add-on comes in.
+
+This add-on scans Master Merchant sales history, summarizes gold totals for your guild's seller and buyers over last week, then writes that to a SavedVariables file. It can then convert that SavedVariables file to a comma-separated-value file suitable for import into a spreadsheet.
+
+Column list:
+[LIST]
+[*]guild name
+[*]week ending on date
+[*]player account @name
+[*]sold: gold earned in the guild trader last week
+[*]bought: gold spent in the guild trader last week
+[*]is a guild member? Many buyers aren't members.
+[/LIST]
 
 [LIST=1]
 [*]Click "Save Data Now" button. Add-on will scan Master Merchant and guild membership lists.
@@ -8,10 +20,11 @@ This add-on scans your Master Merchant sales history and summarizes each seller'
 [*]From a terminal window, run
 [FONT="Courier New"]% cd ~/Documents/Elder Scrolls Online/live/AddOns/GuildSalesQuota
 % lua GuildSalesQuota_to_csv.lua
-[/FONT]This creates SavedVariables/GuildSalesQuota.csv
+[/FONT] (Or drag and drop [FONT="Courier New"]GuildSalesQuota_to_csv.lua[/FONT] onto [FONT="Courier New"]lua.exe[/FONT]) This creates [FONT="Courier New"]SavedVariables/GuildSalesQuota.csv[/FONT]
 [*]Import GuildSalesQuota.csv into a spreadsheet.
 [/LIST]
 
 [FONT="Courier New"]GuildSalesQuota_to_csv.lua[/FONT] requires that you have downloaded and installed a standalone Lua interpreter, presumably from [URL="http://www.lua.org/"]lua.org[/URL].
 
 --Z
+
