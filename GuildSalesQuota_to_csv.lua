@@ -42,8 +42,9 @@ function RecordCompare(a,b)
     return string.lower(b.user_id) > string.lower(a.user_id)
 end
 
-function WriteGuild(guild_name, guild_index, user_records)
+function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
     OUT_FILE:write( "# guild"
+                     .. ",week_ending"
                      .. ",user_id"
                      .. ",sold"
                      .. ",bought"
@@ -77,7 +78,7 @@ function WriteGuild(guild_name, guild_index, user_records)
 
                         -- Dump to CSV
     for _,row in ipairs(records) do
-        WriteLine(guild_name, row.user_id, row.sold, row.bought, row.is_member)
+        WriteLine(guild_name, last_week_end_ts, row.user_id, row.sold, row.bought, row.is_member)
     end
 end
 
@@ -95,8 +96,24 @@ function enquote(s)
     return '"' .. s .. '"'
 end
 
-function WriteLine(guild_name, user_id, sold, bought, is_member)
+-- Convert "1456709816" to "2016-02-28T17:36:56" ISO 8601 formatted time
+-- Assume "local machine time" and ignore any incorrect offsets due to
+-- Daylight Saving Time transitions. Ugh.
+function iso_date(secs_since_1970)
+    t = os.date("*t", secs_since_1970)
+    return string.format("%04d-%02d-%02dT%02d:%02d:%02d"
+                        , t.year
+                        , t.month
+                        , t.day
+                        , t.hour
+                        , t.min
+                        , t.sec
+                        )
+end
+
+function WriteLine(guild_name, last_week_end_ts, user_id, sold, bought, is_member)
     OUT_FILE:write(          enquote(guild_name)
+          .. ',' .. iso_date(last_week_end_ts)
           .. ',' .. enquote(user_id)
           .. ',' .. sold
           .. ',' .. bought
@@ -114,9 +131,14 @@ for k, v in pairs(GuildSalesQuotaVars["Default"]) do
         guild_name   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["guild_name"  ]
         user_records = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_records"]
 
+        last_week_end_ts = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["last_week_end_ts"]
         for guild_index, enabled in ipairs(enable_guild) do
             if enabled then
-                WriteGuild(guild_name[guild_index], guild_index, user_records)
+                WriteGuild( guild_name[guild_index]
+                          , last_week_end_ts
+                          , guild_index
+                          , user_records
+                          )
             end
         end
     end

@@ -325,6 +325,7 @@ end
 function GuildSalesQuota:SaveNow()
     self.fetched_str_list = {}
     self.savedVariables.guild_name = self:GuildNameList()
+
     for guild_index = 1, self.max_guild_ct do
         if self.savedVariables.enable_guild[guild_index] then
             self:SaveGuildIndex(guild_index)
@@ -338,18 +339,16 @@ function GuildSalesQuota:SaveNow()
     end
 
     self:MMScan()
-    --self.savedVariables.user_records = self.user_records
-    self.savedVariables.user_records = self:CompressedUserRecords()
+    self.savedVariables.user_records       = self:CompressedUserRecords()
 
+                        -- Tell CSV which week this is.
+                        -- These timestamps aren't set until MMScan, so
+                        -- don't write them until after MMScan.
+    self.savedVariables.last_week_begin_ts = self.last_week_begin_ts
+    self.savedVariables.last_week_end_ts   = self.last_week_end_ts
+
+                        -- Write a summary and "gotta relog!" to chat window.
     local r = self:SummaryCount()
-
-    -- d("# user_ct   : " .. tostring(r.user_ct  ))
-    -- d("# buyer_ct  : " .. tostring(r.buyer_ct ))
-    -- d("# seller_ct : " .. tostring(r.seller_ct))
-    -- d("# member_ct : " .. tostring(r.member_ct))
-    -- d("# bought    : " .. tostring(r.bought   ))
-    -- d("# sold      : " .. tostring(r.sold     )) --
-
     d(self.name .. ": saved " ..tostring(r.user_ct).. " user record(s)." )
     d(self.name .. ": " .. tostring(r.seller_ct) .. " seller(s), "
                         .. tostring(r.buyer_ct) .. " buyer(s)." )
@@ -421,7 +420,6 @@ function GuildSalesQuota:CalcLastWeekTS()
     self.last_week_begin_ts = mmg.fourStart
     self.last_week_end_ts   = mmg.fourEnd
 end
-
 
 function GuildSalesQuota:AddMMSale(mm_sales_record)
     local mm = mm_sales_record  -- for less typing
