@@ -2,7 +2,7 @@ Does your guild enforce a sales quota? Use [URL="http://www.esoui.com/downloads/
 
 But if you also want to record sales to a spreadsheet, that's where this add-on comes in.
 
-This add-on scans Master Merchant sales history, summarizes gold totals for your guild's seller and buyers over last week, then writes that to a SavedVariables file. It can then convert that SavedVariables file to a comma-separated-value file suitable for import into a spreadsheet.
+This add-on scans Master Merchant sales history, summarizes gold totals for your guild's sellers and buyers over last week, then writes that to a SavedVariables file. It can then convert that SavedVariables file to a comma-separated-value file suitable for import into a spreadsheet.
 
 Column list:
 [LIST]
@@ -14,13 +14,15 @@ Column list:
 [*]is a guild member? Many buyers aren't members.
 [/LIST]
 
+Instructions:
+
 [LIST=1]
 [*]Click "Save Data Now" button. Add-on will scan Master Merchant and guild membership lists.
 [*]Log out (or relog). ESO will then save data, writing SavedVariables/GuildSalesQuota.lua.
 [*]From a terminal window, run
 [FONT="Courier New"]% cd ~/Documents/Elder Scrolls Online/live/AddOns/GuildSalesQuota
 % lua GuildSalesQuota_to_csv.lua
-[/FONT] (Or drag and drop [FONT="Courier New"]GuildSalesQuota_to_csv.lua[/FONT] onto [FONT="Courier New"]lua.exe[/FONT]) This creates [FONT="Courier New"]SavedVariables/GuildSalesQuota.csv[/FONT]
+[/FONT] (Or drag and drop [FONT="Courier New"]GuildSalesQuota_to_csv.lua[/FONT] onto [FONT="Courier New"]lua52.exe[/FONT]) This creates [FONT="Courier New"]SavedVariables/GuildSalesQuota.csv[/FONT]
 [*]Import GuildSalesQuota.csv into a spreadsheet.
 [/LIST]
 
