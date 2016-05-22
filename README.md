@@ -18,10 +18,10 @@ Instructions:
 
 * Click "Save Data Now" button. Add-on will scan Master Merchant and guild membership lists.
 * Log out (or relog). ESO will then save data, writing SavedVariables/GuildSalesQuota.lua.
-* From a terminal window, run<br />`% cd ~/Documents/Elder Scrolls Online/live/AddOns/GuildSalesQuota`<br />`% lua GuildSalesQuota_to_csv.lua`<br />(Or drag and drop `GuildSalesQuota_to_csv.lua` onto `lua52.exe`) This creates `SavedVariables/GuildSalesQuota.csv`
+* From a terminal window, run<br />`% cd ~/Documents/Elder Scrolls Online/live/AddOns/GuildSalesQuota`<br />`% lua GuildSalesQuota_to_csv.lua`<br />(Or drag and drop `GuildSalesQuota_to_csv.lua` onto `lua52.exe`)<br />This creates `SavedVariables/GuildSalesQuota.csv`
 * Import `GuildSalesQuota.csv` into a spreadsheet.
 
-`GuildSalesQuota_to_csv.lua` requires that you have downloaded and installed a standalone Lua interpreter, presumably from (lua.org)[http://www.lua.org/].
+`GuildSalesQuota_to_csv.lua` requires that you have downloaded and installed a standalone Lua interpreter, presumably from [lua.org](http://www.lua.org/).
 
 --Z
 
