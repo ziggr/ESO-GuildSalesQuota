@@ -2,7 +2,7 @@ local LAM2 = LibStub("LibAddonMenu-2.0")
 
 local GuildSalesQuota = {}
 GuildSalesQuota.name            = "GuildSalesQuota"
-GuildSalesQuota.version         = "2.3.11.1"
+GuildSalesQuota.version         = "2.4.1"
 GuildSalesQuota.savedVarVersion = 4
 GuildSalesQuota.default = {
       enable_guild  = { true, true, true, true, true }
@@ -140,7 +140,7 @@ function GuildSalesQuota:CompressedUserRecords()
     local line_list = {}
     for _, ur in pairs(self.user_records) do
         table.insert(line_list, ur:ToString())
-    end    
+    end
     return line_list
 end
 
@@ -312,7 +312,7 @@ function GuildSalesQuota:GuildNameList()
     end
     return r
 end
-    
+
 -- Fetch Guild Data from the server and Master Merchant ----------------------
 --
 -- Fetch _all_ events for each guild. Server holds no more than 10 days, no
