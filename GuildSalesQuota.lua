@@ -190,7 +190,7 @@ function GuildSalesQuota:CreateSettingsWindow()
         displayName         = "Guild Sales Quota",
         author              = "ziggr",
         version             = self.version,
-        slashCommand        = "/gg",            -- !!! COMMENT THIS OUT BEFORE PUBLISHING
+        --slashCommand        = "/gg",            -- !!! COMMENT THIS OUT BEFORE PUBLISHING
         registerForRefresh  = true,
         registerForDefaults = false,
     }
