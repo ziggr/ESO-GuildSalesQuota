@@ -112,7 +112,7 @@ function iso_date(secs_since_1970)
 end
 
 function WriteLine(guild_name, last_week_end_ts, user_id, sold, bought, is_member)
-    OUT_FILE:write(          enquote(guild_name)
+    OUT_FILE:write( enquote(guild_name)
           .. ',' .. iso_date(last_week_end_ts)
           .. ',' .. enquote(user_id)
           .. ',' .. sold
@@ -133,7 +133,7 @@ for k, v in pairs(GuildSalesQuotaVars["Default"]) do
 
         last_week_end_ts = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["last_week_end_ts"]
         for guild_index, enabled in ipairs(enable_guild) do
-            if enabled then
+            if enabled and guild_name and guild_name[guild_index] then
                 WriteGuild( guild_name[guild_index]
                           , last_week_end_ts
                           , guild_index

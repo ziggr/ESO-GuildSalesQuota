@@ -1,3 +1,16 @@
+[B]2.5.1 2016-08-06[/B]
+[LIST]
+[*]Increment API version for ESO 2.5 (Shadows of the Hist).
+[*]Fix nil value error for players with multiple ESO accounts.
+[CODE]
+lua: GuildSalesQuota_to_csv.lua:138: attempt to index a nil value (global 'guild_name')
+stack traceback:
+    GuildSalesQuota_to_csv.lua:138: in main chunk
+    [C]: in ?
+[/CODE]
+
+[/LIST]
+
 [B]2.4.1 2016-05-31[/B]
 [LIST]
 [*]Increment API version for ESO 2.4 (Dark Brotherhood). No other changes.
