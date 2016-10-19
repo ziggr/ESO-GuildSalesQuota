@@ -1,0 +1,136 @@
+Integrate with Shissu's Guild Tools:
+
+To find an account's time with the guild:
+
+    shissu's save vars:
+
+Roster.lua
+function ZO_KeyboardGuildRosterRowDisplayName_OnMouseEnter(control)
+
+function ZO_KeyboardGuildRosterRowDisplayName_OnMouseEnter(control)
+  org_ZO_KeyboardGuildRosterRowDisplayName_OnMouseEnter(control)
+
+  local parent = control:GetParent()
+  local data = ZO_ScrollList_GetData(parent)
+  local guildName = GetGuildName(GUILD_SELECTOR.guildId)
+  local displayName = data.displayName
+  local timeStamp = GetTimeStamp()
+
+  local tooltip = data.characterName
+
+  if SGT_Roster.History ~= nil then
+    if (SGT_Roster.History[guildName] ~= nil) then
+      -- Account taucht nicht in der Gildenaufzeichnung auf
+      if (SGT_Roster.History[guildName][displayName] == nil) then
+        -- Mitglied seit?
+        tooltip = tooltip .. "\n\n"
+        tooltip = tooltip .. ShissuGT.i18n.History.Member .. " > " .. ShissuGT.Lib.SecsToTime(timeStamp - SGT_Roster.History[guildName]["oldestEvent"][ShissuGT.ZOS.History])
+      end
+
+      -- Account taucht in der Gildenaufzeichnung auf
+      if (SGT_Roster.History[guildName][displayName] ~= nil) then
+        -- Mitglied seit?
+        if (SGT_Roster.History[guildName][displayName].timeJoined ~= nil) then
+          tooltip = tooltip .. "\n\n" .. ShissuGT.i18n.History.Member .. " " .. ShissuGT.Lib.SecsToTime(timeStamp - SGT_Roster.History[guildName][displayName].timeJoined)
+        else
+          tooltip = tooltip .. "\n\n" .. ShissuGT.i18n.History.Member .. " > " .. ShissuGT.Lib.SecsToTime(timeStamp - SGT_Roster.History[guildName]["oldestEvent"][ShissuGT.ZOS.History])
+        end
+
+        tooltip = SGT_Roster.buildTooltip(guildName, displayName, tooltip, ShissuGT.ZOS.GoldAdded, ShissuGT.Color[1] .. "Gold " .. ShissuGT.i18n.History.GoldAdded)
+        tooltip = SGT_Roster.buildTooltip(guildName, displayName, tooltip, ShissuGT.ZOS.GoldRemoved, ShissuGT.Color[3] .. "Gold " .. ShissuGT.i18n.History.GoldRemoved)
+        tooltip = SGT_Roster.buildTooltip(guildName, displayName, tooltip, ShissuGT.ZOS.ItemAdded, ShissuGT.Color[1] .. "Item " .. ShissuGT.i18n.History.ItemAdded)
+        tooltip = SGT_Roster.buildTooltip(guildName, displayName, tooltip, ShissuGT.ZOS.ItemRemoved, ShissuGT.Color[3] .. "Item " .. ShissuGT.i18n.History.ItemRemoved)
+      end
+    end
+  end
+
+  InitializeTooltip(InformationTooltip, control, BOTTOM, 0, 0, TOPCENTER)
+  SetTooltipText(InformationTooltip, tooltip)
+end
+
+
+There are two code paths:
+1. Most precise:
+    if SGT_Roster.History[guildName][displayName].timeJoined
+    seconds-since-epoch when this account=displayName joined guild=guildName
+    Not set for anyone who was in the guild when ShissuGT first ran.
+
+2. SGT_Roster.History[guildName]["oldestEvent"][ShissuGT.ZOS.History=1]
+    Above is when ShissuGT started tracking history for this guild.
+
+shissuGT =
+{
+    ["Default"] =
+    {
+    ...
+    },
+    ["mailList"] =
+    {
+    },
+    ["MemberChars"] =
+    {
+    ...
+    },
+    ["PersonalNote"] =
+    {
+    },
+    ["Notes"] =
+    {
+    },
+    ["History"] =
+    {
+    ...
+
+
+        ["Windhelm Trade Company"] =
+        {
+            ["@Natvral"] =
+            {
+                [13] =
+                {
+                    ["timeFirst"] = 0,
+                    ["last"] = 0,
+                    ["total"] = 0,
+                    ["previousNPC"] = 0,
+                    ["timeLast"] = 0,
+                    ["currentNPC"] = 0,
+                },
+                ["timeJoined"] = 1469247161,        <== when this char joined
+                [21] =
+                {
+                    ["timeFirst"] = 0,
+                    ["last"] = 0,
+                    ["total"] = 0,
+                    ["previousNPC"] = 0,
+                    ["timeLast"] = 0,
+                    ["currentNPC"] = 0,
+                },
+                [14] =
+                {
+                    ["timeFirst"] = 0,
+                    ["last"] = 0,
+                    ["total"] = 0,
+                    ["previousNPC"] = 0,
+                    ["timeLast"] = 0,
+                    ["currentNPC"] = 0,
+                },
+                [22] =
+                {
+                    ["timeFirst"] = 0,
+                    ["last"] = 0,
+                    ["total"] = 0,
+                    ["previousNPC"] = 0,
+                    ["timeLast"] = 0,
+                    ["currentNPC"] = 0,
+                },
+            },
+            ["oldestEvent"] =
+            {
+                [2] = 1476488246,
+                [1] = 1460596793,   <== oldest event in this guild
+            },
+        },
+
+        ...
+    },
+}

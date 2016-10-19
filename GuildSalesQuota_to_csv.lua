@@ -6,6 +6,11 @@ OUT_FILE_PATH = "../../SavedVariables/GuildSalesQuota.csv"
 dofile(IN_FILE_PATH)
 OUT_FILE = assert(io.open(OUT_FILE_PATH, "w"))
 
+
+NEWBIE_DAYS = 10        -- How many days can you be in the guild
+                        -- before sales quotas apply?
+NEWBIE_TS   = os.time() - (24*3600*NEWBIE_DAYS)
+
 -- Lua lacks a split() function. Here's a cheesy one that works
 -- for our specific need.
 function split(str, delim)
@@ -49,6 +54,8 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
                      .. ",sold"
                      .. ",bought"
                      .. ",is_member"
+                     .. ",is_newbie"
+                     .. ",joined"
                      .. "\n" )
 
     local records = {}
@@ -63,11 +70,13 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
             local is_member = ww[1] == "true"
             local bought    = tonumber(ww[2])
             local sold      = tonumber(ww[3])
+            local joined_ts = tonumber(ww[4])
 
-            local row = { user_id = user_id
+            local row = { user_id   = user_id
                         , is_member = is_member
                         , bought    = bought
                         , sold      = sold
+                        , joined_ts = joined_ts
                         }
             table.insert(records, row)
         end
@@ -78,7 +87,16 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
 
                         -- Dump to CSV
     for _,row in ipairs(records) do
-        WriteLine(guild_name, last_week_end_ts, row.user_id, row.sold, row.bought, row.is_member)
+        local is_newbie = NEWBIE_TS <= row.joined_ts
+        WriteLine( guild_name
+                 , last_week_end_ts
+                 , row.user_id
+                 , row.sold
+                 , row.bought
+                 , row.is_member
+                 , is_newbie
+                 , row.joined_ts
+                 )
     end
 end
 
@@ -111,13 +129,22 @@ function iso_date(secs_since_1970)
                         )
 end
 
-function WriteLine(guild_name, last_week_end_ts, user_id, sold, bought, is_member)
+function WriteLine( guild_name
+                  , last_week_end_ts
+                  , user_id
+                  , sold
+                  , bought
+                  , is_member
+                  , is_newbie
+                  , joined_ts )
     OUT_FILE:write( enquote(guild_name)
           .. ',' .. iso_date(last_week_end_ts)
           .. ',' .. enquote(user_id)
           .. ',' .. sold
           .. ',' .. bought
           .. ',' .. tostring(is_member)
+          .. ',' .. tostring(is_newbie)
+          .. ',' .. iso_date(joined_ts)
           .. '\n'
           )
 end
