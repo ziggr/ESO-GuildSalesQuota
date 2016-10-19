@@ -56,6 +56,7 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
                      .. ",is_member"
                      .. ",is_newbie"
                      .. ",joined"
+                     .. ",gold_deposited"
                      .. "\n" )
 
     local records = {}
@@ -67,16 +68,17 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
         local guild_str = w[1 + guild_index]
         if guild_str and guild_str ~= "" then
             ww = split(guild_str, " ")
-            local is_member = ww[1] == "true"
-            local bought    = tonumber(ww[2])
-            local sold      = tonumber(ww[3])
-            local joined_ts = tonumber(ww[4])
-
-            local row = { user_id   = user_id
-                        , is_member = is_member
-                        , bought    = bought
-                        , sold      = sold
-                        , joined_ts = joined_ts
+            local is_member      = ww[1] == "true"
+            local bought         = tonumber(ww[2])
+            local sold           = tonumber(ww[3])
+            local joined_ts      = tonumber(ww[4])
+            local gold_deposited = tonumber(ww[5])
+            local row = { user_id        = user_id
+                        , is_member      = is_member
+                        , bought         = bought
+                        , sold           = sold
+                        , joined_ts      = joined_ts
+                        , gold_deposited = gold_deposited
                         }
             table.insert(records, row)
         end
@@ -96,6 +98,7 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
                  , row.is_member
                  , is_newbie
                  , row.joined_ts
+                 , row.gold_deposited
                  )
     end
 end
@@ -118,6 +121,7 @@ end
 -- Assume "local machine time" and ignore any incorrect offsets due to
 -- Daylight Saving Time transitions. Ugh.
 function iso_date(secs_since_1970)
+    if secs_since_1970 == 0 then return 0 end
     t = os.date("*t", secs_since_1970)
     return string.format("%04d-%02d-%02dT%02d:%02d:%02d"
                         , t.year
@@ -136,7 +140,8 @@ function WriteLine( guild_name
                   , bought
                   , is_member
                   , is_newbie
-                  , joined_ts )
+                  , joined_ts
+                  , gold_deposited )
     OUT_FILE:write( enquote(guild_name)
           .. ',' .. iso_date(last_week_end_ts)
           .. ',' .. enquote(user_id)
@@ -145,6 +150,7 @@ function WriteLine( guild_name
           .. ',' .. tostring(is_member)
           .. ',' .. tostring(is_newbie)
           .. ',' .. iso_date(joined_ts)
+          .. ',' .. tostring(gold_deposited)
           .. '\n'
           )
 end

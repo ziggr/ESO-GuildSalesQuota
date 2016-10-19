@@ -31,23 +31,31 @@ GuildSalesQuota.last_week_end_ts   = 0
                         -- value = UserRecord
 GuildSalesQuota.user_records = {}
 
+                        -- retry_ct[guild_index] = how many retries after
+                        -- distrusting "nah, no more history"
+GuildSalesQuota.retry_ct   = { 0, 0, 0, 0, 0 }
+GuildSalesQuota.max_retry_ct = 3
+
+
 -- UserGuildTotals -----------------------------------------------------------
 -- sub-element of UserRecord
 --
 -- One user's membership and buy/sell totals for one guild.
 --
 local UserGuildTotals = {
---    is_member = false   -- latch true during GetGuildMember loops
---  , bought    = 0       -- gold totals for this user in this guild's store
---  , sold      = 0
---  , joined_ts = 1469247161    -- when this user joined this guild
+--    is_member      = false        -- latch true during GetGuildMember loops
+--  , bought         = 0            -- gold totals for this user in this guild's store
+--  , sold           = 0
+--  , joined_ts      = 1469247161   -- when this user joined this guild
+--  , gold_deposited = 0            -- gold deposits to guild bank
 }
 
 function UserGuildTotals:Add(b)
     if not b then return end
-    self.is_member = self.is_member or b.is_member
-    self.bought    = self.bought     + b.bought
-    self.sold      = self.sold       + b.sold
+    self.is_member      = self.is_member or b.is_member
+    self.bought         = self.bought         + b.bought
+    self.sold           = self.sold           + b.sold
+    self.gold_deposited = self.gold_deposited + b.gold_deposited
 end
 
 function UserGuildTotals:ToString()
@@ -55,12 +63,15 @@ function UserGuildTotals:ToString()
             .. " " .. tostring(self.bought)
             .. " " .. tostring(self.sold)
             .. " " .. tostring(self.joined_ts)
+            .. " " .. tostring(self.gold_deposited)
 end
 
 function UserGuildTotals:New()
-    local o = { is_member = false
-              , bought    = 0
-              , sold      = 0
+    local o = { is_member      = false
+              , bought         = 0
+              , sold           = 0
+              , gold_deposited = 0
+              , joined_ts      = nil
               }
     setmetatable(o, self)
     self.__index = self
@@ -114,6 +125,11 @@ end
 function UserRecord:AddBought(guild_index, amount)
     local ugt = self:UGT(guild_index)
     ugt.bought = ugt.bought + amount
+end
+
+function UserRecord:AddGoldDeposit(guild_index, amount)
+    local ugt = self:UGT(guild_index)
+    ugt.gold_deposited = ugt.gold_deposited + amount
 end
 
 function UserRecord:FromUserID(user_id)
@@ -389,6 +405,11 @@ function GuildSalesQuota:SaveNow()
     end
 
     self:MMScan()
+    self:GuildGoldDepositScan()
+end
+
+-- When the async guild bank history scan is done, print summary to chat.
+function GuildSalesQuota:Done()
     self.savedVariables.user_records       = self:CompressedUserRecords()
 
                         -- Tell CSV which week this is.
@@ -425,6 +446,97 @@ function GuildSalesQuota:SaveGuildIndex(guild_index)
         ur:SetIsGuildMember(guild_index)
     end
     self:SetStatus(guild_index, ct .. " members")
+end
+
+-- GuildGoldDeposits / GGD ---------------------------------------------------
+
+-- A subset of GuildGoldDeposits to accumulate total gold deposited to the
+-- guild bank in the "Last Week".
+
+function GuildSalesQuota:GuildGoldDepositScan()
+    self.fetched_str_list = {}
+    for guild_index = 1, self.max_guild_ct do
+        if self.savedVariables.enable_guild[guild_index] then
+            self:GGD_SaveGuildIndex(guild_index)
+        else
+            self:SkipGuildIndex(guild_index)
+        end
+    end
+end
+
+-- Download one guild's history
+function GuildSalesQuota:GGD_SaveGuildIndex(guild_index)
+    guildId = GetGuildId(guild_index)
+    self.fetching[guild_index] = true
+    self:SetStatus(guild_index, "downloading history...")
+    RequestGuildHistoryCategoryNewest(guildId, GUILD_HISTORY_BANK)
+
+                        -- Start an asynchronous callback chain to slowly
+                        -- poll ESO servers for all history. Chain will
+                        -- callback itself until done, then callback
+                        -- into the actual processing of that data.
+    self:GGD_ServerDataPoll(guild_index)
+end
+
+-- Async poll to fetch ALL guild bank history data from the ESO server
+-- Calls GGD_ServerDataComplete() once all data is loaded.
+function GuildSalesQuota:GGD_ServerDataPoll(guild_index)
+    guildId = GetGuildId(guild_index)
+    more = DoesGuildHistoryCategoryHaveMoreEvents(guildId, GUILD_HISTORY_BANK)
+    event_ct = GetNumGuildEvents(guildId, GUILD_HISTORY_BANK)
+    self:SetStatus(guild_index, "fetching events: " .. event_ct .. " ...")
+    can_retry =    (not self.retry_ct[guild_index])
+                or (self.retry_ct[guild_index] < self.max_retry_ct)
+    if more or can_retry then
+        RequestGuildHistoryCategoryOlder(guildId, GUILD_HISTORY_BANK)
+        delay_ms = 0.5 * 1000
+        zo_callLater(function() self:GGD_ServerDataPoll(guild_index) end, delay_ms)
+        if not more then
+            self.retry_ct[guild_index] = 1 + self.retry_ct[guild_index]
+        end
+    else
+        self:GGD_ServerDataComplete(guild_index)
+    end
+end
+
+-- Now that all data from the ESO server is loaded into the ESO client,
+-- extract gold deposits and write to savedVars.
+function GuildSalesQuota:GGD_ServerDataComplete(guild_index)
+                        -- Avoid infinite noise if a Lua error in here
+                        -- causes a repeated callback. Mostly useful when
+                        -- debugging, shouldn't be an issue when we're
+                        -- not buggy.
+    if not self.fetching[guild_index] then return end
+
+                        -- Latch false (until next time user clicks "Save Now")
+                        -- so that we know not to re-complete this guild.
+                        -- And so we know when all guilds are complete.
+    self.fetching[guild_index] = false
+
+    guildId = GetGuildId(guild_index)
+    guild_name = self.guild_name[guild_index]
+    event_ct = GetNumGuildEvents(guildId, GUILD_HISTORY_BANK)
+    --self:SetStatus(guild_index, "scanning events: " .. event_ct .. " ...")
+    for i = 1, event_ct do
+        local t,s,u,a = GetGuildEventInfo(guildId, GUILD_HISTORY_BANK, i)
+        self:AddGGD(guild_index, t, s, u, a)
+    end
+    self:SetStatus(guild_index, "done")
+
+                        -- I got sick of forgetting to relog, and I _wrote_
+                        -- this thing. I can only imagine how many poor
+                        -- unsuspecting users will get caught by "Oh, forgot to
+                        -- relog!" if I don't add a reminder.
+    if not self:StillFetchingAny() then
+        self:Done()
+    end
+end
+
+function GuildSalesQuota:StillFetchingAny()
+    for _,v in pairs(self.fetching) do
+        if v then return true end
+    end
+    return false
 end
 
 -- Master Merchant -----------------------------------------------------------
@@ -489,6 +601,14 @@ function GuildSalesQuota:AddMMSale(mm_sales_record)
     self:UR(mm.buyer ):AddBought(guild_index, mm.price)
     self:UR(mm.seller):AddSold  (guild_index, mm.price)
     return 1
+end
+
+function GuildSalesQuota:AddGGD(guild_index, event_type, since_secs, user, amount)
+    local ts = GetTimeStamp() - since_secs
+    if ts < self.last_week_begin_ts or self.last_week_end_ts < ts then
+        return
+    end
+    self:UR(user):AddGoldDeposit(guild_index, amount)
 end
 
 function GuildSalesQuota:SummaryCount()
