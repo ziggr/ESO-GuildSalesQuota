@@ -2,7 +2,7 @@ local LAM2 = LibStub("LibAddonMenu-2.0")
 
 local GuildSalesQuota = {}
 GuildSalesQuota.name            = "GuildSalesQuota"
-GuildSalesQuota.version         = "2.6.1"
+GuildSalesQuota.version         = "2.6.3"
 GuildSalesQuota.savedVarVersion = 4
 GuildSalesQuota.default = {
       enable_guild  = { true, true, true, true, true }
@@ -48,7 +48,27 @@ local UserGuildTotals = {
 --  , sold           = 0
 --  , joined_ts      = 1469247161   -- when this user joined this guild
 --  , gold_deposited = 0            -- gold deposits to guild bank
+
+                                    -- Audit trail: what are the first and last
+                                    -- MM records that counted in the "sold" total?
+--  , sold_first_mm  = mm_sales_record
+--  , sold_last_mm   = mm_sales_record
+--  , sold_ct_mm     = 0
 }
+
+local function MMEarlier(mm_a, mm_b)
+    if not mm_b then return mm_a end
+    if not mm_a then return mm_b end
+    if mm_a.timestamp <= mm_b.timestamp then return mm_a end
+    return mm_b
+end
+
+local function MMLater(mm_a, mm_b)
+    if not mm_b then return mm_a end
+    if not mm_a then return mm_b end
+    if mm_a.timestamp <= mm_b.timestamp then return mm_b end
+    return mm_a
+end
 
 function UserGuildTotals:Add(b)
     if not b then return end
@@ -56,6 +76,17 @@ function UserGuildTotals:Add(b)
     self.bought         = self.bought         + b.bought
     self.sold           = self.sold           + b.sold
     self.gold_deposited = self.gold_deposited + b.gold_deposited
+
+    self.sold_first_mm = MMEarlier(self.sold_first_mm, b.sold_first_mm)
+    self.sold_last_mm  = MMLater(self.sold_last_mm,    b.sold_last_mm )
+    self.sold_ct_mm    = self.sold_ct_mm             + b.sold_ct_mm
+end
+
+local function MMToString(mm)
+    if not mm then return "nil nil nil" end
+    return        tostring(mm.timestamp)
+        .. " " .. tostring(mm.buyer)
+        .. " " .. tostring(mm.price)
 end
 
 function UserGuildTotals:ToString()
@@ -64,6 +95,9 @@ function UserGuildTotals:ToString()
             .. " " .. tostring(self.sold)
             .. " " .. tostring(self.joined_ts)
             .. " " .. tostring(self.gold_deposited)
+            .. " " .. tostring(self.sold_ct_mm)
+            .. " " .. MMToString(self.sold_first_mm)
+            .. " " .. MMToString(self.sold_last_mm)
 end
 
 function UserGuildTotals:New()
@@ -72,6 +106,9 @@ function UserGuildTotals:New()
               , sold           = 0
               , gold_deposited = 0
               , joined_ts      = nil
+              , sold_first_mm  = nil
+              , sold_last_mm   = nil
+              , sold_ct_mm     = 0
               }
     setmetatable(o, self)
     self.__index = self
@@ -117,9 +154,13 @@ function UserRecord:UGT(guild_index)
     return self.g[guild_index]
 end
 
-function UserRecord:AddSold(guild_index, amount)
+function UserRecord:AddSold(guild_index, mm_sales_record)
     local ugt = self:UGT(guild_index)
-    ugt.sold = ugt.sold + amount
+    ugt.sold = ugt.sold + mm_sales_record.price
+
+    ugt.sold_first_mm = MMEarlier(ugt.sold_first_mm, mm_sales_record)
+    ugt.sold_last_mm  = MMLater(ugt.sold_last_mm, mm_sales_record)
+    ugt.sold_ct_mm    = ugt.sold_ct_mm + 1
 end
 
 function UserRecord:AddBought(guild_index, amount)
@@ -599,7 +640,7 @@ function GuildSalesQuota:AddMMSale(mm_sales_record)
 
     -- d("# buyer " .. mm.buyer .. "  seller " .. mm.seller)
     self:UR(mm.buyer ):AddBought(guild_index, mm.price)
-    self:UR(mm.seller):AddSold  (guild_index, mm.price)
+    self:UR(mm.seller):AddSold  (guild_index, mm)
     return 1
 end
 

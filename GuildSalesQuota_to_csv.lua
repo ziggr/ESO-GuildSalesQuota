@@ -47,6 +47,11 @@ function RecordCompare(a,b)
     return string.lower(b.user_id) > string.lower(a.user_id)
 end
 
+local function tostring_or_nil(s)
+    if s == "nil" then return nil end
+    return s
+end
+
 function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
     OUT_FILE:write( "# guild"
                      .. ",week_ending"
@@ -57,6 +62,13 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
                      .. ",is_newbie"
                      .. ",joined"
                      .. ",gold_deposited"
+                     .. ",sale_ct"
+                     .. ",first_sale_time"
+                     .. ",first_sale_buyer"
+                     .. ",first_sale_amount"
+                     .. ",last_sale_time"
+                     .. ",last_sale_buyer"
+                     .. ",last_sale_amount"
                      .. "\n" )
 
     local records = {}
@@ -68,17 +80,32 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
         local guild_str = w[1 + guild_index]
         if guild_str and guild_str ~= "" then
             ww = split(guild_str, " ")
-            local is_member      = ww[1] == "true"
-            local bought         = tonumber(ww[2])
-            local sold           = tonumber(ww[3])
-            local joined_ts      = tonumber(ww[4])
-            local gold_deposited = tonumber(ww[5])
-            local row = { user_id        = user_id
-                        , is_member      = is_member
-                        , bought         = bought
-                        , sold           = sold
-                        , joined_ts      = joined_ts
-                        , gold_deposited = gold_deposited
+            local is_member         = ww[1] == "true"
+            local bought            = tonumber       (ww[ 2])
+            local sold              = tonumber       (ww[ 3])
+            local joined_ts         = tonumber       (ww[ 4])
+            local gold_deposited    = tonumber       (ww[ 5])
+            local sale_ct           = tonumber       (ww[ 6])
+            local first_sale_time   = tonumber       (ww[ 7])
+            local first_sale_buyer  = tostring_or_nil(ww[ 8])
+            local first_sale_amount = tonumber       (ww[ 9])
+            local last_sale_time    = tonumber       (ww[10])
+            local last_sale_buyer   = tostring_or_nil(ww[11])
+            local last_sale_amount  = tonumber       (ww[12])
+
+            local row = { user_id           = user_id
+                        , is_member         = is_member
+                        , bought            = bought
+                        , sold              = sold
+                        , joined_ts         = joined_ts
+                        , gold_deposited    = gold_deposited
+                        , sale_ct           = sale_ct
+                        , first_sale_time   = first_sale_time
+                        , first_sale_buyer  = first_sale_buyer
+                        , first_sale_amount = first_sale_amount
+                        , last_sale_time    = last_sale_time
+                        , last_sale_buyer   = last_sale_buyer
+                        , last_sale_amount  = last_sale_amount
                         }
             table.insert(records, row)
         end
@@ -99,6 +126,13 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
                  , is_newbie
                  , row.joined_ts
                  , row.gold_deposited
+                 , row.sale_ct
+                 , row.first_sale_time
+                 , row.first_sale_buyer
+                 , row.first_sale_amount
+                 , row.last_sale_time
+                 , row.last_sale_buyer
+                 , row.last_sale_amount
                  )
     end
 end
@@ -120,7 +154,7 @@ end
 -- Convert "1456709816" to "2016-02-28T17:36:56" ISO 8601 formatted time
 -- Assume "local machine time" and ignore any incorrect offsets due to
 -- Daylight Saving Time transitions. Ugh.
-function iso_date(secs_since_1970)
+local function iso_date(secs_since_1970)
     if secs_since_1970 == 0 then return 0 end
     t = os.date("*t", secs_since_1970)
     return string.format("%04d-%02d-%02dT%02d:%02d:%02d"
@@ -133,6 +167,19 @@ function iso_date(secs_since_1970)
                         )
 end
 
+local function enquote_or_nil(s)
+    if s == nil then return "" end
+    return enquote(s)
+end
+
+local function nil_blank(s)
+    if s == nil then
+        return ""
+    else
+        return s
+    end
+end
+
 function WriteLine( guild_name
                   , last_week_end_ts
                   , user_id
@@ -141,7 +188,15 @@ function WriteLine( guild_name
                   , is_member
                   , is_newbie
                   , joined_ts
-                  , gold_deposited )
+                  , gold_deposited
+                  , sale_ct
+                  , first_sale_time
+                  , first_sale_buyer
+                  , first_sale_amount
+                  , last_sale_time
+                  , last_sale_buyer
+                  , last_sale_amount
+                   )
     OUT_FILE:write( enquote(guild_name)
           .. ',' .. iso_date(last_week_end_ts)
           .. ',' .. enquote(user_id)
@@ -151,6 +206,13 @@ function WriteLine( guild_name
           .. ',' .. tostring(is_newbie)
           .. ',' .. iso_date(joined_ts)
           .. ',' .. tostring(gold_deposited)
+          .. ',' .. nil_blank(sale_ct)
+          .. ',' .. iso_date(first_sale_time)
+          .. ',' .. enquote_or_nil(first_sale_buyer)
+          .. ',' .. nil_blank(first_sale_amount)
+          .. ',' .. iso_date(last_sale_time)
+          .. ',' .. enquote_or_nil(last_sale_buyer)
+          .. ',' .. nil_blank(last_sale_amount)
           .. '\n'
           )
 end

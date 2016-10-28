@@ -19,6 +19,7 @@ Column list:
 [*]is a newbie? Anyone who joined in the last 10 days. (optional, requires Shissu's Guild Tools)
 [*]joined: when did they join the guild (optional, requires Shissu's Guild Tools)
 [*]gold deposited: amount deposited to guild bank during the week
+[*]columns to help you audit which sales contributed to the total for the reported week: sales count, first/last sales time, buyer, amount.
 [/LIST]
 
 Instructions:

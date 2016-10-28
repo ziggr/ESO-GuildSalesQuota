@@ -1,3 +1,8 @@
+[B]2.6.3 2016-10-28[/B]
+[LIST]
+[*]Add sale_ct, first/last sale columns, to help with auditing. With this data you can go to Master Merchant, filter on the seller, and identify exactly which sales contributed to the reported week's total.
+[/LIST]
+
 [B]2.6.2 2016-10-18[/B]
 [LIST]
 [*]Add "is_newbie", "joined", and "gold_deposited" columns
