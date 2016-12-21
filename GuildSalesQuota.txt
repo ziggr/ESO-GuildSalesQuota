@@ -1,5 +1,5 @@
 ## Title: Guild Sales Quota
-## Description: Guild Sales Quota version 2.6.2
+## Description: Guild Sales Quota version 2.6.4
 ## Author: ziggr
 ## APIVersion: 100017
 ## SavedVariables: GuildSalesQuotaVars

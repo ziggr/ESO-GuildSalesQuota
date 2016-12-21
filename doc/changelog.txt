@@ -1,3 +1,8 @@
+[B]2.6.4 2016-12-20[/B]
+[LIST]
+[*]Add 5 hours of slop for GuildGoldDeposits integration, so that gold deposits/raffle ticket purchases made for Sunday raffles will still count towards last week's quota. Yes this implies that a single ticket purchase during the slop range will erroneously meet TWO week's quotas. It's either this or you have to tell the add-on which exact ticket purchase was the cutoff. That's no fun.
+[/LIST]
+
 [B]2.6.3 2016-10-28[/B]
 [LIST]
 [*]Add sale_ct, first/last sale columns, to help with auditing. With this data you can go to Master Merchant, filter on the seller, and identify exactly which sales contributed to the reported week's total.

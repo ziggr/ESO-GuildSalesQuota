@@ -2,7 +2,7 @@ local LAM2 = LibStub("LibAddonMenu-2.0")
 
 local GuildSalesQuota = {}
 GuildSalesQuota.name            = "GuildSalesQuota"
-GuildSalesQuota.version         = "2.6.3"
+GuildSalesQuota.version         = "2.6.4"
 GuildSalesQuota.savedVarVersion = 4
 GuildSalesQuota.default = {
       enable_guild  = { true, true, true, true, true }
@@ -26,6 +26,11 @@ GuildSalesQuota.guild_time_started = {}
                         -- since the epoch. Filled in at start of MMScan()
 GuildSalesQuota.last_week_begin_ts = 0
 GuildSalesQuota.last_week_end_ts   = 0
+                        -- When does "Last Week" end for raffle deposits?
+                        -- 5 hours after M.M.'s "week" because M.M. ends around
+                        -- 17:00 (EST -0500) but the raffle runs at 20:00
+                        -- and sometimes starts an hour or two late.
+GuildSalesQuota.last_week_end_ts_raffle = 0
 
                         -- key = user_id
                         -- value = UserRecord
@@ -459,6 +464,7 @@ function GuildSalesQuota:Done()
     self.savedVariables.last_week_begin_ts = self.last_week_begin_ts
     self.savedVariables.last_week_end_ts   = self.last_week_end_ts
 
+
                         -- Write a summary and "gotta relog!" to chat window.
     local r = self:SummaryCount()
     d(self.name .. ": saved " ..tostring(r.user_ct).. " user record(s)." )
@@ -622,6 +628,12 @@ function GuildSalesQuota:CalcLastWeekTS()
     local mmg = MMGuild:new("_not_really_a_guild")
     self.last_week_begin_ts = mmg.fourStart
     self.last_week_end_ts   = mmg.fourEnd
+
+                        -- Add five hours of slop so that tickets purchased for
+                        -- the most recent raffle count as immunity against
+                        -- last week's quota, even though "last week" ends
+                        -- a couple hours before the raffle.
+    self.last_week_end_ts_raffle = mmg.fourEnd + 5 * 3600
 end
 
 function GuildSalesQuota:AddMMSale(mm_sales_record)
@@ -646,7 +658,7 @@ end
 
 function GuildSalesQuota:AddGGD(guild_index, event_type, since_secs, user, amount)
     local ts = GetTimeStamp() - since_secs
-    if ts < self.last_week_begin_ts or self.last_week_end_ts < ts then
+    if ts < self.last_week_begin_ts or self.last_week_end_ts_raffle < ts then
         return
     end
     self:UR(user):AddGoldDeposit(guild_index, amount)
