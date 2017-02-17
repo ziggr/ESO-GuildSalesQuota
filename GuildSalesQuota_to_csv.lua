@@ -10,6 +10,7 @@ OUT_FILE = assert(io.open(OUT_FILE_PATH, "w"))
 NEWBIE_DAYS = 10        -- How many days can you be in the guild
                         -- before sales quotas apply?
 NEWBIE_TS   = os.time() - (24*3600*NEWBIE_DAYS)
+ALSO_TAB    = arg[1] and arg[1] == "--tab"
 
 -- Lua lacks a split() function. Here's a cheesy one that works
 -- for our specific need.
@@ -28,6 +29,37 @@ function split(str, delim)
         delim_index = end_index
     end
     return l
+end
+
+-- Optional filter to reduce output.
+-- Return true for rows you want written to CSV, false for
+-- uninteresting rows not worth writing to CSV.
+function PassesReportFilter(row)
+                        -- Overload the "--tab" command line option
+                        -- to also engage our output filter.
+                        --
+                        -- Because this is ally just a big Zig-specific
+                        -- hack thelp use GuildSalesQuota to help manage
+                        -- Zig's trading guild, and Zig already passes
+                        -- "--tab" for the guild's weekly quota check.
+  if ALSO_TAB then
+
+                        -- To reduce output for our guild, omit from report
+                        -- any player who...
+
+                        -- is not a guildie (left the guild between time of
+                        -- sale and this report)
+      if not row.is_member then return false end
+
+                        -- is a recent addition to the guild (give folks a
+                        -- couple weeks to learn our ways).
+      if row.is_newbie then return false end
+
+                        -- has sold enough that they don't need our help
+      if 10000 <= row.sold then return false end
+  end
+
+  return true
 end
 
 -- Sort by sold, descending. If that matches, sort by bought.
@@ -52,16 +84,17 @@ local function tostring_or_nil(s)
     return s
 end
 
-function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
+function WriteGuild( guild_name, saved_begin_ts, saved_end_ts
+                   , guild_index, user_records )
     OUT_FILE:write( "# guild"
-                     .. ",week_ending"
+                     .. ",range_begin"
+                     .. ",range_end"
                      .. ",user_id"
                      .. ",sold"
                      .. ",bought"
                      .. ",is_member"
                      .. ",is_newbie"
                      .. ",joined"
-                     .. ",gold_deposited"
                      .. ",sale_ct"
                      .. ",first_sale_time"
                      .. ",first_sale_buyer"
@@ -70,6 +103,25 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
                      .. ",last_sale_buyer"
                      .. ",last_sale_amount"
                      .. "\n" )
+    if ALSO_TAB then
+        print( "# guild"
+                .. "\trange_begin"
+                .. "\trange_end"
+                .. "\tuser_id"
+                .. "\tsold"
+                .. "\tbought"
+                .. "\tis_member"
+                .. "\tis_newbie"
+                .. "\tjoined"
+                .. "\tsale_ct"
+                .. "\tfirst_sale_time"
+                .. "\tfirst_sale_buyer"
+                .. "\tfirst_sale_amount"
+                .. "\tlast_sale_time"
+                .. "\tlast_sale_buyer"
+                .. "\tlast_sale_amount"
+                 )
+    end
 
     local records = {}
 
@@ -84,21 +136,20 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
             local bought            = tonumber       (ww[ 2])
             local sold              = tonumber       (ww[ 3])
             local joined_ts         = tonumber       (ww[ 4])
-            local gold_deposited    = tonumber       (ww[ 5])
-            local sale_ct           = tonumber       (ww[ 6])
-            local first_sale_time   = tonumber       (ww[ 7])
-            local first_sale_buyer  = tostring_or_nil(ww[ 8])
-            local first_sale_amount = tonumber       (ww[ 9])
-            local last_sale_time    = tonumber       (ww[10])
-            local last_sale_buyer   = tostring_or_nil(ww[11])
-            local last_sale_amount  = tonumber       (ww[12])
+            local sale_ct           = tonumber       (ww[ 5])
+            local first_sale_time   = tonumber       (ww[ 6])
+            local first_sale_buyer  = tostring_or_nil(ww[ 7])
+            local first_sale_amount = tonumber       (ww[ 8])
+            local last_sale_time    = tonumber       (ww[ 9])
+            local last_sale_buyer   = tostring_or_nil(ww[10])
+            local last_sale_amount  = tonumber       (ww[11])
 
             local row = { user_id           = user_id
                         , is_member         = is_member
+                        , is_newbie         = NEWBIE_TS <= joined_ts
                         , bought            = bought
                         , sold              = sold
                         , joined_ts         = joined_ts
-                        , gold_deposited    = gold_deposited
                         , sale_ct           = sale_ct
                         , first_sale_time   = first_sale_time
                         , first_sale_buyer  = first_sale_buyer
@@ -107,7 +158,11 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
                         , last_sale_buyer   = last_sale_buyer
                         , last_sale_amount  = last_sale_amount
                         }
-            table.insert(records, row)
+
+                        -- Ignore any row that satisfies membership criteria
+            if PassesReportFilter(row) then
+                table.insert(records, row)
+            end
         end
     end
 
@@ -116,24 +171,23 @@ function WriteGuild(guild_name, last_week_end_ts, guild_index, user_records)
 
                         -- Dump to CSV
     for _,row in ipairs(records) do
-        local is_newbie = NEWBIE_TS <= row.joined_ts
-        WriteLine( guild_name
-                 , last_week_end_ts
-                 , row.user_id
-                 , row.sold
-                 , row.bought
-                 , row.is_member
-                 , is_newbie
-                 , row.joined_ts
-                 , row.gold_deposited
-                 , row.sale_ct
-                 , row.first_sale_time
-                 , row.first_sale_buyer
-                 , row.first_sale_amount
-                 , row.last_sale_time
-                 , row.last_sale_buyer
-                 , row.last_sale_amount
-                 )
+        WriteLine({ guild_name        = guild_name
+                  , saved_begin_ts    = saved_begin_ts
+                  , saved_end_ts      = saved_end_ts
+                  , user_id           = row.user_id
+                  , is_member         = row.is_member
+                  , is_newbie         = row.is_newbie
+                  , bought            = row.bought
+                  , sold              = row.sold
+                  , joined_ts         = row.joined_ts
+                  , sale_ct           = row.sale_ct
+                  , first_sale_time   = row.first_sale_time
+                  , first_sale_buyer  = row.first_sale_buyer
+                  , first_sale_amount = row.first_sale_amount
+                  , last_sale_time    = row.last_sale_time
+                  , last_sale_buyer   = row.last_sale_buyer
+                  , last_sale_amount  = row.last_sale_amount
+                  })
     end
 end
 
@@ -155,6 +209,7 @@ end
 -- Assume "local machine time" and ignore any incorrect offsets due to
 -- Daylight Saving Time transitions. Ugh.
 local function iso_date(secs_since_1970)
+    if not secs_since_1970 then return 0 end
     if secs_since_1970 == 0 then return 0 end
     t = os.date("*t", secs_since_1970)
     return string.format("%04d-%02d-%02dT%02d:%02d:%02d"
@@ -180,57 +235,63 @@ local function nil_blank(s)
     end
 end
 
-function WriteLine( guild_name
-                  , last_week_end_ts
-                  , user_id
-                  , sold
-                  , bought
-                  , is_member
-                  , is_newbie
-                  , joined_ts
-                  , gold_deposited
-                  , sale_ct
-                  , first_sale_time
-                  , first_sale_buyer
-                  , first_sale_amount
-                  , last_sale_time
-                  , last_sale_buyer
-                  , last_sale_amount
-                   )
-    OUT_FILE:write( enquote(guild_name)
-          .. ',' .. iso_date(last_week_end_ts)
-          .. ',' .. enquote(user_id)
-          .. ',' .. sold
-          .. ',' .. bought
-          .. ',' .. tostring(is_member)
-          .. ',' .. tostring(is_newbie)
-          .. ',' .. iso_date(joined_ts)
-          .. ',' .. tostring(gold_deposited)
-          .. ',' .. nil_blank(sale_ct)
-          .. ',' .. iso_date(first_sale_time)
-          .. ',' .. enquote_or_nil(first_sale_buyer)
-          .. ',' .. nil_blank(first_sale_amount)
-          .. ',' .. iso_date(last_sale_time)
-          .. ',' .. enquote_or_nil(last_sale_buyer)
-          .. ',' .. nil_blank(last_sale_amount)
+function WriteLine(args)
+    OUT_FILE:write( enquote(        args.guild_name         )
+          .. ',' .. iso_date(       args.saved_begin_ts     )
+          .. ',' .. iso_date(       args.saved_end_ts       )
+          .. ',' .. enquote(        args.user_id            )
+          .. ',' ..                 args.sold
+          .. ',' ..                 args.bought
+          .. ',' .. tostring(       args.is_member          )
+          .. ',' .. tostring(       args.is_newbie          )
+          .. ',' .. iso_date(       args.joined_ts          )
+          .. ',' .. nil_blank(      args.sale_ct       )
+          .. ',' .. iso_date(       args.first_sale_time    )
+          .. ',' .. enquote_or_nil( args.first_sale_buyer   )
+          .. ',' .. nil_blank(      args.first_sale_amount  )
+          .. ',' .. iso_date(       args.last_sale_time     )
+          .. ',' .. enquote_or_nil( args.last_sale_buyer    )
+          .. ',' .. nil_blank(      args.last_sale_amount   )
           .. '\n'
           )
+
+    if ALSO_TAB then
+        print(                      args.guild_name
+              .. '\t' .. iso_date(  args.saved_begin_ts    )
+              .. '\t' .. iso_date(  args.saved_end_ts      )
+              .. '\t' ..            args.user_id
+              .. '\t' ..            args.sold
+              .. '\t' ..            args.bought
+              .. '\t' .. tostring(  args.is_member         )
+              .. '\t' .. tostring(  args.is_newbie         )
+              .. '\t' .. iso_date(  args.joined_ts         )
+              .. '\t' .. nil_blank( args.sale_ct           )
+              .. '\t' .. iso_date(  args.first_sale_time   )
+              .. '\t' .. nil_blank( args.first_sale_buyer  )
+              .. '\t' .. nil_blank( args.first_sale_amount )
+              .. '\t' .. iso_date(  args.last_sale_time    )
+              .. '\t' .. nil_blank( args.last_sale_buyer   )
+              .. '\t' .. nil_blank( args.last_sale_amount  )
+              )
+      end
 end
+
 
 
 -- For each account
 for k, v in pairs(GuildSalesQuotaVars["Default"]) do
     if (    GuildSalesQuotaVars["Default"][k]["$AccountWide"]
         and GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_records"]) then
-        enable_guild = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["enable_guild"]
-        guild_name   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["guild_name"  ]
-        user_records = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_records"]
-
-        last_week_end_ts = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["last_week_end_ts"]
+        enable_guild   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["enable_guild"]
+        guild_name     = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["guild_name"  ]
+        user_records   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_records"]
+        saved_begin_ts = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["saved_begin_ts"]
+        saved_end_ts   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["saved_end_ts"]
         for guild_index, enabled in ipairs(enable_guild) do
             if enabled and guild_name and guild_name[guild_index] then
                 WriteGuild( guild_name[guild_index]
-                          , last_week_end_ts
+                          , saved_begin_ts
+                          , saved_end_ts
                           , guild_index
                           , user_records
                           )

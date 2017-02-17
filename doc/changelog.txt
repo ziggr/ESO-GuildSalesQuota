@@ -1,3 +1,9 @@
+[B]2.7.1 2017-02-17[/B]
+[LIST]
+[*]Remove GuildGoldDeposits integration. Too inaccurate to be useful. Easier to track deposits/raffle tickets elsewhere.
+[*]Add "Date Options" dropdown menu to match Master Merchant's list of date options, so that you can export just Today, Yesterday, This Week, Last Week, All History, and other date ranges. Larger time scales might exceed Lua memory or SavedVariables limits.
+[/LIST]
+
 [B]2.6.4 2016-12-20[/B]
 [LIST]
 [*]Add 5 hours of slop for GuildGoldDeposits integration, so that gold deposits/raffle ticket purchases made for Sunday raffles will still count towards last week's quota. Yes this implies that a single ticket purchase during the slop range will erroneously meet TWO week's quotas. It's either this or you have to tell the add-on which exact ticket purchase was the cutoff. That's no fun.

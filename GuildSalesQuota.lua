@@ -2,11 +2,13 @@ local LAM2 = LibStub("LibAddonMenu-2.0")
 
 local GuildSalesQuota = {}
 GuildSalesQuota.name            = "GuildSalesQuota"
-GuildSalesQuota.version         = "2.6.4"
-GuildSalesQuota.savedVarVersion = 4
+GuildSalesQuota.version         = "2.7.1"
+GuildSalesQuota.savedVarVersion = 5
 GuildSalesQuota.default = {
       enable_guild  = { true, true, true, true, true }
+    , mm_date_index = 4
     , user_records = {}
+
 }
 GuildSalesQuota.max_guild_ct = 5
 GuildSalesQuota.fetching = { false, false, false, false, false }
@@ -22,15 +24,12 @@ GuildSalesQuota.guild_index = {} -- guild_index["My Guild" ] = 1
                         -- Lazy-fetched in CalcTimeGuildStarted(guild_id)
 GuildSalesQuota.guild_time_started = {}
 
-                        -- When does "Last Week" begin and end. Seconds
-                        -- since the epoch. Filled in at start of MMScan()
-GuildSalesQuota.last_week_begin_ts = 0
-GuildSalesQuota.last_week_end_ts   = 0
-                        -- When does "Last Week" end for raffle deposits?
-                        -- 5 hours after M.M.'s "week" because M.M. ends around
-                        -- 17:00 (EST -0500) but the raffle runs at 20:00
-                        -- and sometimes starts an hour or two late.
-GuildSalesQuota.last_week_end_ts_raffle = 0
+                        -- When does the saved time range begin and end.
+                        -- Seconds since the epoch.
+                        -- Filled in at start of MMScan()
+                        -- Either or both can be nil for "no limit".
+GuildSalesQuota.saved_begin_ts = 0
+GuildSalesQuota.saved_end_ts   = 0
 
                         -- key = user_id
                         -- value = UserRecord
@@ -40,7 +39,8 @@ GuildSalesQuota.user_records = {}
                         -- distrusting "nah, no more history"
 GuildSalesQuota.retry_ct   = { 0, 0, 0, 0, 0 }
 GuildSalesQuota.max_retry_ct = 3
-
+                        -- Filled in by FetchMMDateRanges()
+GuildSalesQuota.mm_date_ranges = nil
 
 -- UserGuildTotals -----------------------------------------------------------
 -- sub-element of UserRecord
@@ -52,7 +52,6 @@ local UserGuildTotals = {
 --  , bought         = 0            -- gold totals for this user in this guild's store
 --  , sold           = 0
 --  , joined_ts      = 1469247161   -- when this user joined this guild
---  , gold_deposited = 0            -- gold deposits to guild bank
 
                                     -- Audit trail: what are the first and last
                                     -- MM records that counted in the "sold" total?
@@ -80,7 +79,6 @@ function UserGuildTotals:Add(b)
     self.is_member      = self.is_member or b.is_member
     self.bought         = self.bought         + b.bought
     self.sold           = self.sold           + b.sold
-    self.gold_deposited = self.gold_deposited + b.gold_deposited
 
     self.sold_first_mm = MMEarlier(self.sold_first_mm, b.sold_first_mm)
     self.sold_last_mm  = MMLater(self.sold_last_mm,    b.sold_last_mm )
@@ -95,21 +93,19 @@ local function MMToString(mm)
 end
 
 function UserGuildTotals:ToString()
-    return tostring(self.is_member)
-            .. " " .. tostring(self.bought)
-            .. " " .. tostring(self.sold)
-            .. " " .. tostring(self.joined_ts)
-            .. " " .. tostring(self.gold_deposited)
-            .. " " .. tostring(self.sold_ct_mm)
-            .. " " .. MMToString(self.sold_first_mm)
-            .. " " .. MMToString(self.sold_last_mm)
+    return            tostring(  self.is_member     )
+            .. " " .. tostring(  self.bought        )
+            .. " " .. tostring(  self.sold          )
+            .. " " .. tostring(  self.joined_ts     )
+            .. " " .. tostring(  self.sold_ct_mm    )
+            .. " " .. MMToString(self.sold_first_mm )
+            .. " " .. MMToString(self.sold_last_mm  )
 end
 
 function UserGuildTotals:New()
     local o = { is_member      = false
               , bought         = 0
               , sold           = 0
-              , gold_deposited = 0
               , joined_ts      = nil
               , sold_first_mm  = nil
               , sold_last_mm   = nil
@@ -171,11 +167,6 @@ end
 function UserRecord:AddBought(guild_index, amount)
     local ugt = self:UGT(guild_index)
     ugt.bought = ugt.bought + amount
-end
-
-function UserRecord:AddGoldDeposit(guild_index, amount)
-    local ugt = self:UGT(guild_index)
-    ugt.gold_deposited = ugt.gold_deposited + amount
 end
 
 function UserRecord:FromUserID(user_id)
@@ -348,9 +339,55 @@ function GuildSalesQuota:CreateSettingsWindow()
             })
     end
 
+                    -- MM date range
+    table.insert(optionsData,
+        { type    = "header"
+        , name    = "Date Options"
+        })
+
+    local r = {
+          type    = "dropdown"
+        , name    = "Date range"
+        , getFunc = function() return self.savedVariables.mm_date_index end
+        , setFunc = function(e) self.savedVariables.mm_date_index = e end
+        , tooltip = "Which Master Merchant date range to export?"
+                    .." 'Last Week' is most common."
+        , choices = {}
+        , choicesValues = {}
+        }
+    for index, mmdr in ipairs(GuildSalesQuota.FetchMMDateRanges()) do
+        r.choices[index] = mmdr.name
+        r.choicesValues[index] = index
+    end
+    table.insert(optionsData, r)
+
     LAM2:RegisterOptionControls("GuildSalesQuota", optionsData)
     CALLBACK_MANAGER:RegisterCallback("LAM-PanelControlsCreated"
             , self.OnPanelControlsCreated)
+end
+
+-- Lazy fetch M.M. date ranges.
+function GuildSalesQuota.FetchMMDateRanges()
+    if GuildSalesQuota.mm_date_ranges then
+        return GuildSalesQuota.mm_date_ranges
+    end
+
+    local mmg = MMGuild:new("_not_really_a_guild")
+    local r   = {}
+    r[1] = { name = "Today",        start_ts = mmg.oneStart,   end_ts = nil}
+    r[2] = { name = "Yesterday",    start_ts = mmg.twoStart,   end_ts = mmg.oneStart}
+    r[3] = { name = "This Week",    start_ts = mmg.threeStart, end_ts = nil}
+    r[4] = { name = "Last Week",    start_ts = mmg.fourStart,  end_ts = mmg.fourEnd}
+    r[5] = { name = "Prior Week",   start_ts = mmg.fiveStart,  end_ts = mmg.fiveEnd}
+    r[6] = { name = "Last 10 Days", start_ts = mmg.sixStart,   end_ts = nil}
+    r[7] = { name = "Last 30 Days", start_ts = mmg.sevenStart, end_ts = nil}
+    r[8] = { name = "Last 7 Days",  start_ts = mmg.eightStart, end_ts = nil}
+                        -- Replace MM's "custom" date range with "All".
+                        -- (Not worth the effort: I would have to dynamically
+                        -- reload each time I updated UI or ran a scan)
+    r[9] = { name = "All History",  start_ts = nil,            end_ts = nil}
+    GuildSalesQuota.mm_date_ranges = r
+    return GuildSalesQuota.mm_date_ranges
 end
 
 -- Delay initialization of options panel: don't waste time fetching
@@ -451,26 +488,25 @@ function GuildSalesQuota:SaveNow()
     end
 
     self:MMScan()
-    self:GuildGoldDepositScan()
+    self:Done()
 end
 
 -- When the async guild bank history scan is done, print summary to chat.
 function GuildSalesQuota:Done()
     self.savedVariables.user_records       = self:CompressedUserRecords()
 
-                        -- Tell CSV which week this is.
+                        -- Tell CSV what time range we saved.
                         -- These timestamps aren't set until MMScan, so
                         -- don't write them until after MMScan.
-    self.savedVariables.last_week_begin_ts = self.last_week_begin_ts
-    self.savedVariables.last_week_end_ts   = self.last_week_end_ts
-
+    self.savedVariables.saved_begin_ts = self.saved_begin_ts
+    self.savedVariables.saved_end_ts   = self.saved_end_ts
 
                         -- Write a summary and "gotta relog!" to chat window.
     local r = self:SummaryCount()
     d(self.name .. ": saved " ..tostring(r.user_ct).. " user record(s)." )
     d(self.name .. ": " .. tostring(r.seller_ct) .. " seller(s), "
                         .. tostring(r.buyer_ct) .. " buyer(s)." )
-    d(self.name .. ": Log out or Quit to write file.")
+    d(self.name .. ": Reload UI, log out, or quit to write file.")
 end
 
 -- User doesn't want this guild. Respond with "okay, skipping"
@@ -495,97 +531,6 @@ function GuildSalesQuota:SaveGuildIndex(guild_index)
     self:SetStatus(guild_index, ct .. " members")
 end
 
--- GuildGoldDeposits / GGD ---------------------------------------------------
-
--- A subset of GuildGoldDeposits to accumulate total gold deposited to the
--- guild bank in the "Last Week".
-
-function GuildSalesQuota:GuildGoldDepositScan()
-    self.fetched_str_list = {}
-    for guild_index = 1, self.max_guild_ct do
-        if self.savedVariables.enable_guild[guild_index] then
-            self:GGD_SaveGuildIndex(guild_index)
-        else
-            self:SkipGuildIndex(guild_index)
-        end
-    end
-end
-
--- Download one guild's history
-function GuildSalesQuota:GGD_SaveGuildIndex(guild_index)
-    guildId = GetGuildId(guild_index)
-    self.fetching[guild_index] = true
-    self:SetStatus(guild_index, "downloading history...")
-    RequestGuildHistoryCategoryNewest(guildId, GUILD_HISTORY_BANK)
-
-                        -- Start an asynchronous callback chain to slowly
-                        -- poll ESO servers for all history. Chain will
-                        -- callback itself until done, then callback
-                        -- into the actual processing of that data.
-    self:GGD_ServerDataPoll(guild_index)
-end
-
--- Async poll to fetch ALL guild bank history data from the ESO server
--- Calls GGD_ServerDataComplete() once all data is loaded.
-function GuildSalesQuota:GGD_ServerDataPoll(guild_index)
-    guildId = GetGuildId(guild_index)
-    more = DoesGuildHistoryCategoryHaveMoreEvents(guildId, GUILD_HISTORY_BANK)
-    event_ct = GetNumGuildEvents(guildId, GUILD_HISTORY_BANK)
-    self:SetStatus(guild_index, "fetching events: " .. event_ct .. " ...")
-    can_retry =    (not self.retry_ct[guild_index])
-                or (self.retry_ct[guild_index] < self.max_retry_ct)
-    if more or can_retry then
-        RequestGuildHistoryCategoryOlder(guildId, GUILD_HISTORY_BANK)
-        delay_ms = 0.5 * 1000
-        zo_callLater(function() self:GGD_ServerDataPoll(guild_index) end, delay_ms)
-        if not more then
-            self.retry_ct[guild_index] = 1 + self.retry_ct[guild_index]
-        end
-    else
-        self:GGD_ServerDataComplete(guild_index)
-    end
-end
-
--- Now that all data from the ESO server is loaded into the ESO client,
--- extract gold deposits and write to savedVars.
-function GuildSalesQuota:GGD_ServerDataComplete(guild_index)
-                        -- Avoid infinite noise if a Lua error in here
-                        -- causes a repeated callback. Mostly useful when
-                        -- debugging, shouldn't be an issue when we're
-                        -- not buggy.
-    if not self.fetching[guild_index] then return end
-
-                        -- Latch false (until next time user clicks "Save Now")
-                        -- so that we know not to re-complete this guild.
-                        -- And so we know when all guilds are complete.
-    self.fetching[guild_index] = false
-
-    guildId = GetGuildId(guild_index)
-    guild_name = self.guild_name[guild_index]
-    event_ct = GetNumGuildEvents(guildId, GUILD_HISTORY_BANK)
-    --self:SetStatus(guild_index, "scanning events: " .. event_ct .. " ...")
-    for i = 1, event_ct do
-        local t,s,u,a = GetGuildEventInfo(guildId, GUILD_HISTORY_BANK, i)
-        self:AddGGD(guild_index, t, s, u, a)
-    end
-    self:SetStatus(guild_index, "done")
-
-                        -- I got sick of forgetting to relog, and I _wrote_
-                        -- this thing. I can only imagine how many poor
-                        -- unsuspecting users will get caught by "Oh, forgot to
-                        -- relog!" if I don't add a reminder.
-    if not self:StillFetchingAny() then
-        self:Done()
-    end
-end
-
-function GuildSalesQuota:StillFetchingAny()
-    for _,v in pairs(self.fetching) do
-        if v then return true end
-    end
-    return false
-end
-
 -- Master Merchant -----------------------------------------------------------
 
 -- Scan through every single sale recorded in Master Merchant, and if it was
@@ -595,7 +540,7 @@ end
 -- Happens nearly instantaneously.
 --
 function GuildSalesQuota:MMScan()
-    self:CalcLastWeekTS()
+    self:CalcSavedTS()
 
     -- d("MMScan start")
                         -- O(n) table scan of all MM data.
@@ -623,17 +568,12 @@ function GuildSalesQuota:MMScan()
 end
 
 -- Fill in begin/end timestamps for "Last Week"
-function GuildSalesQuota:CalcLastWeekTS()
-                        -- Let MM calculate start/end times for "Last Week"
-    local mmg = MMGuild:new("_not_really_a_guild")
-    self.last_week_begin_ts = mmg.fourStart
-    self.last_week_end_ts   = mmg.fourEnd
-
-                        -- Add five hours of slop so that tickets purchased for
-                        -- the most recent raffle count as immunity against
-                        -- last week's quota, even though "last week" ends
-                        -- a couple hours before the raffle.
-    self.last_week_end_ts_raffle = mmg.fourEnd + 5 * 3600
+function GuildSalesQuota:CalcSavedTS()
+                        -- Use the start/end timestamps chosen from
+                        -- the UI dropdown.
+    local r = GuildSalesQuota.FetchMMDateRanges()
+    self.saved_begin_ts = r[self.savedVariables.mm_date_index].start_ts
+    self.saved_end_ts   = r[self.savedVariables.mm_date_index].end_ts
 end
 
 function GuildSalesQuota:AddMMSale(mm_sales_record)
@@ -644,9 +584,9 @@ function GuildSalesQuota:AddMMSale(mm_sales_record)
     if not guild_index then return 0 end
     if not self.savedVariables.enable_guild[guild_index] then return 0 end
 
-                        -- Track only sales within "last week"
-    if mm.timestamp < self.last_week_begin_ts
-            or self.last_week_end_ts < mm.timestamp then
+                        -- Track only sales within time range we care about.
+    if self.saved_begin_ts and mm.timestamp < self.saved_begin_ts
+        or self.saved_end_ts and self.saved_end_ts < mm.timestamp then
         return 0
     end
 
@@ -654,14 +594,6 @@ function GuildSalesQuota:AddMMSale(mm_sales_record)
     self:UR(mm.buyer ):AddBought(guild_index, mm.price)
     self:UR(mm.seller):AddSold  (guild_index, mm)
     return 1
-end
-
-function GuildSalesQuota:AddGGD(guild_index, event_type, since_secs, user, amount)
-    local ts = GetTimeStamp() - since_secs
-    if ts < self.last_week_begin_ts or self.last_week_end_ts_raffle < ts then
-        return
-    end
-    self:UR(user):AddGoldDeposit(guild_index, amount)
 end
 
 function GuildSalesQuota:SummaryCount()

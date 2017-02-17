@@ -1,7 +1,7 @@
-.PHONY: send get csv
+.PHONY: send get csv tab zip
 
 put:
-	git commit -am auto
+	#git commit -am auto
 	cp -f ./GuildSalesQuota.lua /Volumes/Elder\ Scrolls\ Online/live/AddOns/GuildSalesQuota/
 
 get:
@@ -11,6 +11,11 @@ get:
 csv: ../../SavedVariables/GuildSalesQuota.lua
 	lua GuildSalesQuota_to_csv.lua
 	cp -f ../../SavedVariables/GuildSalesQuota.csv data/
+
+tab: ../../SavedVariables/GuildSalesQuota.lua
+	lua GuildSalesQuota_to_csv.lua --tab | pbcopy
+	cp -f ../../SavedVariables/GuildSalesQuota.csv data/
+	# Copied to clipboard. Paste somewhere useful.
 
 zip:
 	-rm -rf published/GuildSalesQuota published/GuildSalesQuota\ x.x.x.x.zip
