@@ -1,7 +1,7 @@
 [B]2.7.1 2017-02-17[/B]
 [LIST]
 [*]Remove GuildGoldDeposits integration. Too inaccurate to be useful. Easier to track deposits/raffle tickets elsewhere.
-[*]Add "Date Options" dropdown menu to match Master Merchant's list of date options, so that you can export just Today, Yesterday, This Week, Last Week, All History, and other date ranges. Larger time scales might exceed Lua memory or SavedVariables limits.
+[*]Add "Date Options" dropdown menu to match Master Merchant's list of date options, so that you can export Today, Yesterday, This Week, Last Week, All History, or other date ranges. Larger time scales might exceed Lua memory or SavedVariables limits.
 [/LIST]
 
 [B]2.6.4 2016-12-20[/B]
