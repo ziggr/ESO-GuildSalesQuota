@@ -1,3 +1,9 @@
+[B]2.7.2 2017-02-18[/B]
+[LIST]
+[*]Bugfix: delay Master Merchant calls until after M.M. has a chance to fully initialize. Avoids "attempt to index a nil value
+stack traceback:" crash in call to MasterMerchant:ActiveSettings(). Thank you [URL=http://www.esoui.com/forums/member.php?userid=23414]@Rushinator[/URL] for reporting it and helping me test the fix.
+[/LIST]
+
 [B]2.7.1 2017-02-17[/B]
 [LIST]
 [*]Remove GuildGoldDeposits integration. Too inaccurate to be useful. Easier to track deposits/raffle tickets elsewhere.

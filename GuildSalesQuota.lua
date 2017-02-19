@@ -2,7 +2,7 @@ local LAM2 = LibStub("LibAddonMenu-2.0")
 
 local GuildSalesQuota = {}
 GuildSalesQuota.name            = "GuildSalesQuota"
-GuildSalesQuota.version         = "2.7.1"
+GuildSalesQuota.version         = "2.7.2"
 GuildSalesQuota.savedVarVersion = 5
 GuildSalesQuota.default = {
       enable_guild  = { true, true, true, true, true }
