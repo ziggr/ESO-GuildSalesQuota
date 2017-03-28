@@ -2,7 +2,7 @@ local LAM2 = LibStub("LibAddonMenu-2.0")
 
 local GuildSalesQuota = {}
 GuildSalesQuota.name            = "GuildSalesQuota"
-GuildSalesQuota.version         = "2.7.2"
+GuildSalesQuota.version         = "2.7.3"
 GuildSalesQuota.savedVarVersion = 5
 GuildSalesQuota.default = {
       enable_guild  = { true, true, true, true, true }
@@ -15,6 +15,7 @@ GuildSalesQuota.fetching = { false, false, false, false, false }
 
 GuildSalesQuota.guild_name  = {} -- guild_name [guild_index] = "My Guild"
 GuildSalesQuota.guild_index = {} -- guild_index["My Guild" ] = 1
+GuildSalesQuota.guild_rank  = {} -- table of tables, gr[guild_index][rank]="Veteran"
 
                         -- timestamp of oldest event recorded in this guild
                         -- in Shissu's Guild Tools history.
@@ -52,6 +53,7 @@ local UserGuildTotals = {
 --  , bought         = 0            -- gold totals for this user in this guild's store
 --  , sold           = 0
 --  , joined_ts      = 1469247161   -- when this user joined this guild
+--  , rank_index     = 1            -- player's rank within this guild, nil if not is_member
 
                                     -- Audit trail: what are the first and last
                                     -- MM records that counted in the "sold" total?
@@ -74,11 +76,18 @@ local function MMLater(mm_a, mm_b)
     return mm_a
 end
 
+local function MaxRank(a, b)
+    if not a then return b end
+    if not b then return a end
+    return math.max(a, b)
+end
+
 function UserGuildTotals:Add(b)
     if not b then return end
     self.is_member      = self.is_member or b.is_member
     self.bought         = self.bought         + b.bought
     self.sold           = self.sold           + b.sold
+    self.rank_index     = MaxRank(self.rank_index, b.rank_index)
 
     self.sold_first_mm = MMEarlier(self.sold_first_mm, b.sold_first_mm)
     self.sold_last_mm  = MMLater(self.sold_last_mm,    b.sold_last_mm )
@@ -94,6 +103,7 @@ end
 
 function UserGuildTotals:ToString()
     return            tostring(  self.is_member     )
+            .. " " .. tostring(  self.rank_index    )
             .. " " .. tostring(  self.bought        )
             .. " " .. tostring(  self.sold          )
             .. " " .. tostring(  self.joined_ts     )
@@ -144,6 +154,11 @@ function UserRecord:SetIsGuildMember(guild_index, is_member)
     local v = true            -- default to true if left nil.
     if is_member == false then v = false end
     ugt.is_member = v
+end
+
+function UserRecord:SetRankIndex(guild_index, rank_index)
+    local ugt = self:UGT(guild_index)
+    ugt.rank_index = rank_index
 end
 
 -- Lazy-create list elements upon demand.
@@ -431,14 +446,15 @@ end
 
 -- Data portion of init UI
 function GuildSalesQuota:InitGuildSettings(guild_index, exists)
-    if exists then
-        local guildId   = GetGuildId(guild_index)
-        local guildName = GetGuildName(guildId)
-        self.guild_name[guild_index] = guildName
-        self.guild_index[guildName]  = guild_index
-    else
+    if not exists then
         self.savedVariables.enable_guild[guild_index] = false
+        return
     end
+
+    local guildId   = GetGuildId(guild_index)
+    local guildName = GetGuildName(guildId)
+    self.guild_name[guild_index] = guildName
+    self.guild_index[guildName]  = guild_index
 end
 
 -- UI portion of init UI
@@ -514,6 +530,8 @@ function GuildSalesQuota:SaveNow()
         return
     end
 
+    self.savedVariables.guild_rank = self.guild_rank
+
     self:MMScan()
     self:Done()
 end
@@ -548,12 +566,21 @@ function GuildSalesQuota:SaveGuildIndex(guild_index)
     self.fetching[guild_index] = true
     local ct = GetNumGuildMembers(guildId)
 
+                    -- Fetch guild rank index/name list
+    local rank_ct = GetNumGuildRanks(guildId)
+    self.guild_rank[guild_index] = {}
+    for rank_index = 1,rank_ct do
+        local rank_name = GetGuildRankCustomName(guildId, rank_index)
+        self.guild_rank[guild_index][rank_index] = rank_name
+    end
+
                         -- Fetch complete guild member list
     self:SetStatus(guild_index, "downloading " .. ct .. " member names...")
     for i = 1, ct do
-        local user_id = GetGuildMemberInfo(guildId, i)
+        local user_id, _, rank_index = GetGuildMemberInfo(guildId, i)
         local ur = self:UR(user_id)
         ur:SetIsGuildMember(guild_index)
+        ur:SetRankIndex(guild_index, rank_index)
     end
     self:SetStatus(guild_index, ct .. " members")
 end

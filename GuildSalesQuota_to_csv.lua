@@ -84,8 +84,17 @@ local function tostring_or_nil(s)
     return s
 end
 
-function WriteGuild( guild_name, saved_begin_ts, saved_end_ts
-                   , guild_index, user_records )
+local function torank_string(guild_rank, guild_index, rank_index)
+    if not rank_index or (rank_index == "nil") then return "" end
+    if not guild_rank
+        or (not guild_index)
+        or (not guild_rank[guild_index][rank_index]) then
+        return tostring(rank_index)
+    end
+    return tostring(rank_index).." "..tostring(guild_rank[guild_index][rank_index])
+end
+
+function WriteGuild(args)
     OUT_FILE:write( "# guild"
                      .. ",range_begin"
                      .. ",range_end"
@@ -94,6 +103,7 @@ function WriteGuild( guild_name, saved_begin_ts, saved_end_ts
                      .. ",bought"
                      .. ",is_member"
                      .. ",is_newbie"
+                     .. ",rank"
                      .. ",joined"
                      .. ",sale_ct"
                      .. ",first_sale_time"
@@ -112,6 +122,7 @@ function WriteGuild( guild_name, saved_begin_ts, saved_end_ts
                 .. "\tbought"
                 .. "\tis_member"
                 .. "\tis_newbie"
+                .. "\trank"
                 .. "\tjoined"
                 .. "\tsale_ct"
                 .. "\tfirst_sale_time"
@@ -126,27 +137,29 @@ function WriteGuild( guild_name, saved_begin_ts, saved_end_ts
     local records = {}
 
                         -- Extract flat rows for this guild's records
-    for _, str in ipairs(user_records) do
+    for _, str in ipairs(args.user_records) do
         local w = split(str, "\t")
         local user_id = w[1]
-        local guild_str = w[1 + guild_index]
+        local guild_str = w[1 + args.guild_index]
         if guild_str and guild_str ~= "" then
             ww = split(guild_str, " ")
             local is_member         = ww[1] == "true"
-            local bought            = tonumber       (ww[ 2])
-            local sold              = tonumber       (ww[ 3])
-            local joined_ts         = tonumber       (ww[ 4])
-            local sale_ct           = tonumber       (ww[ 5])
-            local first_sale_time   = tonumber       (ww[ 6])
-            local first_sale_buyer  = tostring_or_nil(ww[ 7])
-            local first_sale_amount = tonumber       (ww[ 8])
-            local last_sale_time    = tonumber       (ww[ 9])
-            local last_sale_buyer   = tostring_or_nil(ww[10])
-            local last_sale_amount  = tonumber       (ww[11])
+            local rank_index        = tonumber       (ww[ 2])
+            local bought            = tonumber       (ww[ 3])
+            local sold              = tonumber       (ww[ 4])
+            local joined_ts         = tonumber       (ww[ 5])
+            local sale_ct           = tonumber       (ww[ 6])
+            local first_sale_time   = tonumber       (ww[ 7])
+            local first_sale_buyer  = tostring_or_nil(ww[ 8])
+            local first_sale_amount = tonumber       (ww[ 9])
+            local last_sale_time    = tonumber       (ww[10])
+            local last_sale_buyer   = tostring_or_nil(ww[11])
+            local last_sale_amount  = tonumber       (ww[12])
 
             local row = { user_id           = user_id
                         , is_member         = is_member
                         , is_newbie         = NEWBIE_TS <= joined_ts
+                        , rank_index        = rank_index
                         , bought            = bought
                         , sold              = sold
                         , joined_ts         = joined_ts
@@ -171,12 +184,15 @@ function WriteGuild( guild_name, saved_begin_ts, saved_end_ts
 
                         -- Dump to CSV
     for _,row in ipairs(records) do
-        WriteLine({ guild_name        = guild_name
-                  , saved_begin_ts    = saved_begin_ts
-                  , saved_end_ts      = saved_end_ts
+        WriteLine({ guild_name        = args.guild_name
+                  , guild_index       = args.guild_index
+                  , guild_rank        = args.guild_rank
+                  , saved_begin_ts    = args.saved_begin_ts
+                  , saved_end_ts      = args.saved_end_ts
                   , user_id           = row.user_id
                   , is_member         = row.is_member
                   , is_newbie         = row.is_newbie
+                  , rank_index        = row.rank_index
                   , bought            = row.bought
                   , sold              = row.sold
                   , joined_ts         = row.joined_ts
@@ -244,6 +260,10 @@ function WriteLine(args)
           .. ',' ..                 args.bought
           .. ',' .. tostring(       args.is_member          )
           .. ',' .. tostring(       args.is_newbie          )
+          .. ',' .. enquote(torank_string( args.guild_rank
+                                         , args.guild_index
+                                         , args.rank_index
+                                         ))
           .. ',' .. iso_date(       args.joined_ts          )
           .. ',' .. nil_blank(      args.sale_ct       )
           .. ',' .. iso_date(       args.first_sale_time    )
@@ -264,6 +284,10 @@ function WriteLine(args)
               .. '\t' ..            args.bought
               .. '\t' .. tostring(  args.is_member         )
               .. '\t' .. tostring(  args.is_newbie         )
+              .. '\t' .. torank_string( args.guild_rank
+                                      , args.guild_index
+                                      , args.rank_index
+                                      )
               .. '\t' .. iso_date(  args.joined_ts         )
               .. '\t' .. nil_blank( args.sale_ct           )
               .. '\t' .. iso_date(  args.first_sale_time   )
@@ -284,17 +308,19 @@ for k, v in pairs(GuildSalesQuotaVars["Default"]) do
         and GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_records"]) then
         enable_guild   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["enable_guild"]
         guild_name     = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["guild_name"  ]
+        guild_rank     = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["guild_rank"  ]
         user_records   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_records"]
         saved_begin_ts = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["saved_begin_ts"]
         saved_end_ts   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["saved_end_ts"]
         for guild_index, enabled in ipairs(enable_guild) do
             if enabled and guild_name and guild_name[guild_index] then
-                WriteGuild( guild_name[guild_index]
-                          , saved_begin_ts
-                          , saved_end_ts
-                          , guild_index
-                          , user_records
-                          )
+                WriteGuild({ guild_name     = guild_name[guild_index]
+                           , guild_rank     = guild_rank
+                           , saved_begin_ts = saved_begin_ts
+                           , saved_end_ts   = saved_end_ts
+                           , guild_index    = guild_index
+                           , user_records   = user_records
+                           })
             end
         end
     end
