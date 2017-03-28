@@ -1,3 +1,8 @@
+[B]2.7.3 2017-03-28[/B]
+[LIST]
+[*]Add "rank" column. Custom rank titles included, so you get "3 Veteran" instead of just "3". But non-custom rank titles, I have no idea how to get from the ZOS API, so you're stuck with "1" instead of "1 Guildmaster". Sorry.
+[/LIST]
+
 [B]2.7.2 2017-02-18[/B]
 [LIST]
 [*]Bugfix: delay Master Merchant calls until after M.M. has a chance to fully initialize. Avoids "attempt to index a nil value
