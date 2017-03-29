@@ -1,3 +1,8 @@
+[B]2.7.4 2017-03-28[/B]
+[LIST]
+[*]Recently added "rank" column now includes rank names for all ranks, whether custom or default. Thank you to Ayantir's GMen and Rushinator for the pointers.
+[/LIST]
+
 [B]2.7.3 2017-03-28[/B]
 [LIST]
 [*]Add "rank" column. Custom rank titles included, so you get "3 Veteran" instead of just "3". But non-custom rank titles, I have no idea how to get from the ZOS API, so you're stuck with "1" instead of "1 Guildmaster". Sorry.
