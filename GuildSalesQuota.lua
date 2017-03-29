@@ -566,11 +566,16 @@ function GuildSalesQuota:SaveGuildIndex(guild_index)
     self.fetching[guild_index] = true
     local ct = GetNumGuildMembers(guildId)
 
-                    -- Fetch guild rank index/name list
+                        -- Fetch guild rank index/name list
     local rank_ct = GetNumGuildRanks(guildId)
     self.guild_rank[guild_index] = {}
     for rank_index = 1,rank_ct do
         local rank_name = GetGuildRankCustomName(guildId, rank_index)
+                        -- Kudos to Ayantir's GMen for pointing me to
+                        -- GetFinalGuildRankName()
+        if rank_name == "" then
+            rank_name = GetFinalGuildRankName(guildId, rank_index)
+        end
         self.guild_rank[guild_index][rank_index] = rank_name
     end
 
