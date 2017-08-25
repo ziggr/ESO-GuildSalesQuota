@@ -17,14 +17,6 @@ GuildSalesQuota.guild_name  = {} -- guild_name [guild_index] = "My Guild"
 GuildSalesQuota.guild_index = {} -- guild_index["My Guild" ] = 1
 GuildSalesQuota.guild_rank  = {} -- table of tables, gr[guild_index][rank]="Veteran"
 
-                        -- timestamp of oldest event recorded in this guild
-                        -- in Shissu's Guild Tools history.
-                        --   nil if not yet requested/calculated
-                        --   0   if requested but not found
-                        --   1469247161 (seconds since epoch) once found.
-                        -- Lazy-fetched in CalcTimeGuildStarted(guild_id)
-GuildSalesQuota.guild_time_started = {}
-
                         -- When does the saved time range begin and end.
                         -- Seconds since the epoch.
                         -- Filled in at start of MMScan()
@@ -206,43 +198,14 @@ function UserRecord:ToString()
     return s
 end
 
--- ShissuGuildTools integration: When does Shissu think this account
--- joined the guild?
+-- When was the first time we saw this user_id in this guild?
 function UserRecord:CalcTimeJoinedGuild(guild_index)
-                        -- Fallback to guild-wide start time if no user-
-                        -- specific time.
-    local r = GuildSalesQuota:CalcTimeGuildStarted(guild_index)
-    local guild_name = GuildSalesQuota.guild_name[guild_index]
-
-                        -- "shissuGT" here is Shissu's savedVariables data.
-    if not shissuGT                                              then return r end
-    if not shissuGT.History                                      then return r end
-    if not shissuGT.History[guild_name]                          then return r end
-    if not shissuGT.History[guild_name][self.user_id]            then return r end
-    if not shissuGT.History[guild_name][self.user_id].timeJoined then return r end
-
-    return shissuGT.History[guild_name][self.user_id].timeJoined
-end
-
--- ShissuGuildTools integration: When does Shissu think this guild started?
--- (Or more common: when did Shissu first run?)
-function GuildSalesQuota:CalcTimeGuildStarted(guild_index)
-    if self.guild_time_started[guild_index] then
-        return self.guild_time_started[guild_index]
-    end
-                        -- "0" means "we tried to calc it but came up empty."
-    self.guild_time_started[guild_index] = 0
-    local guild_name = self.guild_name[guild_index]
-
-                        -- "shissuGT" here is Shissu's savedVariables data.
-    if not shissuGT                                    then return 0 end
-    if not shissuGT.History                            then return 0 end
-    if not shissuGT.History[guild_name]                then return 0 end
-    if not shissuGT.History[guild_name].oldestEvent    then return 0 end
-    if not shissuGT.History[guild_name].oldestEvent[1] then return 0 end
-
-    self.guild_time_started[guild_index] = shissuGT.History[guild_name].oldestEvent[1]
-    return self.guild_time_started[guild_index]
+    if not (GuildSalesQuota.savedVariables
+            and GuildSalesQuota.savedVariables.roster
+            and GuildSalesQuota.savedVariables.roster[guild_index]
+            and GuildSalesQuota.savedVariables.roster[guild_index][self.user_id]
+           ) then return 0 end
+    return GuildSalesQuota.savedVariables.roster[guild_index][self.user_id].first_seen_ts
 end
 
 -- Lazy-create UserRecord instances on demand.
