@@ -1,3 +1,8 @@
+[B]3.1.1 2017-??-??[/B]
+[LIST]
+[*]Replace Shissu with our own roster tracker.
+[/LIST]
+
 [B]2.7.4 2017-03-28[/B]
 [LIST]
 [*]Recently added "rank" column now includes rank names for all ranks, whether custom or default. Thank you to Ayantir's GMen and Rushinator for the pointers.

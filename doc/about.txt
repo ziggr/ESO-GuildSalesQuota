@@ -4,7 +4,7 @@ But if you also want to record sales to a spreadsheet, that's where this add-on 
 
 This add-on scans Master Merchant sales history, summarizes gold totals for your guild's sellers and buyers over last week, then writes that to a SavedVariables file. It can then convert that SavedVariables file to a comma-separated-value file suitable for import into a spreadsheet.
 
-Optional: integrates with [URL="http://www.esoui.com/downloads/info910-ShissusGuildTools.html"]Shissu's Guild Tools[/URL] to fetch each member's join date. This integration helps guild masters give new members a bit of a grace period before enforcing sales quotas.
+It also tracks the guild roster, noting when a new member joins, so that you can give new members a bit of a grace period before you enforce quotas. (This tracking can take a couple weeks to become useful, since "joined" date is really "joined or first ran GuildSalesQuota 3.1" date.)
 
 Column list:
 [LIST]
@@ -15,8 +15,8 @@ Column list:
 [*]sold: gold earned in the guild trader last week
 [*]bought: gold spent in the guild trader last week
 [*]is a guild member? Many buyers aren't members.
-[*]is a newbie? Anyone who joined in the last 10 days. (optional, requires Shissu's Guild Tools)
-[*]joined: when did they join the guild (optional, requires Shissu's Guild Tools)
+[*]is a newbie? Anyone who joined in the last 10 days.
+[*]joined: when did they join the guild?
 [*]columns to help you audit which sales contributed to the total for the reported week: sales count, first/last sales time, buyer, amount.
 [/LIST]
 
