@@ -38,7 +38,7 @@ function PassesReportFilter(row)
                         -- Overload the "--tab" command line option
                         -- to also engage our output filter.
                         --
-                        -- Because this is ally just a big Zig-specific
+                        -- Because this is really just a big Zig-specific
                         -- hack thelp use GuildSalesQuota to help manage
                         -- Zig's trading guild, and Zig already passes
                         -- "--tab" for the guild's weekly quota check.
@@ -56,7 +56,7 @@ function PassesReportFilter(row)
       if row.is_newbie then return false end
 
                         -- has sold enough that they don't need our help
-      if 10000 <= row.sold then return false end
+      if 30000 <= row.sold then return false end
   end
 
   return true
