@@ -286,7 +286,7 @@ function GuildSalesQuota.DailyRosterCheck()
                         -- NOP if already checked once today
     self = GuildSalesQuota
     if not self:DailyRosterCheckNeeded() then
-        d("GuildSalesQuota: guild roster already saved once today. Done.")
+        --d("GuildSalesQuota: guild roster already saved once today. Done.")
         return
     end
 
