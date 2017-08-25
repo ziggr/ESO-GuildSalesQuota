@@ -262,6 +262,79 @@ function GuildSalesQuota:CompressedUserRecords()
     return line_list
 end
 
+-- Roster --------------------------------------------------------------------
+
+function GuildSalesQuota.TodayTS()
+                        -- Copied straight from MasterMerchant_Guild.lua
+      return GetTimeStamp() - GetSecondsSinceMidnight()
+end
+
+function GuildSalesQuota.RosterList(guild_index)
+    local member_names = {}
+    local guildId = GetGuildId(guild_index)
+    local ct      = GetNumGuildMembers(guildId)
+    for i = 1, ct do
+        local user_id = GetGuildMemberInfo(guildId, i)
+        table.insert(member_names, user_id)
+    end
+    return member_names
+end
+
+function GuildSalesQuota:RememberMembers(guild_index)
+    local today_ts = self.TodayTS()
+    local prev     = {}
+    local new      = {}
+    if self.savedVariables.roster and self.savedVariables.roster[guild_index] then
+        prev = self.savedVariables.roster[guild_index]
+    end
+
+    local curr = self.RosterList(guild_index)
+    for i, user_id in ipairs(curr) do
+                        -- Retain any survivors from before.
+                        -- or create new record for newbies.
+        new[user_id] = prev[user_id] or { first_seen_ts = today_ts }
+    end
+
+    if not self.savedVariables.roster then self.savedVariables.roster = {} end
+    self.savedVariables.roster[guild_index] = new
+    return #curr
+end
+
+function GuildSalesQuota:RememberMembersAllEnabledGuilds()
+    self.savedVariables.guild_name = self:GuildNameList()
+    local ct = 0
+    for guild_index = 1, self.max_guild_ct do
+        if self.savedVariables.enable_guild[guild_index] then
+            ct = ct + self:RememberMembers(guild_index)
+        end
+    end
+    return ct
+end
+
+function GuildSalesQuota:DailyRosterCheckNeeded()
+    if not self.savedVariables then return true end
+    if not self.savedVariables.roster then return true end
+    if not self.savedVariables.roster.last_scan_ts then return true end
+    if not (self.TodayTS() <= self.savedVariables.roster.last_scan_ts)  then return true end
+    return false
+end
+
+function GuildSalesQuota.DailyRosterCheck()
+                        -- NOP if already checked once today
+    self = GuildSalesQuota
+    if not self:DailyRosterCheckNeeded() then
+        d("GuildSalesQuota: guild roster already saved once today. Done.")
+        return
+    end
+
+    d("GuildSalesQuota: saving guild rosters...")
+    local ct = self:RememberMembersAllEnabledGuilds()
+    d("GuildSalesQuota: saved "..tostring(ct).." guild members. Done.")
+
+    if not self.savedVariables.roster then self.savedVariables.roster = {} end
+    self.savedVariables.roster.last_scan_ts = self.TodayTS()
+end
+
 -- Init ----------------------------------------------------------------------
 
 function GuildSalesQuota.OnAddOnLoaded(event, addonName)
@@ -564,7 +637,6 @@ end
 function GuildSalesQuota:SaveGuildIndex(guild_index)
     local guildId = GetGuildId(guild_index)
     self.fetching[guild_index] = true
-    local ct = GetNumGuildMembers(guildId)
 
                         -- Fetch guild rank index/name list
     local rank_ct = GetNumGuildRanks(guildId)
@@ -580,6 +652,7 @@ function GuildSalesQuota:SaveGuildIndex(guild_index)
     end
 
                         -- Fetch complete guild member list
+    local ct = GetNumGuildMembers(guildId)
     self:SetStatus(guild_index, "downloading " .. ct .. " member names...")
     for i = 1, ct do
         local user_id, _, rank_index = GetGuildMemberInfo(guildId, i)
@@ -680,4 +753,8 @@ end
 EVENT_MANAGER:RegisterForEvent( GuildSalesQuota.name
                               , EVENT_ADD_ON_LOADED
                               , GuildSalesQuota.OnAddOnLoaded
+                              )
+EVENT_MANAGER:RegisterForEvent( GuildSalesQuota.name
+                              , EVENT_PLAYER_ACTIVATED
+                              , GuildSalesQuota.DailyRosterCheck
                               )
