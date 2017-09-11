@@ -1,4 +1,4 @@
-[B]3.1.1 2017-??-??[/B]
+[B]3.1.1 2017-09-10[/B]
 [LIST]
 [*]Replace Shissu with our own roster tracker.
 [/LIST]
