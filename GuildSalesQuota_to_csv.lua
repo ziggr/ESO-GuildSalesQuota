@@ -158,7 +158,7 @@ function WriteGuild(args)
 
             local row = { user_id           = user_id
                         , is_member         = is_member
-                        , is_newbie         = NEWBIE_TS <= joined_ts
+                        , is_newbie         = (NEWBIE_TS <= joined_ts) or (0 == joined_ts)
                         , rank_index        = rank_index
                         , bought            = bought
                         , sold              = sold
