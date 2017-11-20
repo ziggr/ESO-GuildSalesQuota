@@ -148,6 +148,11 @@ function UserRecord:SetIsGuildMember(guild_index, is_member)
     ugt.is_member = v
 end
 
+function UserRecord:SetGuildNote(guild_index, note)
+    local ugt = self:UGT(guild_index)
+    ugt.note = note
+end
+
 function UserRecord:SetRankIndex(guild_index, rank_index)
     local ugt = self:UGT(guild_index)
     ugt.rank_index = rank_index
@@ -223,6 +228,24 @@ function GuildSalesQuota:CompressedUserRecords()
         table.insert(line_list, ur:ToString())
     end
     return line_list
+end
+
+function GuildSalesQuota:UserNotes()
+    local u_g_note = {}
+    for _, ur in pairs(self.user_records) do
+        local g_note   = {}
+        local have_one = false
+        for guild_index,ugt in pairs(ur.g) do
+            if ugt and ugt.note and ugt.note ~= "" then
+                g_note[guild_index] = ugt.note
+                have_one = true
+            end
+        end
+        if have_one then
+            u_g_note[ur.user_id] = g_note
+        end
+    end
+    return u_g_note
 end
 
 -- Roster --------------------------------------------------------------------
@@ -575,6 +598,7 @@ end
 -- When the async guild bank history scan is done, print summary to chat.
 function GuildSalesQuota:Done()
     self.savedVariables.user_records       = self:CompressedUserRecords()
+    self.savedVariables.user_notes         = self:UserNotes()
 
                         -- Tell CSV what time range we saved.
                         -- These timestamps aren't set until MMScan, so
@@ -618,10 +642,11 @@ function GuildSalesQuota:SaveGuildIndex(guild_index)
     local ct = GetNumGuildMembers(guildId)
     self:SetStatus(guild_index, "downloading " .. ct .. " member names...")
     for i = 1, ct do
-        local user_id, _, rank_index = GetGuildMemberInfo(guildId, i)
+        local user_id, note, rank_index = GetGuildMemberInfo(guildId, i)
         local ur = self:UR(user_id)
         ur:SetIsGuildMember(guild_index)
         ur:SetRankIndex(guild_index, rank_index)
+        ur:SetGuildNote(guild_index, note)
     end
     self:SetStatus(guild_index, ct .. " members")
 end

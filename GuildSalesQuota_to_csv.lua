@@ -94,6 +94,11 @@ local function torank_string(guild_rank, guild_index, rank_index)
     return tostring(rank_index).." "..tostring(guild_rank[guild_index][rank_index])
 end
 
+local function user_note(user_note, guild_index)
+  if not (user_note and user_note[guild_index]) then return nil end
+  return user_note[guild_index]
+end
+
 function WriteGuild(args)
     OUT_FILE:write( "# guild"
                      .. ",range_begin"
@@ -112,6 +117,7 @@ function WriteGuild(args)
                      .. ",last_sale_time"
                      .. ",last_sale_buyer"
                      .. ",last_sale_amount"
+                     .. ",note"
                      .. "\n" )
     if ALSO_TAB then
         print( "# guild"
@@ -131,6 +137,7 @@ function WriteGuild(args)
                 .. "\tlast_sale_time"
                 .. "\tlast_sale_buyer"
                 .. "\tlast_sale_amount"
+                .. "\tnote"
                  )
     end
 
@@ -155,6 +162,8 @@ function WriteGuild(args)
             local last_sale_time    = tonumber       (ww[10])
             local last_sale_buyer   = tostring_or_nil(ww[11])
             local last_sale_amount  = tonumber       (ww[12])
+            local note              = user_note( args.user_notes[user_id]
+                                               , args.guild_index )
 
             local row = { user_id           = user_id
                         , is_member         = is_member
@@ -170,6 +179,7 @@ function WriteGuild(args)
                         , last_sale_time    = last_sale_time
                         , last_sale_buyer   = last_sale_buyer
                         , last_sale_amount  = last_sale_amount
+                        , note              = note
                         }
 
                         -- Ignore any row that satisfies membership criteria
@@ -203,6 +213,7 @@ function WriteGuild(args)
                   , last_sale_time    = row.last_sale_time
                   , last_sale_buyer   = row.last_sale_buyer
                   , last_sale_amount  = row.last_sale_amount
+                  , note              = row.note
                   })
     end
 end
@@ -251,6 +262,14 @@ local function nil_blank(s)
     end
 end
 
+function tsv_strip(text)
+  if not text then return "" end
+  local t = text:gsub("\t"," ")
+  t = t:gsub("\r"," ")
+  t = t:gsub("\n"," ")
+  return t
+end
+
 function WriteLine(args)
     OUT_FILE:write( enquote(        args.guild_name         )
           .. ',' .. iso_date(       args.saved_begin_ts     )
@@ -272,6 +291,7 @@ function WriteLine(args)
           .. ',' .. iso_date(       args.last_sale_time     )
           .. ',' .. enquote_or_nil( args.last_sale_buyer    )
           .. ',' .. nil_blank(      args.last_sale_amount   )
+          .. ',' .. enquote_or_nil( args.note               )
           .. '\n'
           )
 
@@ -296,6 +316,7 @@ function WriteLine(args)
               .. '\t' .. iso_date(  args.last_sale_time    )
               .. '\t' .. nil_blank( args.last_sale_buyer   )
               .. '\t' .. nil_blank( args.last_sale_amount  )
+              .. '\t' .. tsv_strip( args.note              )
               )
       end
 end
@@ -310,6 +331,7 @@ for k, v in pairs(GuildSalesQuotaVars["Default"]) do
         guild_name     = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["guild_name"  ]
         guild_rank     = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["guild_rank"  ]
         user_records   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_records"]
+        user_notes     = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_notes"  ]
         saved_begin_ts = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["saved_begin_ts"]
         saved_end_ts   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["saved_end_ts"]
         for guild_index, enabled in ipairs(enable_guild) do
@@ -320,6 +342,7 @@ for k, v in pairs(GuildSalesQuotaVars["Default"]) do
                            , saved_end_ts   = saved_end_ts
                            , guild_index    = guild_index
                            , user_records   = user_records
+                           , user_notes     = user_notes
                            })
             end
         end
