@@ -51,12 +51,15 @@ function PassesReportFilter(row)
                         -- sale and this report)
       if not row.is_member then return false end
 
+-- ZIG COMMENTING THESE NEXT TWO TESTS
+-- ALLOWS FULL 500-member export
+
                         -- is a recent addition to the guild (give folks a
                         -- couple weeks to learn our ways).
-      if row.is_newbie then return false end
+      -- if row.is_newbie then return false end
 
                         -- has sold enough that they don't need our help
-      if 30000 <= row.sold then return false end
+      -- if 30000 <= row.sold then return false end
   end
 
   return true
