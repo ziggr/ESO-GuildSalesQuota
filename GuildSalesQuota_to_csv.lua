@@ -167,7 +167,12 @@ function WriteGuild(args)
             local last_sale_amount  = tonumber       (ww[12])
             local note              = user_note( args.user_notes[user_id]
                                                , args.guild_index )
-
+            if joined_ts == 0
+                    and args.roster
+                    and args.roster[user_id]
+                    and args.roster[user_id].first_seen_ts then
+                joined_ts =  args.roster[user_id].first_seen_ts
+            end
             local row = { user_id           = user_id
                         , is_member         = is_member
                         , is_newbie         = (NEWBIE_TS <= joined_ts) or (0 == joined_ts)
@@ -328,25 +333,33 @@ end
 
 -- For each account
 for k, v in pairs(GuildSalesQuotaVars["Default"]) do
-    if (    GuildSalesQuotaVars["Default"][k]["$AccountWide"]
-        and GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_records"]) then
-        enable_guild   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["enable_guild"]
-        guild_name     = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["guild_name"  ]
-        guild_rank     = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["guild_rank"  ]
-        user_records   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_records"]
-        user_notes     = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_notes"  ]
-        saved_begin_ts = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["saved_begin_ts"]
-        saved_end_ts   = GuildSalesQuotaVars["Default"][k]["$AccountWide"]["saved_end_ts"]
-        for guild_index, enabled in ipairs(enable_guild) do
-            if enabled and guild_name and guild_name[guild_index] then
-                WriteGuild({ guild_name     = guild_name[guild_index]
-                           , guild_rank     = guild_rank
-                           , saved_begin_ts = saved_begin_ts
-                           , saved_end_ts   = saved_end_ts
-                           , guild_index    = guild_index
-                           , user_records   = user_records
-                           , user_notes     = user_notes
-                           })
+    if k == "@ziggr" or k == "@UlfricStormcloak" then
+        if (    GuildSalesQuotaVars["Default"][k]["$AccountWide"]
+            and GuildSalesQuotaVars["Default"][k]["$AccountWide"]["user_records"]) then
+            local acc_w = GuildSalesQuotaVars["Default"][k]["$AccountWide"]
+            enable_guild   = acc_w["enable_guild"]
+            guild_name     = acc_w["guild_name"  ]
+            guild_rank     = acc_w["guild_rank"  ]
+            user_records   = acc_w["user_records"]
+            user_notes     = acc_w["user_notes"  ]
+            saved_begin_ts = acc_w["saved_begin_ts"]
+            saved_end_ts   = acc_w["saved_end_ts"]
+            for guild_index, enabled in ipairs(enable_guild) do
+                roster         = acc_w["roster"][guild_index]
+                if enabled and guild_name and guild_name[guild_index] then
+                    WriteGuild({ guild_name     = guild_name[guild_index]
+                               , guild_rank     = guild_rank
+                               , saved_begin_ts = saved_begin_ts
+                               , saved_end_ts   = saved_end_ts
+                               , guild_index    = guild_index
+                               , user_records   = user_records
+                               , user_notes     = user_notes
+                               , roster         = roster
+                               })
+                elseif enabled then
+                    print("Enabled guild_index:"..tostring(guild_index)
+                        .." but guild_name missing an entry" )
+                end
             end
         end
     end

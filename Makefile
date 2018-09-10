@@ -8,13 +8,11 @@ get:
 	cp -f /Volumes/Elder\ Scrolls\ Online/live/SavedVariables/GuildSalesQuota.lua ../../SavedVariables/
 	cp -f ../../SavedVariables/GuildSalesQuota.lua data/
 
-csv: ../../SavedVariables/GuildSalesQuota.lua
+csv: data/GuildSalesQuota.lua
 	lua GuildSalesQuota_to_csv.lua
-	cp -f ../../SavedVariables/GuildSalesQuota.csv data/
 
 tab: ../../SavedVariables/GuildSalesQuota.lua
 	lua GuildSalesQuota_to_csv.lua --tab | pbcopy
-	cp -f ../../SavedVariables/GuildSalesQuota.csv data/
 	# Copied to clipboard. Paste somewhere useful.
 
 zip:
