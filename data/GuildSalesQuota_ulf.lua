@@ -1,12 +1,12 @@
 GuildSalesQuotaVars =
 {
-    ["Default"] = 
+    ["Default"] =
     {
-        ["@UlfricStormcloak"] = 
+        ["@UlfricStormcloak"] =
         {
-            ["$AccountWide"] = 
+            ["$AccountWide"] =
             {
-                ["user_records"] = 
+                ["user_records"] =
                 {
                     [1] = "@Tearna\tfalse nil 13499 0 0 0 nil nil nil nil nil nil\t\t\t\t",
                     [2] = "@Clage\tfalse nil 4060 0 0 0 nil nil nil nil nil nil\t\t\t\t",
@@ -2804,7 +2804,7 @@ GuildSalesQuotaVars =
                     [2794] = "@Mavedor\tfalse nil 799 0 0 0 nil nil nil nil nil nil\t\t\t\t",
                 },
                 ["mm_date_index"] = 4,
-                ["enable_guild"] = 
+                ["enable_guild"] =
                 {
                     [1] = true,
                     [2] = false,
@@ -2812,254 +2812,254 @@ GuildSalesQuotaVars =
                     [4] = false,
                     [5] = false,
                 },
-                ["user_notes"] = 
+                ["user_notes"] =
                 {
-                    ["@Strombony"] = 
+                    ["@Strombony"] =
                     {
                         [1] = "S T rata G",
                     },
-                    ["@Kellie68"] = 
+                    ["@Kellie68"] =
                     {
                         [1] = "2018-09-02 ulf: nokick through 2018-11-01",
                     },
-                    ["@Trunkage"] = 
+                    ["@Trunkage"] =
                     {
                         [1] = "Master Jeweller, Crafter and Enchanter",
                     },
-                    ["@UlfricStormcloak"] = 
+                    ["@UlfricStormcloak"] =
                     {
                         [1] = "                   |cf0f0f0twitch.tv/JarlUlf|r\n                   |c008cafGM; Eastmarch Trade Company|r\n|t64:128:esoui/art/guild/banner_ebonheart.dds|t\n\n• 9 Trait Crafter\n• 59/63 styles known",
                     },
-                    ["@Raven_Spire"] = 
+                    ["@Raven_Spire"] =
                     {
                         [1] = "|t64:128:esoui/art/guild/banner_ebonheart.dds|t\r\n |t60:60:esoui/art/icons/pet_092.dds|t|c6F\n\n\n  |cFF0700Conquest Senior Officer - Valar|r\n \n\n\n|t64:128:esoui/art/guild/banner_aldmeri.dds|t\n\n\n\n|t64:128:esoui/art/guild/banner_daggerfall.dds|t",
                     },
-                    ["@therrieur"] = 
+                    ["@therrieur"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@Vasteel2k"] = 
+                    ["@Vasteel2k"] =
                     {
                         [1] = "Will be out of the states for a few months, but will be able to get on at times on my laptop.",
                     },
-                    ["@ziggr"] = 
+                    ["@ziggr"] =
                     {
                         [1] = "\n  |t64:64:esoui/art/icons/mapkey/mapkey_crafting.dds|t\n\n\nGuild Crafting Hall is primary residence\n",
                     },
-                    ["@cyberN"] = 
+                    ["@cyberN"] =
                     {
                         [1] = "2018-08-09 zig: nokick through 2018-08-29\n",
                     },
-                    ["@dot_hackza"] = 
+                    ["@dot_hackza"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r\n#TraderlifechosemeIdidn'tchoseit.\n\nHi, I'm Dot. Trading for fun! \n\nSteals sweetrolls for cash.\n\nMost Rez'd 2016",
                     },
-                    ["@DjHans"] = 
+                    ["@DjHans"] =
                     {
                         [1] = "2018-08-27 ulf: nokick through 2018-09-11",
                     },
-                    ["@Laklet"] = 
+                    ["@Laklet"] =
                     {
                         [1] = "Send treasure maps to @ettenmoor for me ",
                     },
-                    ["@UncleSheo's2ndFave"] = 
+                    ["@UncleSheo's2ndFave"] =
                     {
                         [1] = "Was @bjowill",
                     },
-                    ["@G0db4n"] = 
+                    ["@G0db4n"] =
                     {
                         [1] = "9 Trait Crafter\n8 Trait JC\n57/64 Motifs \n\nPvE:\nWarden healer\nTank[DK]\nStamDK(45k st)\nMablade(43k ST)\n---\nPvP:\nTemplar Healer , MagNB, Magsorc, Stamwarden, MagDK [DC, Vivec]",
                     },
-                    ["@SaviorSpherioth"] = 
+                    ["@SaviorSpherioth"] =
                     {
                         [1] = "cp600+ Shield Tank \nDungeon/Trial experienced, almost master crafter, owns Forsaken Stronghold, open access  to all guild members ",
                     },
-                    ["@MorriganOfTheWilds"] = 
+                    ["@MorriganOfTheWilds"] =
                     {
                         [1] = "Officer in East Empire Trading Company.",
                     },
-                    ["@LorienDres"] = 
+                    ["@LorienDres"] =
                     {
                         [1] = "|c186b12GM of Blackwater Mercantile Co|r\n|ca05ef7[Immunity]|r",
                     },
-                    ["@Obsidian3"] = 
+                    ["@Obsidian3"] =
                     {
                         [1] = "Ob3 goes hard in the paint.\n",
                     },
-                    ["@RogueAckerman"] = 
+                    ["@RogueAckerman"] =
                     {
                         [1] = "2018-08-30 ulf: nokick through 2018-09-10",
                     },
-                    ["@That'sFoxic"] = 
+                    ["@That'sFoxic"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@Fn20gi356"] = 
+                    ["@Fn20gi356"] =
                     {
                         [1] = "\n|t70:70:esoui/art/tutorial/ava_rankicon64_grandoverlord.dds|t\n",
                     },
-                    ["@Demos426"] = 
+                    ["@Demos426"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r\n\n|t72:72:esoui\\art\\icons\\heraldrycrests_animals_bear_01.dds|t\n",
                     },
-                    ["@Scup"] = 
+                    ["@Scup"] =
                     {
                         [1] = "I'll be offline for a couple months dealing with a family emergency.\nUpdate 1/1, my wife is facing another 3+ months of hospital/rehab. Hope to be back in the spring.",
                     },
-                    ["@nimnifnof"] = 
+                    ["@nimnifnof"] =
                     {
                         [1] = "Master Crafter (8/9, limited to some nirn)\nMaster Enchanter",
                     },
-                    ["@Feroq"] = 
+                    ["@Feroq"] =
                     {
                         [1] = "2018-08-08 zig: nokick through 2018-08-29",
                     },
-                    ["@BearMaidenSif"] = 
+                    ["@BearMaidenSif"] =
                     {
                         [1] = "2018-06-07 zig: nokick through 2018-09-30",
                     },
-                    ["@Caliljr"] = 
+                    ["@Caliljr"] =
                     {
                         [1] = "On vacation-> 15 to 30 January. \nBe back on February.",
                     },
-                    ["@MCTyrant1"] = 
+                    ["@MCTyrant1"] =
                     {
                         [1] = "9 trait master crafter with EVERY set in the game (including Frostcaster and Harlequin)\nYour mats.  Free of charge for crafting.",
                     },
-                    ["@Hecker777"] = 
+                    ["@Hecker777"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@Phuulio"] = 
+                    ["@Phuulio"] =
                     {
                         [1] = "Master Woodworker - All traits unlocked \nArmorsmith - Almost all traits unlocked (9 traits unlocked on armor except for waist, which is at 8.)\nWeaponsmith - 9 Traits on Axes and Swords, 8 Traits on Mauls, 7 Traits on all others.\n \n                     ",
                     },
-                    ["@UndeadKuba"] = 
+                    ["@UndeadKuba"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@rocket343"] = 
+                    ["@rocket343"] =
                     {
                         [1] = "Best magblade PS4 EU\nCrusty Ice",
                     },
-                    ["@astraea360"] = 
+                    ["@astraea360"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@floridajj"] = 
+                    ["@floridajj"] =
                     {
                         [1] = "* 9-trait Master Crafter: 42+ styles. Please send detailed requests via email, incl style, trait etc (trait research pcs free). Purple enchants included free by request.\n* Experienced Healer, on-call for Trials, Pledges etc\n* Free guildmate Vampire bites",
                     },
-                    ["@Valdreth80"] = 
+                    ["@Valdreth80"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@B00mslang"] = 
+                    ["@B00mslang"] =
                     {
                         [1] = "Out of Town 11/26 - 12/1\n",
                     },
-                    ["@Mhyraaj"] = 
+                    ["@Mhyraaj"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@icybluemorn"] = 
+                    ["@icybluemorn"] =
                     {
                         [1] = "9 traits in all, send me a note if you need something for research (no charge)",
                     },
-                    ["@Flex241"] = 
+                    ["@Flex241"] =
                     {
                         [1] = "2018-08-21 zig: nokick through 2018-09-21\n",
                     },
-                    ["@AtmusMaximus"] = 
+                    ["@AtmusMaximus"] =
                     {
                         [1] = "I poke things and it makes them mad.\n",
                     },
-                    ["@Askeji"] = 
+                    ["@Askeji"] =
                     {
                         [1] = "2018-09-08 ulf: nokick through 2018-12-31",
                     },
-                    ["@Glacierwolf"] = 
+                    ["@Glacierwolf"] =
                     {
                         [1] = "Grand Master Crafter\n\n2018-07-28 zig: nokick through 2018-12-31\n",
                     },
-                    ["@ValoAven"] = 
+                    ["@ValoAven"] =
                     {
                         [1] = "9 trait crafter, all styles available.  Send me a mail with your request, the mats and my fee.  Whisper me first please.",
                     },
-                    ["@StarCarrier"] = 
+                    ["@StarCarrier"] =
                     {
                         [1] = "Ulf: evaluating activity, do not kick.",
                     },
-                    ["@hamrb"] = 
+                    ["@hamrb"] =
                     {
                         [1] = "|c00cc00GM — Sheogorath's Mortals|r",
                     },
-                    ["@ChieSatonaka"] = 
+                    ["@ChieSatonaka"] =
                     {
                         [1] = "Aldmeri Grotto",
                     },
-                    ["@Nytara"] = 
+                    ["@Nytara"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r\nThe Khajiit under the couch.",
                     },
-                    ["@Bountyhunterred92"] = 
+                    ["@Bountyhunterred92"] =
                     {
                         [1] = "How the F do I get down from here",
                     },
-                    ["@JazzyNapkin"] = 
+                    ["@JazzyNapkin"] =
                     {
                         [1] = "Cat mages are the best mages, that is all!!",
                     },
-                    ["@DuckFayth"] = 
+                    ["@DuckFayth"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@Clifton79"] = 
+                    ["@Clifton79"] =
                     {
                         [1] = "Master Crafter: All 9 Traits, Level 50 in All Tradeskills",
                     },
-                    ["@PhilotimoDK"] = 
+                    ["@PhilotimoDK"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@Ertosi"] = 
+                    ["@Ertosi"] =
                     {
                         [1] = "\n|t96:96:esoui/art/icons/crafting_smith_logo.dds|t|t96:96:esoui/art/icons/crafting_outfitter_logo.dds|t\r\n\r\n\r\n|c0062FF8-9 trait crafter|r \r\n\r\n|c099FFFAt primary residence:\r\nTransmute & crafting stations\r\nArmor Master (IC DLC) Wood station|r",
                     },
-                    ["@ScabbiaDelirium"] = 
+                    ["@ScabbiaDelirium"] =
                     {
                         [1] = "~Amy~\nOriginal ETC member\nPvP'er/Completionism Nerd/Hosuing Enthusiast\nStamgirl forever!\nBlood For The Pact!!!",
                     },
-                    ["@ValarMorghulis326"] = 
+                    ["@ValarMorghulis326"] =
                     {
                         [1] = "\n|t75:75:esoui/art/icons/poi/poi_darkbrotherhood_complete.dds|t\n\n\n|cFF0700Officer: ETC\nMember: ETU, Spicy\nGuildmaster: The Conquest of Tamriel|r\nPrimary has Transmute station and more",
                     },
-                    ["@mcva8321"] = 
+                    ["@mcva8321"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@flameborne"] = 
+                    ["@flameborne"] =
                     {
                         [1] = "|ca05ef7[Immunity]|r",
                     },
-                    ["@remember1409"] = 
+                    ["@remember1409"] =
                     {
                         [1] = "~ 9-trait Master Crafter:All styles. Email requests, incl lev, style, trait, upgrade. (trait research pieces free-please provide nirn 4 items) \n~ Master Furniture Crafter 600+ styles\n~Fishing? LF friend in incomplete zones",
                     },
-                    ["@IronFire246"] = 
+                    ["@IronFire246"] =
                     {
                         [1] = "\r2018-08-10 ulf: nokick through 2018-12-31",
                     },
-                    ["@Montigo667"] = 
+                    ["@Montigo667"] =
                     {
                         [1] = "Knows all motifs ",
                     },
                 },
                 ["saved_end_ts"] = 1536541200,
                 ["version"] = 5,
-                ["guild_rank"] = 
+                ["guild_rank"] =
                 {
-                    [1] = 
+                    [1] =
                     {
                         [1] = "Guildmaster",
                         [2] = "Guildmaster",
@@ -3074,7 +3074,7 @@ GuildSalesQuotaVars =
                     },
                 },
                 ["last_initialized"] = "9/9/2018 22:21:41",
-                ["guild_name"] = 
+                ["guild_name"] =
                 {
                     [1] = "Eastmarch Trade Company",
                     [2] = "Order of the Bear",
@@ -3082,4585 +3082,1898 @@ GuildSalesQuotaVars =
                     [4] = "Tamriels Praetorian Guard",
                 },
                 ["saved_begin_ts"] = 1535936400,
-                ["roster"] = 
+                ["roster"] =
                 {
-                    [2] = 
+                    [1] =
                     {
-                        ["@Rokushoh"] = 
+                        ["@Theoryofteso"] =
                         {
-                            ["first_seen_ts"] = 1535266800,
+                            ["first_seen_ts"] = 1536217200,
                         },
-                        ["@Furcula"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Scrox"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@skaterid23"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rivenger"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RageKillin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RippenDomes"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@UlfricStormcloak"] = 
-                        {
-                            ["first_seen_ts"] = 1503644400,
-                        },
-                        ["@DrewMain"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@oTremors"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@NordCarbon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Zode123"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Defeatist"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SamTheGinger"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@ElLocoBino"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bankwalker"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@taiyoukei"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ky_bele"] = 
-                        {
-                            ["first_seen_ts"] = 1503644400,
-                        },
-                        ["@rocket343"] = 
-                        {
-                            ["first_seen_ts"] = 1503644400,
-                        },
-                        ["@AtmusMaximus"] = 
-                        {
-                            ["first_seen_ts"] = 1511510400,
-                        },
-                        ["@vishyawesome"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tm.b"] = 
-                        {
-                            ["first_seen_ts"] = 1526194800,
-                        },
-                        ["@Svveets"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TatersTeam"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@B_ismyname"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@acorn.tree"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@EvocatusV"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rataroto"] = 
-                        {
-                            ["first_seen_ts"] = 1532070000,
-                        },
-                        ["@That'sFoxic"] = 
-                        {
-                            ["first_seen_ts"] = 1519977600,
-                        },
-                        ["@Bountyhunterred92"] = 
-                        {
-                            ["first_seen_ts"] = 1517904000,
-                        },
-                        ["@JazzyNapkin"] = 
+                        ["@JazzyNapkin"] =
                         {
                             ["first_seen_ts"] = 1534748400,
                         },
-                        ["@Irswat"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Eleizen"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Spacepanda159"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mortaur"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@keiaos"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jknight201"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Var'Mar"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Oreyn_Bearclaw"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@JTemp117"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ZenMage"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Laklet"] = 
+                        ["@IvnMrtnz"] =
                         {
                             ["first_seen_ts"] = 1503644400,
                         },
-                        ["@DartTrad"] = 
+                        ["@Raven_Spire"] =
                         {
-                            ["first_seen_ts"] = 1536469200,
+                            ["first_seen_ts"] = 1533279600,
                         },
-                        ["@WardogAce"] = 
+                        ["@sjdiesel"] =
                         {
-                            ["first_seen_ts"] = 1503644400,
+                            ["first_seen_ts"] = 1533970800,
                         },
-                        ["@RazielND"] = 
+                        ["@Capewarrior"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1534402800,
                         },
-                        ["@EgoSumLeviathan"] = 
+                        ["@AtmusMaximus"] =
                         {
-                            ["first_seen_ts"] = 1535007600,
+                            ["first_seen_ts"] = 1511510400,
                         },
-                        ["@Moltyr"] = 
+                        ["@minusxero"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1521270000,
                         },
-                        ["@tmbrinks"] = 
+                        ["@HoKoBo"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1524121200,
                         },
-                        ["@Redn3ck"] = 
+                        ["@Shabadooh"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1534834800,
                         },
-                        ["@b4dd3r"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Saediin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Whoflung"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sir-Squeaks"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mr_Sinister213"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LeagueTroll"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KnifeToFace"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rekease"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@dingod97"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RufusRox"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@thejewster"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Emrysinth"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@FelipeH92"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Rearden7"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Corpier"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@the_Meximan"] = 
-                        {
-                            ["first_seen_ts"] = 1522911600,
-                        },
-                        ["@MedievalMiss"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hecker777"] = 
+                        ["@Dawnreaper159"] =
                         {
                             ["first_seen_ts"] = 1503644400,
                         },
-                        ["@HohoChewi"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ETCAuctions"] = 
+                        ["@Fn20gi356"] =
                         {
                             ["first_seen_ts"] = 1503644400,
                         },
-                        ["@Gundwane"] = 
+                        ["@Dassya"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@Helios221"] =
+                        {
+                            ["first_seen_ts"] = 1525158000,
+                        },
+                        ["@Ezirith"] =
+                        {
+                            ["first_seen_ts"] = 1505026800,
+                        },
+                        ["@Sandmanninja"] =
+                        {
+                            ["first_seen_ts"] = 1525590000,
+                        },
+                        ["@Andycrapped"] =
+                        {
+                            ["first_seen_ts"] = 1535612400,
+                        },
+                        ["@dmiller0064"] =
+                        {
+                            ["first_seen_ts"] = 1535353200,
+                        },
+                        ["@roundhouseking"] =
+                        {
+                            ["first_seen_ts"] = 1530169200,
+                        },
+                        ["@Bountyhunterred92"] =
+                        {
+                            ["first_seen_ts"] = 1517904000,
+                        },
+                        ["@TheRetroPanda"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@armchairchamp"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@relativemass"] =
+                        {
+                            ["first_seen_ts"] = 1534921200,
+                        },
+                        ["@Chasseur125"] =
+                        {
+                            ["first_seen_ts"] = 1511510400,
+                        },
+                        ["@skquish"] =
+                        {
+                            ["first_seen_ts"] = 1535785200,
+                        },
+                        ["@Sinquuil"] =
+                        {
+                            ["first_seen_ts"] = 1535612400,
+                        },
+                        ["@ETCAuctions"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Gundwane"] =
                         {
                             ["first_seen_ts"] = 1510214400,
                         },
-                        ["@cyberbodhi"] = 
+                        ["@Piraja27"] =
+                        {
+                            ["first_seen_ts"] = 1505199600,
+                        },
+                        ["@Braintumor34"] =
+                        {
+                            ["first_seen_ts"] = 1535353200,
+                        },
+                        ["@Odyssian"] =
+                        {
+                            ["first_seen_ts"] = 1533538800,
+                        },
+                        ["@Vagrent"] =
+                        {
+                            ["first_seen_ts"] = 1533711600,
+                        },
+                        ["@MCG35"] =
                         {
                             ["first_seen_ts"] = 1503644400,
                         },
-                        ["@Matsu808"] = 
+                        ["@ForestQueen"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1533711600,
                         },
-                        ["@fire0"] = 
+                        ["@GenerationHate"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1503644400,
                         },
-                        ["@preyfar"] = 
+                        ["@ajkays"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1533538800,
                         },
-                        ["@Wobbu"] = 
+                        ["@Kozai"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1503644400,
                         },
-                        ["@Puzzle666"] = 
+                        ["@mcva8321"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1509174000,
                         },
-                        ["@Calysis"] = 
+                        ["@PsychoDellix"] =
+                        {
+                            ["first_seen_ts"] = 1523170800,
+                        },
+                        ["@Rpgmankiller"] =
+                        {
+                            ["first_seen_ts"] = 1533279600,
+                        },
+                        ["@megan53010"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Caliljr"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@RaynaZ"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@DeathtothePixies"] =
+                        {
+                            ["first_seen_ts"] = 1519891200,
+                        },
+                        ["@rtorlas"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@UlfricStormcloak"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@hamrb"] =
+                        {
+                            ["first_seen_ts"] = 1526972400,
+                        },
+                        ["@akahh"] =
+                        {
+                            ["first_seen_ts"] = 1535007600,
+                        },
+                        ["@Nevarb"] =
+                        {
+                            ["first_seen_ts"] = 1534402800,
+                        },
+                        ["@Ellivian"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Sharameth"] =
+                        {
+                            ["first_seen_ts"] = 1505199600,
+                        },
+                        ["@Salthazar001"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@ChieSatonaka"] =
+                        {
+                            ["first_seen_ts"] = 1508310000,
+                        },
+                        ["@Blearyspecs"] =
+                        {
+                            ["first_seen_ts"] = 1534748400,
+                        },
+                        ["@galaara98"] =
+                        {
+                            ["first_seen_ts"] = 1535612400,
+                        },
+                        ["@boney_mac"] =
+                        {
+                            ["first_seen_ts"] = 1534834800,
+                        },
+                        ["@aïmbursh2510"] =
+                        {
+                            ["first_seen_ts"] = 1509001200,
+                        },
+                        ["@Reien"] =
+                        {
+                            ["first_seen_ts"] = 1518249600,
+                        },
+                        ["@harvey07"] =
+                        {
+                            ["first_seen_ts"] = 1527577200,
+                        },
+                        ["@Taly'n"] =
+                        {
+                            ["first_seen_ts"] = 1523084400,
+                        },
+                        ["@Shadow_Rorrim"] =
+                        {
+                            ["first_seen_ts"] = 1507273200,
+                        },
+                        ["@SnowyDVM"] =
+                        {
+                            ["first_seen_ts"] = 1533106800,
+                        },
+                        ["@RiverRhyme"] =
+                        {
+                            ["first_seen_ts"] = 1535871600,
+                        },
+                        ["@Princess.Slaya"] =
+                        {
+                            ["first_seen_ts"] = 1510819200,
+                        },
+                        ["@CalystaNix"] =
+                        {
+                            ["first_seen_ts"] = 1516521600,
+                        },
+                        ["@RhadegastSage"] =
+                        {
+                            ["first_seen_ts"] = 1535526000,
+                        },
+                        ["@Smurfborn"] =
+                        {
+                            ["first_seen_ts"] = 1513756800,
+                        },
+                        ["@Hyde576"] =
+                        {
+                            ["first_seen_ts"] = 1533884400,
+                        },
+                        ["@Ygritte_snow"] =
+                        {
+                            ["first_seen_ts"] = 1528441200,
+                        },
+                        ["@GodOfHaan"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@KingRU5H"] =
+                        {
+                            ["first_seen_ts"] = 1535785200,
+                        },
+                        ["@Bekah1290"] =
+                        {
+                            ["first_seen_ts"] = 1533798000,
+                        },
+                        ["@Askeji"] =
+                        {
+                            ["first_seen_ts"] = 1536476400,
+                        },
+                        ["@mx11foxracing"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Yulumars"] =
+                        {
+                            ["first_seen_ts"] = 1535958000,
+                        },
+                        ["@Rasindrid"] =
+                        {
+                            ["first_seen_ts"] = 1531292400,
+                        },
+                        ["@tamaisn"] =
+                        {
+                            ["first_seen_ts"] = 1504594800,
+                        },
+                        ["@Regicidal93"] =
+                        {
+                            ["first_seen_ts"] = 1527750000,
+                        },
+                        ["@Erimm"] =
+                        {
+                            ["first_seen_ts"] = 1533798000,
+                        },
+                        ["@Montigo667"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@WyldFrostwych"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Voodoo35"] =
+                        {
+                            ["first_seen_ts"] = 1524207600,
+                        },
+                        ["@gwhizvols"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Megus"] =
+                        {
+                            ["first_seen_ts"] = 1534230000,
+                        },
+                        ["@panemd"] =
+                        {
+                            ["first_seen_ts"] = 1507532400,
+                        },
+                        ["@BearlyLegal"] =
+                        {
+                            ["first_seen_ts"] = 1535958000,
+                        },
+                        ["@Elredd"] =
+                        {
+                            ["first_seen_ts"] = 1505199600,
+                        },
+                        ["@vSaRav"] =
+                        {
+                            ["first_seen_ts"] = 1533711600,
+                        },
+                        ["@Valtyrai"] =
+                        {
+                            ["first_seen_ts"] = 1521097200,
+                        },
+                        ["@MistralApollon"] =
+                        {
+                            ["first_seen_ts"] = 1533625200,
+                        },
+                        ["@Bowsgt"] =
+                        {
+                            ["first_seen_ts"] = 1505199600,
+                        },
+                        ["@Bellastacia"] =
+                        {
+                            ["first_seen_ts"] = 1513929600,
+                        },
+                        ["@Demos426"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@BORIR"] =
+                        {
+                            ["first_seen_ts"] = 1516435200,
+                        },
+                        ["@admittedpluto43"] =
+                        {
+                            ["first_seen_ts"] = 1527836400,
+                        },
+                        ["@Monstah_ESO"] =
+                        {
+                            ["first_seen_ts"] = 1534230000,
+                        },
+                        ["@Vasteel2k"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@DoctorBuggsy"] =
+                        {
+                            ["first_seen_ts"] = 1535526000,
+                        },
+                        ["@esobannedmyname"] =
+                        {
+                            ["first_seen_ts"] = 1532156400,
+                        },
+                        ["@Tawais"] =
+                        {
+                            ["first_seen_ts"] = 1531119600,
+                        },
+                        ["@SAckOfSnakes"] =
+                        {
+                            ["first_seen_ts"] = 1535871600,
+                        },
+                        ["@Arilic-Aha"] =
+                        {
+                            ["first_seen_ts"] = 1531897200,
+                        },
+                        ["@Shinx26"] =
+                        {
+                            ["first_seen_ts"] = 1531638000,
+                        },
+                        ["@Sneakyelf"] =
+                        {
+                            ["first_seen_ts"] = 1528959600,
+                        },
+                        ["@seeker1"] =
+                        {
+                            ["first_seen_ts"] = 1516953600,
+                        },
+                        ["@rocket343"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Mhyraaj"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@FEARM0AR"] =
+                        {
+                            ["first_seen_ts"] = 1534575600,
+                        },
+                        ["@goldneye"] =
+                        {
+                            ["first_seen_ts"] = 1509868800,
+                        },
+                        ["@KittenofDooom"] =
+                        {
+                            ["first_seen_ts"] = 1532761200,
+                        },
+                        ["@Trunkage"] =
+                        {
+                            ["first_seen_ts"] = 1509174000,
+                        },
+                        ["@chanik"] =
+                        {
+                            ["first_seen_ts"] = 1528441200,
+                        },
+                        ["@SmellsLikeKimchi"] =
+                        {
+                            ["first_seen_ts"] = 1525330800,
+                        },
+                        ["@skrim5996"] =
+                        {
+                            ["first_seen_ts"] = 1525330800,
+                        },
+                        ["@Mauxe42"] =
+                        {
+                            ["first_seen_ts"] = 1533106800,
+                        },
+                        ["@Webmercenary"] =
+                        {
+                            ["first_seen_ts"] = 1534402800,
+                        },
+                        ["@wolkzbr"] =
+                        {
+                            ["first_seen_ts"] = 1532329200,
+                        },
+                        ["@Rajun_Cajun"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@cyberbodhi"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@bottlecaps87"] =
+                        {
+                            ["first_seen_ts"] = 1530342000,
+                        },
+                        ["@CorvusVinum"] =
+                        {
+                            ["first_seen_ts"] = 1531897200,
+                        },
+                        ["@Vikingsteel"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@meiakov"] =
+                        {
+                            ["first_seen_ts"] = 1505545200,
+                        },
+                        ["@Marque15"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@ESO_LPH"] =
+                        {
+                            ["first_seen_ts"] = 1509001200,
+                        },
+                        ["@nimnifnof"] =
+                        {
+                            ["first_seen_ts"] = 1517904000,
+                        },
+                        ["@ObsidianScythe"] =
+                        {
+                            ["first_seen_ts"] = 1535785200,
+                        },
+                        ["@WinnaMae"] =
+                        {
+                            ["first_seen_ts"] = 1517904000,
+                        },
+                        ["@StarCarrier"] =
+                        {
+                            ["first_seen_ts"] = 1511510400,
+                        },
+                        ["@Theredguy"] =
+                        {
+                            ["first_seen_ts"] = 1536044400,
+                        },
+                        ["@DartTrad"] =
+                        {
+                            ["first_seen_ts"] = 1534662000,
+                        },
+                        ["@focusdlocus"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@Cheevis"] =
+                        {
+                            ["first_seen_ts"] = 1505199600,
+                        },
+                        ["@ziggr"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Dominator1994"] =
+                        {
+                            ["first_seen_ts"] = 1534143600,
+                        },
+                        ["@Ertosi"] =
+                        {
+                            ["first_seen_ts"] = 1533798000,
+                        },
+                        ["@LorienDres"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@smitty007007"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Kumba'Ya"] =
+                        {
+                            ["first_seen_ts"] = 1533970800,
+                        },
+                        ["@Modonal2"] =
+                        {
+                            ["first_seen_ts"] = 1509868800,
+                        },
+                        ["@DearLady"] =
+                        {
+                            ["first_seen_ts"] = 1512720000,
+                        },
+                        ["@baronzilch"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Finschly"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@pete62"] =
+                        {
+                            ["first_seen_ts"] = 1522479600,
+                        },
+                        ["@floridajj"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@stammage"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Asynchritus"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@VexedForest"] =
+                        {
+                            ["first_seen_ts"] = 1532588400,
+                        },
+                        ["@nankeenheron"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Calogerous"] =
+                        {
+                            ["first_seen_ts"] = 1506063600,
+                        },
+                        ["@Gowlin"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@oatie"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@SHAD0WSCALE"] =
+                        {
+                            ["first_seen_ts"] = 1512028800,
+                        },
+                        ["@WardogAce"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Muddverse"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@LyleSecond"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@scl17"] =
+                        {
+                            ["first_seen_ts"] = 1517212800,
+                        },
+                        ["@Wyrd_One"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@TheCricket"] =
+                        {
+                            ["first_seen_ts"] = 1514016000,
+                        },
+                        ["@BioKem"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Obsidian3"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@MoonlightIllusionist"] =
+                        {
+                            ["first_seen_ts"] = 1516608000,
+                        },
+                        ["@jbernasconif"] =
+                        {
+                            ["first_seen_ts"] = 1535526000,
+                        },
+                        ["@Feroq"] =
+                        {
+                            ["first_seen_ts"] = 1505890800,
+                        },
+                        ["@Monibee"] =
+                        {
+                            ["first_seen_ts"] = 1505545200,
+                        },
+                        ["@Feral_Impulse"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Moliorreo"] =
+                        {
+                            ["first_seen_ts"] = 1534575600,
+                        },
+                        ["@DjHans"] =
+                        {
+                            ["first_seen_ts"] = 1508655600,
+                        },
+                        ["@Rhodeme"] =
+                        {
+                            ["first_seen_ts"] = 1535958000,
+                        },
+                        ["@ihavethepowerr"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@noobgass"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@Karysmatic"] =
+                        {
+                            ["first_seen_ts"] = 1533279600,
+                        },
+                        ["@Trav2016"] =
+                        {
+                            ["first_seen_ts"] = 1534230000,
+                        },
+                        ["@Cucomannn"] =
+                        {
+                            ["first_seen_ts"] = 1534834800,
+                        },
+                        ["@Andrezs"] =
+                        {
+                            ["first_seen_ts"] = 1535698800,
+                        },
+                        ["@Valdreth80"] =
+                        {
+                            ["first_seen_ts"] = 1523948400,
+                        },
+                        ["@razzlemydazzle"] =
+                        {
+                            ["first_seen_ts"] = 1507446000,
+                        },
+                        ["@remember1409"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@EtherealShade"] =
+                        {
+                            ["first_seen_ts"] = 1516521600,
+                        },
+                        ["@blatant3"] =
+                        {
+                            ["first_seen_ts"] = 1505458800,
+                        },
+                        ["@LovelyNorth"] =
+                        {
+                            ["first_seen_ts"] = 1510041600,
+                        },
+                        ["@Chonahrik"] =
+                        {
+                            ["first_seen_ts"] = 1532415600,
+                        },
+                        ["@Dreamyblues"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@DarkWaffleLord"] =
+                        {
+                            ["first_seen_ts"] = 1534402800,
+                        },
+                        ["@The_Outsider"] =
+                        {
+                            ["first_seen_ts"] = 1523430000,
+                        },
+                        ["@agentauron7"] =
+                        {
+                            ["first_seen_ts"] = 1534834800,
+                        },
+                        ["@Cpt.Stern"] =
+                        {
+                            ["first_seen_ts"] = 1516694400,
+                        },
+                        ["@Strombony"] =
+                        {
+                            ["first_seen_ts"] = 1516953600,
+                        },
+                        ["@livingdeadguy"] =
+                        {
+                            ["first_seen_ts"] = 1518163200,
+                        },
+                        ["@icybluemorn"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@therrieur"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@HouseOfUlltor"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@PaladinStroud"] =
+                        {
+                            ["first_seen_ts"] = 1536044400,
+                        },
+                        ["@Turn13"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Tarindis"] =
+                        {
+                            ["first_seen_ts"] = 1530169200,
+                        },
+                        ["@TheAloofSikario"] =
+                        {
+                            ["first_seen_ts"] = 1536044400,
+                        },
+                        ["@ShadowfireX"] =
+                        {
+                            ["first_seen_ts"] = 1533538800,
+                        },
+                        ["@MCTyrant1"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Madnezz261294"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Moyria"] =
+                        {
+                            ["first_seen_ts"] = 1533193200,
+                        },
+                        ["@MrPilunga"] =
+                        {
+                            ["first_seen_ts"] = 1535266800,
+                        },
+                        ["@tauriel01"] =
+                        {
+                            ["first_seen_ts"] = 1528527600,
+                        },
+                        ["@majulook"] =
+                        {
+                            ["first_seen_ts"] = 1504508400,
+                        },
+                        ["@dizzyjen"] =
+                        {
+                            ["first_seen_ts"] = 1516953600,
+                        },
+                        ["@Teragord"] =
+                        {
+                            ["first_seen_ts"] = 1533884400,
+                        },
+                        ["@MinuitPro"] =
+                        {
+                            ["first_seen_ts"] = 1522738800,
+                        },
+                        ["@Sophocles718"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@DuckFayth"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Servadei"] =
+                        {
+                            ["first_seen_ts"] = 1530514800,
+                        },
+                        ["@Nilonka"] =
+                        {
+                            ["first_seen_ts"] = 1536476400,
+                        },
+                        ["@astraea360"] =
+                        {
+                            ["first_seen_ts"] = 1519632000,
+                        },
+                        ["@arfeiniel88"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@isababa12"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@Synarah"] =
+                        {
+                            ["first_seen_ts"] = 1509433200,
+                        },
+                        ["@Neroine"] =
+                        {
+                            ["first_seen_ts"] = 1536476400,
+                        },
+                        ["@Jha1st"] =
+                        {
+                            ["first_seen_ts"] = 1519113600,
+                        },
+                        ["@Krymon"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Diacynth"] =
+                        {
+                            ["first_seen_ts"] = 1532415600,
+                        },
+                        ["@fgadd03"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Glacierwolf"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@RioterOtsego"] =
+                        {
+                            ["first_seen_ts"] = 1506150000,
+                        },
+                        ["@WhisperLFE"] =
+                        {
+                            ["first_seen_ts"] = 1509174000,
+                        },
+                        ["@EternalMaelstrum"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@G0db4n"] =
+                        {
+                            ["first_seen_ts"] = 1509174000,
+                        },
+                        ["@mdb1"] =
+                        {
+                            ["first_seen_ts"] = 1525158000,
+                        },
+                        ["@tsuensiu"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@Lunchbreak"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Dannukesem"] =
+                        {
+                            ["first_seen_ts"] = 1523862000,
+                        },
+                        ["@Takilya70"] =
+                        {
+                            ["first_seen_ts"] = 1532847600,
+                        },
+                        ["@Sumo_Splash"] =
+                        {
+                            ["first_seen_ts"] = 1527145200,
+                        },
+                        ["@the_Meximan"] =
+                        {
+                            ["first_seen_ts"] = 1522911600,
+                        },
+                        ["@BladeRnr"] =
+                        {
+                            ["first_seen_ts"] = 1508137200,
+                        },
+                        ["@uscss.covenant"] =
+                        {
+                            ["first_seen_ts"] = 1536303600,
+                        },
+                        ["@Charja"] =
+                        {
+                            ["first_seen_ts"] = 1534748400,
+                        },
+                        ["@Em1ly"] =
+                        {
+                            ["first_seen_ts"] = 1534748400,
+                        },
+                        ["@nuclearfeatherduster"] =
+                        {
+                            ["first_seen_ts"] = 1531378800,
+                        },
+                        ["@Ronicent"] =
+                        {
+                            ["first_seen_ts"] = 1536390000,
+                        },
+                        ["@Nhudri"] =
+                        {
+                            ["first_seen_ts"] = 1533798000,
+                        },
+                        ["@Dr4kcO"] =
+                        {
+                            ["first_seen_ts"] = 1532674800,
+                        },
+                        ["@Danielthered6"] =
+                        {
+                            ["first_seen_ts"] = 1533625200,
+                        },
+                        ["@ValarMorghulis326"] =
+                        {
+                            ["first_seen_ts"] = 1519286400,
+                        },
+                        ["@magaoidh"] =
+                        {
+                            ["first_seen_ts"] = 1533538800,
+                        },
+                        ["@Frazier1307"] =
+                        {
+                            ["first_seen_ts"] = 1529305200,
+                        },
+                        ["@RogueAckerman"] =
+                        {
+                            ["first_seen_ts"] = 1527577200,
+                        },
+                        ["@jurassicpikeld"] =
+                        {
+                            ["first_seen_ts"] = 1522825200,
+                        },
+                        ["@Robert_Skyrunner"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@TNTMan107"] =
+                        {
+                            ["first_seen_ts"] = 1534662000,
+                        },
+                        ["@AlexTheBrave"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@midnight_tea"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Wanda-Venabili"] =
+                        {
+                            ["first_seen_ts"] = 1531638000,
+                        },
+                        ["@Simba01"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Bolder63"] =
+                        {
+                            ["first_seen_ts"] = 1526022000,
+                        },
+                        ["@AtreyoVitorixPrime"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Llysara"] =
+                        {
+                            ["first_seen_ts"] = 1510041600,
+                        },
+                        ["@Bargonauts"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@twilde"] =
+                        {
+                            ["first_seen_ts"] = 1535871600,
+                        },
+                        ["@TarD_CorE"] =
+                        {
+                            ["first_seen_ts"] = 1536390000,
+                        },
+                        ["@Architecture"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Torrielynn"] =
+                        {
+                            ["first_seen_ts"] = 1522134000,
+                        },
+                        ["@GroveStreet4life"] =
+                        {
+                            ["first_seen_ts"] = 1534316400,
+                        },
+                        ["@Flex241"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@KathyVampireSlayer"] =
+                        {
+                            ["first_seen_ts"] = 1513929600,
+                        },
+                        ["@stoneyattorney"] =
+                        {
+                            ["first_seen_ts"] = 1506582000,
+                        },
+                        ["@Distromnia666"] =
+                        {
+                            ["first_seen_ts"] = 1534834800,
+                        },
+                        ["@Aulderyn"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@AlphaCentari"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Argsthief"] =
+                        {
+                            ["first_seen_ts"] = 1508655600,
+                        },
+                        ["@shikendesign"] =
+                        {
+                            ["first_seen_ts"] = 1535785200,
+                        },
+                        ["@bustachops"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@Reksikana"] =
+                        {
+                            ["first_seen_ts"] = 1533970800,
+                        },
+                        ["@Ablaz03"] =
+                        {
+                            ["first_seen_ts"] = 1531119600,
+                        },
+                        ["@dilky"] =
+                        {
+                            ["first_seen_ts"] = 1530082800,
+                        },
+                        ["@Lilta"] =
+                        {
+                            ["first_seen_ts"] = 1517299200,
+                        },
+                        ["@Calysis"] =
                         {
                             ["first_seen_ts"] = 1519718400,
                         },
-                        ["@Auroan"] = 
+                        ["@Bitter-Willow"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1505199600,
                         },
-                        ["@Fn20gi356"] = 
+                        ["@tmacs65"] =
+                        {
+                            ["first_seen_ts"] = 1534575600,
+                        },
+                        ["@Collinell"] =
+                        {
+                            ["first_seen_ts"] = 1535871600,
+                        },
+                        ["@Sureena"] =
+                        {
+                            ["first_seen_ts"] = 1508396400,
+                        },
+                        ["@jypcy"] =
+                        {
+                            ["first_seen_ts"] = 1527145200,
+                        },
+                        ["@Vox_9000"] =
+                        {
+                            ["first_seen_ts"] = 1531983600,
+                        },
+                        ["@daveh57"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@Nytara"] =
                         {
                             ["first_seen_ts"] = 1503644400,
                         },
-                        ["@Jhoira524"] = 
+                        ["@Rene1234"] =
                         {
-                            ["first_seen_ts"] = 1535950800,
+                            ["first_seen_ts"] = 1535698800,
+                        },
+                        ["@Horcruxhannah"] =
+                        {
+                            ["first_seen_ts"] = 1533538800,
+                        },
+                        ["@Haku0404"] =
+                        {
+                            ["first_seen_ts"] = 1531378800,
+                        },
+                        ["@Hal-Moore"] =
+                        {
+                            ["first_seen_ts"] = 1533884400,
+                        },
+                        ["@Timmachine"] =
+                        {
+                            ["first_seen_ts"] = 1536130800,
+                        },
+                        ["@TheFrozenThrone"] =
+                        {
+                            ["first_seen_ts"] = 1532329200,
+                        },
+                        ["@mApplinator"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@birdeye"] =
+                        {
+                            ["first_seen_ts"] = 1535526000,
+                        },
+                        ["@Gamakatsu"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@flameborne"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Raylas"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@PhilotimoDK"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Andy_Shadow"] =
+                        {
+                            ["first_seen_ts"] = 1523516400,
+                        },
+                        ["@DaBeastMike"] =
+                        {
+                            ["first_seen_ts"] = 1535612400,
+                        },
+                        ["@Furydon"] =
+                        {
+                            ["first_seen_ts"] = 1534921200,
+                        },
+                        ["@Kaladef"] =
+                        {
+                            ["first_seen_ts"] = 1515916800,
+                        },
+                        ["@WoollyBear"] =
+                        {
+                            ["first_seen_ts"] = 1505631600,
+                        },
+                        ["@Alom"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Vertux"] =
+                        {
+                            ["first_seen_ts"] = 1525590000,
+                        },
+                        ["@Supeoples"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Jademboss"] =
+                        {
+                            ["first_seen_ts"] = 1536476400,
+                        },
+                        ["@Vidmaximus"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Kereline"] =
+                        {
+                            ["first_seen_ts"] = 1533711600,
+                        },
+                        ["@WardenOfBalance"] =
+                        {
+                            ["first_seen_ts"] = 1535180400,
+                        },
+                        ["@DUDEWTFBRO"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@Issabel"] =
+                        {
+                            ["first_seen_ts"] = 1534834800,
+                        },
+                        ["@auxioruben"] =
+                        {
+                            ["first_seen_ts"] = 1533970800,
+                        },
+                        ["@RosenHaald"] =
+                        {
+                            ["first_seen_ts"] = 1510646400,
+                        },
+                        ["@Mudguard"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@simcool"] =
+                        {
+                            ["first_seen_ts"] = 1511078400,
+                        },
+                        ["@ObouldDesFleches"] =
+                        {
+                            ["first_seen_ts"] = 1508396400,
+                        },
+                        ["@ZeroDarkThir-T"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@IronFire246"] =
+                        {
+                            ["first_seen_ts"] = 1522047600,
+                        },
+                        ["@PlayaShen"] =
+                        {
+                            ["first_seen_ts"] = 1533193200,
+                        },
+                        ["@Hibiki54"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@lepipinho"] =
+                        {
+                            ["first_seen_ts"] = 1535266800,
+                        },
+                        ["@KittAngel"] =
+                        {
+                            ["first_seen_ts"] = 1531292400,
+                        },
+                        ["@Schester"] =
+                        {
+                            ["first_seen_ts"] = 1504249200,
+                        },
+                        ["@fatpotter"] =
+                        {
+                            ["first_seen_ts"] = 1534143600,
+                        },
+                        ["@Deuce0525"] =
+                        {
+                            ["first_seen_ts"] = 1534143600,
+                        },
+                        ["@Bird_Brain"] =
+                        {
+                            ["first_seen_ts"] = 1533711600,
+                        },
+                        ["@Mircalla1803"] =
+                        {
+                            ["first_seen_ts"] = 1505113200,
+                        },
+                        ["@cyberN"] =
+                        {
+                            ["first_seen_ts"] = 1528268400,
+                        },
+                        ["@TUZI01"] =
+                        {
+                            ["first_seen_ts"] = 1532761200,
+                        },
+                        ["@MrBasa"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Drpery"] =
+                        {
+                            ["first_seen_ts"] = 1529996400,
+                        },
+                        ["@Bloodymess1985"] =
+                        {
+                            ["first_seen_ts"] = 1529823600,
+                        },
+                        ["@Nosferratuzod"] =
+                        {
+                            ["first_seen_ts"] = 1519459200,
+                        },
+                        ["@Fudly_Doright"] =
+                        {
+                            ["first_seen_ts"] = 1534402800,
+                        },
+                        ["@DJ-ESO84"] =
+                        {
+                            ["first_seen_ts"] = 1510387200,
+                        },
+                        ["@Solgone"] =
+                        {
+                            ["first_seen_ts"] = 1534402800,
+                        },
+                        ["@cbgates3"] =
+                        {
+                            ["first_seen_ts"] = 1531033200,
+                        },
+                        ["@Bonez91"] =
+                        {
+                            ["first_seen_ts"] = 1535526000,
+                        },
+                        ["@wartitansimon"] =
+                        {
+                            ["first_seen_ts"] = 1534316400,
+                        },
+                        ["@Sir-Gibbs"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@dot_hackza"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@GloboRojo"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Draconis_Prime"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@str8lit916"] =
+                        {
+                            ["first_seen_ts"] = 1535353200,
+                        },
+                        ["@ZahnwehZombie"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@Mayorbee78"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@BurningGinger"] =
+                        {
+                            ["first_seen_ts"] = 1535958000,
+                        },
+                        ["@seattlethunder"] =
+                        {
+                            ["first_seen_ts"] = 1531292400,
+                        },
+                        ["@Kvin18"] =
+                        {
+                            ["first_seen_ts"] = 1530946800,
+                        },
+                        ["@CheiftanSTAR"] =
+                        {
+                            ["first_seen_ts"] = 1534230000,
+                        },
+                        ["@Moondragon13"] =
+                        {
+                            ["first_seen_ts"] = 1524380400,
+                        },
+                        ["@Slicksteezin"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@R1pcord"] =
+                        {
+                            ["first_seen_ts"] = 1534921200,
+                        },
+                        ["@brnjenkn"] =
+                        {
+                            ["first_seen_ts"] = 1514016000,
+                        },
+                        ["@SilverLion92"] =
+                        {
+                            ["first_seen_ts"] = 1527750000,
+                        },
+                        ["@Ezile"] =
+                        {
+                            ["first_seen_ts"] = 1534748400,
+                        },
+                        ["@Howard0982"] =
+                        {
+                            ["first_seen_ts"] = 1533970800,
+                        },
+                        ["@rush1776"] =
+                        {
+                            ["first_seen_ts"] = 1534662000,
+                        },
+                        ["@Rokushoh"] =
+                        {
+                            ["first_seen_ts"] = 1535266800,
+                        },
+                        ["@Zizo-RIP"] =
+                        {
+                            ["first_seen_ts"] = 1517904000,
+                        },
+                        ["@FrznEternity"] =
+                        {
+                            ["first_seen_ts"] = 1531983600,
+                        },
+                        ["@Kellie68"] =
+                        {
+                            ["first_seen_ts"] = 1508655600,
+                        },
+                        ["@AdmiralCrunch"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@SaviorSpherioth"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Smitty2701"] =
+                        {
+                            ["first_seen_ts"] = 1535526000,
+                        },
+                        ["@ScabbiaDelirium"] =
+                        {
+                            ["first_seen_ts"] = 1527058800,
+                        },
+                        ["@MorriganOfTheWilds"] =
+                        {
+                            ["first_seen_ts"] = 1534402800,
+                        },
+                        ["@jameson314"] =
+                        {
+                            ["first_seen_ts"] = 1523084400,
+                        },
+                        ["@Conduit0"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@kirasdream13"] =
+                        {
+                            ["first_seen_ts"] = 1508137200,
+                        },
+                        ["@ArterionAU"] =
+                        {
+                            ["first_seen_ts"] = 1536476400,
+                        },
+                        ["@Brad.Oberueng"] =
+                        {
+                            ["first_seen_ts"] = 1522134000,
+                        },
+                        ["@DarkJimCarter"] =
+                        {
+                            ["first_seen_ts"] = 1512806400,
+                        },
+                        ["@hiptobebaio"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@M3GAV3GA"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@Clifton79"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Merrien"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Storm-Slash"] =
+                        {
+                            ["first_seen_ts"] = 1519372800,
+                        },
+                        ["@Mr.Jimbo"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@RoodyPooUS1"] =
+                        {
+                            ["first_seen_ts"] = 1532156400,
+                        },
+                        ["@UncleSheo's2ndFave"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Mhalice"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@IconOfGrace"] =
+                        {
+                            ["first_seen_ts"] = 1524553200,
+                        },
+                        ["@Darthbane160"] =
+                        {
+                            ["first_seen_ts"] = 1536044400,
+                        },
+                        ["@Wicked_Mae"] =
+                        {
+                            ["first_seen_ts"] = 1529305200,
+                        },
+                        ["@EchoSera"] =
+                        {
+                            ["first_seen_ts"] = 1535785200,
+                        },
+                        ["@Tramadar"] =
+                        {
+                            ["first_seen_ts"] = 1530946800,
+                        },
+                        ["@Byankonenta"] =
+                        {
+                            ["first_seen_ts"] = 1527231600,
+                        },
+                        ["@Chronarchist"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@RindyStar"] =
+                        {
+                            ["first_seen_ts"] = 1512460800,
+                        },
+                        ["@Priznaniye"] =
+                        {
+                            ["first_seen_ts"] = 1532674800,
+                        },
+                        ["@Dantte01"] =
+                        {
+                            ["first_seen_ts"] = 1511856000,
+                        },
+                        ["@Modonal"] =
+                        {
+                            ["first_seen_ts"] = 1509868800,
+                        },
+                        ["@Balthalus"] =
+                        {
+                            ["first_seen_ts"] = 1534057200,
+                        },
+                        ["@joyfulness2"] =
+                        {
+                            ["first_seen_ts"] = 1530428400,
+                        },
+                        ["@criminally1nsane"] =
+                        {
+                            ["first_seen_ts"] = 1529218800,
+                        },
+                        ["@Caboose7"] =
+                        {
+                            ["first_seen_ts"] = 1534748400,
+                        },
+                        ["@Memody"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Firegrill"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@titaniumxx"] =
+                        {
+                            ["first_seen_ts"] = 1516953600,
+                        },
+                        ["@MilkRaven"] =
+                        {
+                            ["first_seen_ts"] = 1517212800,
+                        },
+                        ["@Morelian"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@B00mslang"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@UndeadKuba"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Zeelios"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@InvaderAlan"] =
+                        {
+                            ["first_seen_ts"] = 1535353200,
+                        },
+                        ["@savagecandy"] =
+                        {
+                            ["first_seen_ts"] = 1505718000,
+                        },
+                        ["@Luthik"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@TWITCHTV-MESPLEY"] =
+                        {
+                            ["first_seen_ts"] = 1512460800,
+                        },
+                        ["@OdoDeBarri"] =
+                        {
+                            ["first_seen_ts"] = 1528095600,
+                        },
+                        ["@tm.b"] =
+                        {
+                            ["first_seen_ts"] = 1526194800,
+                        },
+                        ["@Phuulio"] =
+                        {
+                            ["first_seen_ts"] = 1506841200,
+                        },
+                        ["@drummindrummer"] =
+                        {
+                            ["first_seen_ts"] = 1523170800,
+                        },
+                        ["@moushen"] =
+                        {
+                            ["first_seen_ts"] = 1532415600,
+                        },
+                        ["@MoonPile"] =
+                        {
+                            ["first_seen_ts"] = 1531378800,
+                        },
+                        ["@HomerHunter"] =
+                        {
+                            ["first_seen_ts"] = 1531378800,
+                        },
+                        ["@AllOfMyNope"] =
+                        {
+                            ["first_seen_ts"] = 1534230000,
+                        },
+                        ["@BearMaidenSif"] =
+                        {
+                            ["first_seen_ts"] = 1514448000,
+                        },
+                        ["@CapnArrrgyle"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@abysslool"] =
+                        {
+                            ["first_seen_ts"] = 1535612400,
+                        },
+                        ["@Blast1001"] =
+                        {
+                            ["first_seen_ts"] = 1528527600,
+                        },
+                        ["@plzbuffsorcerer"] =
+                        {
+                            ["first_seen_ts"] = 1511769600,
+                        },
+                        ["@MauCanto"] =
+                        {
+                            ["first_seen_ts"] = 1535353200,
+                        },
+                        ["@el_dunkachino"] =
+                        {
+                            ["first_seen_ts"] = 1535526000,
+                        },
+                        ["@RockGuitar"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@dreamfarer"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@PheniXion"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@Diabela"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@Obtained"] =
+                        {
+                            ["first_seen_ts"] = 1536217200,
+                        },
+                        ["@Alantarx"] =
+                        {
+                            ["first_seen_ts"] = 1505199600,
+                        },
+                        ["@elderscrollsplayer01"] =
+                        {
+                            ["first_seen_ts"] = 1535698800,
+                        },
+                        ["@Winsum"] =
+                        {
+                            ["first_seen_ts"] = 1535526000,
+                        },
+                        ["@Eart"] =
+                        {
+                            ["first_seen_ts"] = 1532502000,
+                        },
+                        ["@nzkysms"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Turbo-charged"] =
+                        {
+                            ["first_seen_ts"] = 1521702000,
+                        },
+                        ["@V3N_99"] =
+                        {
+                            ["first_seen_ts"] = 1519200000,
+                        },
+                        ["@Sallyaly"] =
+                        {
+                            ["first_seen_ts"] = 1518249600,
+                        },
+                        ["@Flexble-Calligrepher"] =
+                        {
+                            ["first_seen_ts"] = 1535612400,
+                        },
+                        ["@Reckless_Troll"] =
+                        {
+                            ["first_seen_ts"] = 1507186800,
+                        },
+                        ["@Calladin"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@ElizabethInAustin"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@That'sFoxic"] =
+                        {
+                            ["first_seen_ts"] = 1519977600,
+                        },
+                        ["@ValoAven"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Erbeat"] =
+                        {
+                            ["first_seen_ts"] = 1531292400,
+                        },
+                        ["@SouthRain"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@TRiNiTY_PMS"] =
+                        {
+                            ["first_seen_ts"] = 1522306800,
+                        },
+                        ["@JasonWaterfalls"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Lord_Giesey"] =
+                        {
+                            ["first_seen_ts"] = 1531378800,
+                        },
+                        ["@Shay-Shay17"] =
+                        {
+                            ["first_seen_ts"] = 1529564400,
+                        },
+                        ["@rudai123"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Scup"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Heronne"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Ixhealsxl"] =
+                        {
+                            ["first_seen_ts"] = 1533711600,
+                        },
+                        ["@Hecker777"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Vitkirunar"] =
+                        {
+                            ["first_seen_ts"] = 1531378800,
+                        },
+                        ["@x4livin"] =
+                        {
+                            ["first_seen_ts"] = 1535439600,
+                        },
+                        ["@Tsirk"] =
+                        {
+                            ["first_seen_ts"] = 1517040000,
+                        },
+                        ["@Atlas-Lion"] =
+                        {
+                            ["first_seen_ts"] = 1533884400,
+                        },
+                        ["@Boulder_Dash"] =
+                        {
+                            ["first_seen_ts"] = 1505113200,
+                        },
+                        ["@Laklet"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Silvana1223"] =
+                        {
+                            ["first_seen_ts"] = 1510473600,
+                        },
+                        ["@DeHauk"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Slatineg"] =
+                        {
+                            ["first_seen_ts"] = 1536044400,
+                        },
+                        ["@Vorpaldragon"] =
+                        {
+                            ["first_seen_ts"] = 1535094000,
+                        },
+                        ["@Ky_bele"] =
+                        {
+                            ["first_seen_ts"] = 1503644400,
+                        },
+                        ["@Maia356"] =
+                        {
+                            ["first_seen_ts"] = 1528614000,
+                        },
+                        ["@b-5"] =
+                        {
+                            ["first_seen_ts"] = 1536217200,
+                        },
+                        ["@Auri-Elle"] =
+                        {
+                            ["first_seen_ts"] = 1531292400,
+                        },
+                        ["@EgoSumLeviathan"] =
+                        {
+                            ["first_seen_ts"] = 1535007600,
                         },
                     },
                     ["last_scan_ts"] = 1536469200,
                 },
             },
         },
-        ["@ETCAuctions"] = 
+        ["@ETCAuctions"] =
         {
-            ["$AccountWide"] = 
+            ["$AccountWide"] =
             {
-                ["user_records"] = 
+                ["user_records"] =
                 {
                 },
                 ["mm_date_index"] = 4,
                 ["version"] = 5,
                 ["last_initialized"] = "9/9/2018 00:59:03",
-                ["roster"] = 
-                {
-                    [1] = 
-                    {
-                        ["@RaynaZ"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mircalla1803"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Silvana1223"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bekah1290"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Feral_Impulse"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DeHauk"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Eart"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@dot_hackza"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@cyberbodhi"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Obtained"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@SHAD0WSCALE"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BioKem"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@focusdlocus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@PheniXion"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Kvin18"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hecker777"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@birdeye"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DarkJimCarter"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vertux"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Caboose7"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@scl17"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@icybluemorn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SouthRain"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@CapnArrrgyle"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@x4livin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Merrien"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ChieSatonaka"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bitter-Willow"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Regicidal93"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tauriel01"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DearLady"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ihavethepowerr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AlphaCentari"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hyde576"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Chronarchist"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Jademboss"] = 
-                        {
-                            ["first_seen_ts"] = 1536469200,
-                        },
-                        ["@drummindrummer"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Odyssian"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Priznaniye"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@CorvusVinum"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Erbeat"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@esobannedmyname"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Diacynth"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@b-5"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@RosenHaald"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Em1ly"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Theredguy"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Wicked_Mae"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dr4kcO"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@cbgates3"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ElizabethInAustin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KittenofDooom"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Krymon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@GloboRojo"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Modonal"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@gwhizvols"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MoonPile"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ellivian"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Capewarrior"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@livingdeadguy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@PlayaShen"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Andy_Shadow"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tmacs65"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ForestQueen"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ValoAven"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Morelian"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TheCricket"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DjHans"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Nytara"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@nimnifnof"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Nosferratuzod"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tamaisn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@lepipinho"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@PhilotimoDK"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sharameth"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@M3GAV3GA"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ValarMorghulis326"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Danielthered6"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@flameborne"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LyleSecond"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Llysara"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@baronzilch"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Strombony"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TheAloofSikario"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Asynchritus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Schester"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@JasonWaterfalls"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@mdb1"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@FrznEternity"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@EchoSera"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@GroveStreet4life"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bowsgt"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vasteel2k"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Yulumars"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ablaz03"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mhyraaj"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@HomerHunter"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@bustachops"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hibiki54"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Cheevis"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Elredd"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ronicent"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Lilta"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@remember1409"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@EternalMaelstrum"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@The_Outsider"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KathyVampireSlayer"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mauxe42"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Shinx26"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sureena"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Distromnia666"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ObouldDesFleches"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vorpaldragon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sophocles718"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@UndeadKuba"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Modonal2"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@nuclearfeatherduster"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@rocket343"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TheRetroPanda"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@floridajj"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@vSaRav"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MoonlightIllusionist"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Wyrd_One"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Lord_Giesey"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Scup"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@megan53010"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Valtyrai"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@dreamfarer"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RiverRhyme"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Theoryofteso"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@AllOfMyNope"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@That'sFoxic"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dreamyblues"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Cpt.Stern"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TNTMan107"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@oatie"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@WinnaMae"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@twilde"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Drpery"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Zeelios"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DJ-ESO84"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Piraja27"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jurassicpikeld"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@rush1776"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RoodyPooUS1"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@GodOfHaan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ZeroDarkThir-T"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@InvaderAlan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Monibee"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@minusxero"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Trunkage"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Jha1st"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vikingsteel"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MrPilunga"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@PaladinStroud"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Haku0404"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Braintumor34"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Robert_Skyrunner"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Balthalus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@joyfulness2"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Maia356"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Blast1001"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DartTrad"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Laklet"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SmellsLikeKimchi"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@simcool"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@arfeiniel88"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dannukesem"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Calogerous"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@CalystaNix"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Storm-Slash"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RioterOtsego"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Marque15"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@brnjenkn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dassya"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jbernasconif"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Nevarb"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Glacierwolf"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@HoKoBo"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@roundhouseking"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@panemd"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Horcruxhannah"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Kozai"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ezirith"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@elderscrollsplayer01"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@WyldFrostwych"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Blearyspecs"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Monstah_ESO"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Andrezs"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Moyria"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@chanik"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Torrielynn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Boulder_Dash"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Howard0982"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tsirk"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ziggr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Madnezz261294"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KingRU5H"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Flexble-Calligrepher"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BORIR"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Frazier1307"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@goldneye"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rhodeme"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ScabbiaDelirium"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BearlyLegal"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Gamakatsu"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Calysis"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@foosdoc"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MCG35"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DeathtothePixies"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@isababa12"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@therrieur"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@astraea360"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ShadowfireX"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Trav2016"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@seeker1"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ixhealsxl"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@uscss.covenant"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Finschly"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@stammage"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LovelyNorth"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vitkirunar"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Timmachine"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Ygritte_snow"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SAckOfSnakes"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AtreyoVitorixPrime"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tawais"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DuckFayth"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SaviorSpherioth"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DarkWaffleLord"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@armchairchamp"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@abysslool"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@mApplinator"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@skrim5996"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RockGuitar"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BladeRnr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Lunchbreak"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@rtorlas"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@magaoidh"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Arilic-Aha"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Luthik"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DaBeastMike"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Kaladef"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Alantarx"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ESO_LPH"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Taly'n"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AtmusMaximus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Cucomannn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Reien"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Winsum"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@savagecandy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Darthbane160"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Askeji"] = 
-                        {
-                            ["first_seen_ts"] = 1536469200,
-                        },
-                        ["@Kereline"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TheFrozenThrone"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@aïmbursh2510"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Diabela"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Shadow_Rorrim"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TWITCHTV-MESPLEY"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@relativemass"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@UncleSheo's2ndFave"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@fatpotter"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@JazzyNapkin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@seattlethunder"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MrBasa"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@StarCarrier"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rasindrid"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Salthazar001"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@boney_mac"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vagrent"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Furydon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Wanda-Venabili"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@shikendesign"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mudguard"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Megus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RogueAckerman"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@mx11foxracing"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Kellie68"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ajkays"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Princess.Slaya"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@pete62"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@sjdiesel"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bountyhunterred92"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Fudly_Doright"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Takilya70"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Zizo-RIP"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Chonahrik"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Slicksteezin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Reckless_Troll"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rene1234"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@VexedForest"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Andycrapped"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@WardogAce"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Shay-Shay17"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Heronne"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@dilky"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vidmaximus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@PsychoDellix"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@EgoSumLeviathan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Demos426"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Alom"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@fgadd03"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sneakyelf"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@daveh57"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@plzbuffsorcerer"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Servadei"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rajun_Cajun"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MCTyrant1"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@G0db4n"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Shabadooh"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Atlas-Lion"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Aulderyn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sumo_Splash"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jypcy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vox_9000"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@IconOfGrace"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Slatineg"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@rudai123"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@CheiftanSTAR"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Teragord"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@dmiller0064"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SnowyDVM"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RhadegastSage"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tarindis"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mhalice"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BearMaidenSif"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@IronFire246"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Supeoples"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@dizzyjen"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@galaara98"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Voodoo35"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SilverLion92"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@skquish"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@stoneyattorney"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mr.Jimbo"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@IvnMrtnz"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@auxioruben"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@moushen"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Turbo-charged"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@hiptobebaio"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@razzlemydazzle"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@blatant3"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Synarah"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RindyStar"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Gundwane"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Reksikana"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Raven_Spire"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bloodymess1985"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@WhisperLFE"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Moliorreo"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Brad.Oberueng"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sandmanninja"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@smitty007007"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Draconis_Prime"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bellastacia"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MorriganOfTheWilds"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@agentauron7"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KittAngel"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@UlfricStormcloak"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@str8lit916"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Neroine"] = 
-                        {
-                            ["first_seen_ts"] = 1536469200,
-                        },
-                        ["@MistralApollon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DUDEWTFBRO"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Kumba'Ya"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Auri-Elle"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bargonauts"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AlexTheBrave"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Collinell"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@FEARM0AR"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Moondragon13"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Feroq"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Phuulio"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@admittedpluto43"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BurningGinger"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LorienDres"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sinquuil"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Valdreth80"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tm.b"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@harvey07"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@the_Meximan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dawnreaper159"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Charja"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ArterionAU"] = 
-                        {
-                            ["first_seen_ts"] = 1536469200,
-                        },
-                        ["@wolkzbr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@bottlecaps87"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Caliljr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@hamrb"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@HouseOfUlltor"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MilkRaven"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ky_bele"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Deuce0525"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@el_dunkachino"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AdmiralCrunch"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Karysmatic"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TarD_CorE"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@ObsidianScythe"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Erimm"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MinuitPro"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Conduit0"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ZahnwehZombie"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@mcva8321"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Smurfborn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Turn13"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@midnight_tea"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@B00mslang"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@kirasdream13"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@titaniumxx"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rpgmankiller"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TUZI01"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Memody"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ertosi"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@cyberN"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@wartitansimon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ezile"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jameson314"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DoctorBuggsy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Helios221"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@GenerationHate"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Chasseur125"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@EtherealShade"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@criminally1nsane"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Issabel"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Simba01"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Obsidian3"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Nhudri"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Argsthief"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dantte01"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TRiNiTY_PMS"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@WoollyBear"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@noobgass"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@nankeenheron"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Muddverse"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Architecture"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@akahh"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ETCAuctions"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bolder63"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Byankonenta"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rokushoh"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bird_Brain"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sir-Gibbs"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hal-Moore"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Solgone"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dominator1994"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@R1pcord"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Flex241"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Webmercenary"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tsuensiu"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@majulook"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Calladin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Raylas"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bonez91"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@WardenOfBalance"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@meiakov"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tramadar"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@OdoDeBarri"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@V3N_99"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Clifton79"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Smitty2701"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mayorbee78"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Firegrill"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@nzkysms"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MauCanto"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Gowlin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Montigo667"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Fn20gi356"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sallyaly"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                    },
-                    [2] = 
-                    {
-                        ["@Rokushoh"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Furcula"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Scrox"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@skaterid23"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rivenger"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RageKillin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RippenDomes"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@UlfricStormcloak"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DrewMain"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@oTremors"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@NordCarbon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Zode123"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Defeatist"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SamTheGinger"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@ElLocoBino"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bankwalker"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@taiyoukei"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ky_bele"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@rocket343"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AtmusMaximus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@vishyawesome"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tm.b"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Svveets"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TatersTeam"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@B_ismyname"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@acorn.tree"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@EvocatusV"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rataroto"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@That'sFoxic"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bountyhunterred92"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@JazzyNapkin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Irswat"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Eleizen"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Spacepanda159"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mortaur"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@keiaos"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jknight201"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Var'Mar"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Oreyn_Bearclaw"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@JTemp117"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ZenMage"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Laklet"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DartTrad"] = 
-                        {
-                            ["first_seen_ts"] = 1536469200,
-                        },
-                        ["@WardogAce"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RazielND"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@EgoSumLeviathan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Moltyr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tmbrinks"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Redn3ck"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@b4dd3r"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Saediin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Whoflung"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sir-Squeaks"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mr_Sinister213"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LeagueTroll"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KnifeToFace"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rekease"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@dingod97"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RufusRox"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@thejewster"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Emrysinth"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@FelipeH92"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Rearden7"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Corpier"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@the_Meximan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MedievalMiss"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hecker777"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@HohoChewi"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ETCAuctions"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Gundwane"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@cyberbodhi"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Matsu808"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@fire0"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@preyfar"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Wobbu"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Puzzle666"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Calysis"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Auroan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Fn20gi356"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Jhoira524"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                    },
-                    [3] = 
-                    {
-                        ["@Hecker777"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@UndeadKuba"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@rocket343"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@UlfricStormcloak"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@WeWereNordz"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Salthazar001"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Demos426"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@THEHOTDOGMAN"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ETCAuctions"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@criminally1nsane"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vorpaldragon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Nytara"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                    },
-                    [4] = 
-                    {
-                        ["@ice_moose"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Skalligrim"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jamie77"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RedJourneyer"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SMAUSSIE"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@PieTheWizard"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Robsmum69"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TonyMLynch"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Goxxy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@HellzRazor1"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SimplySalamander"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@CrazyWaferz"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@darbycrash"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ArckerAsgeirr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ETCAuctions"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Brandi_Lynn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Heuer82"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mega_Nova"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Katzendaddy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Somniati"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LegolesPaul"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Wyrd_One"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@senrab60"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tocov500"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@thebpfeif"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Maeryx11"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@HHOT"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Chasily"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@deathvadre"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Jerpar"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ronin176"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Darksteelmatze"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mr.Jimbo"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Schaafty"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Grolub"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BeadBase"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Guprisun"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@FAdamsXII"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@shloptop"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ihavethepowerr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AntagonisticKing815"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@rendersix"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@lvan-Grozny"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@hptby"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Phantom_Diver"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@krc473"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Worricow"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Fluttercrunk"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Martmeister"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SirLiest"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Phedres"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@deathdervish86"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hitsuharu"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SirSilver"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ptregaskis"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hellsibling"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@hairytofu"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KrieeeK"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@InternetSupervillain"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Valen201"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KEL_LOGS"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Fantaizzia"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Fushigisou"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jmorinfiero85"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@coyotemojo"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@redeagle33"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Force0fWill"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LloydMars"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Elldafire"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Eaminwe"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LeifGreen"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Gnorkoid"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Exner75"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Xanven71"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Loc_Talon"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@UtherMaerklos"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KerrGall"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@xtremeplayer"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MelMerc"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Jinni"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@meljane1"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Jexorian"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@JimBobMcKrakken"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@daggerface1"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ShraeRage"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Errandsboy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@John614"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DryzztDUrdan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MightyJoeMoon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@bri9923"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@neromoon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@dynamystic"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Stridig"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ScalpelOne"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@a1u2m"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@chargetoglory"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@pattyd91"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ColemanTent"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@gamap"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MaxdevilX"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@nordic_girl"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@contacthope"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Heff-Ra"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Scallan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Alarkiel"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sinduit"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MrsHellzrazor"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@bobbyblaster666"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dracula.666"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Pyrrh_Pianissimo"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Amulett"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rezulin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@djharr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@StarliitRaiin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Shazeam"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Spud_Lover"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MrIvanhoe"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Spaderspawn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Banhammer44"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DrMaj04"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LexieEU"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ViceProphet"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jason_bourne1970"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rahvitaan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@EntropyD"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Trissfein"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Thordryc"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mvkz"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Evil.Angel"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Zendar5"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Canhoagie"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RandomStab"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ZarkonBlackBlade"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Krymzonbladez"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Alehouse"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Yarrowroot"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DrakanGornus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@EvilRoy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Azanigin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@stypsy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bellofortis"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Areythix"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Datralis23"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ravenwolph"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dudedude343"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BranWinterborn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Fjurg_Vanderploeg"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Subcult1"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Chamorri"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Whoflung"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sylinus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Majekd"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Zhobek"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AKSlater"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Nostalgic404NotFound"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@JimmyHln"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bacteriophage"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@mmsock"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Badmatt"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ReinerAbend"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Windham-Silverchord"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jsiv888"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@XapYu"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Misterscoops"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@resigned56"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@firstmanonmars06"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@yukiiwama"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MikoAkuma"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dascari"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Smelfling"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DionneJinn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Khem'Sihr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@l4l4l4l4"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Uiscedubh"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@aceofthunder12"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tarual"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RosenHaald"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Clwnie"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@poobear49"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LeeDegas"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Trailrun"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Khorphos"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Andros-Skrelli"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Baracuta"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@General-Jealda"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Omkne"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@jedidude04"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Moccasinz"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bandit1313"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@mesmerisme"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ejin2k"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Walfegood"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SalBro"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Jerec101"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BeadgBase"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@knoxcoshane2"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Zuboko"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@xXCuRs3dXx"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@storm0501"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@angryclair"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@raneseraph"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Smakistan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Woozyy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tyronium"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Grifynne"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Varenia"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@elaieva"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Evehn76"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LoneMichael"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Moonwhip"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Kieduss"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Klixse"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@CarolinCLH"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mortheau"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Diam0ndVixen"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Loweboy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ThePantieBandit"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KamineyNZ"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SageSyndicate93"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@vbnmfgh"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@xiandor"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@hallengaz"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Polarchewbacca"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ThisIsNotMe"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@uFuqinwitme"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@extra_crispy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Grosswhiteguy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@GLWerth"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@chrislietz"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tsuul"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@nole16k"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Gabzotha888"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Floodously"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Artfuldodger705"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Southerncrow"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@cHaOs_R34P3R"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@risingphoenix23"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@oaflet"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@PoiZinIvy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ph1l_hone"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Jubes"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Stercus'accidit"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@RadientOne"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Cantankerous_Kuma"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Gengar169"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Orchid666"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Zuddine"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Paracaidista"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ivakall"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Feannorr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@elderscribe"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Aeronwynn"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Maelstroa"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@peuragna"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Seraph69"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Awesome_McKickAss"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@B00Ju1ce"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Totovski"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Skippa"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@yecart66"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@pastel.ghost"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Pzeck"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bruin5000"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@mgardner112"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AfghanRon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dekks"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@x7Px2w0a"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Delimber"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@yottavolt808"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@nosoundjustpain"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Destructive"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jcreinke"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TermaraOfRavenRiver"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Seltara"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sugarlips_Habasi"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ZINVARO"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Callanish"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@WillPower81"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DawnOfKnight"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Wannow007"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ed7878"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DracoT"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Wavion"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Runningsnail"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@matthewjc"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ytea"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TheFadedKing"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@gmsymington"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@relativemass"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tkari"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Koriit"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@NZRose"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tjcd"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Voltairine"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Luciphine"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Brendyln"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@SphinxOfDeath"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Zebulond1"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@vincemin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@CardX"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Voivode"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ziffara"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@critterchaos"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Brandonhorton7"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@HarleyQuinnFan"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jackvincent"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DontHate4096"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Little_Ned"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Eridhonson"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Deceptive_Yoshi"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@iPwnN00bz4F1"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DaveUsi"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@w3azel"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jimdovabret"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tirikara"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tzustorm"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@knoxcoshane"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tobe_01"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Deoxys974"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Russ677"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LordBillius"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DragonWargamer"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@IRLuffy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LorienDres"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KingShadyH"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Aziluvian"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Esquirel"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Razyr_Nyghtmyre"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Paradoxal"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Sinnic_Aden"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TheKevduit"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Trav101"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tiedän"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Imasakia"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@tsfenya"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Lightweave"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Crackalac"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Dubya316"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ehern028"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@herr420"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DocVamps"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LAKout69"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Miketron3"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SR_Angelo"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jshutt1747"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@peterseiler4"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@fonsy_wiborg"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@original_mrrabbit"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MaudAnne"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@kwaters81"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Shist1992"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AtomicFiredoll"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Moksha"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Crythantales"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@CodeWord"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TOGSr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@CimCity"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MrMisterShaynaFlower"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ruethedaeumetme"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@hightowermusic"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@canfilism"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Aquarius417"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@kisadabear"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Kirinzz"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@JJbro03"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Rixzuika"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Uziel"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AnmlTrnr"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Badazzz"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Tuxzola"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SpookyPK"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ylehavot"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Zenophon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@fe_helix"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ifhjkl"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@K-STYLE"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ryank1005"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@KaitouSenpai"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SpiritbreakerAU"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LeSoleal"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@geeca"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SunKrazed"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BIG_hau5"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@MrShwing77"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jabro01"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vinlin"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Wolfwalker57"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@CastleHawk"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@UnconventionalGamer"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Lightyear"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Danjio"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Azkalas"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@zLadyDragon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mithgil"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Jharak"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vadrus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@wtfdontlickme"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ZeePee"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Thistlewoodscott"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mirbilana"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SpleenPizza"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@imyne"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@vainstr2018"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Daedem"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Chubicon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SR_Colleen"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Urlafeina1970"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@æva"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Mike32"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@grrrly"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vasteel2k"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Garooo"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@taliavin"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TheLordSoth"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@HOLLOWCITY_HAVEN"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@weestaboy"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@onyxcommando"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@SirPrizedofTen"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Wildman82"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@redsand12"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@OdoDeBarri"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@WorldForge"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Angelavenger"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@BippoErnesti"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Phailboat"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Bavook"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Spyder-OPU"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Roxxsmom"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Ares1346"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Fruitbat-juju"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@buymoria"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@FangFur"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@XerXei"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@eruditional"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Angel7courrier"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Darkmeat"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Valkeneer"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@willscarlett"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@sinister98"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@hjKBi02OCkNMj"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@NolattaloN"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Khalida"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jwojcik21"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@GreyFalcon1970"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Lenarria"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Valontinian"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hawkwinds"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Vandrid"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Fir'Tia"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Psilocycho"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Calaelen631"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Chasseur125"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DarthCabbage"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Abheri"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Argsthief"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@blaine.r"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Psychedelic1699"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Cdouble84"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@bobeer86"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@McOob"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LillyoftheLand"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hunchbaticus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@spark_e"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hufflehobbit"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@AlphaInvictus"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Redferne6576"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@catnipper99"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@valephar"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Kel-Zek"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@Oyaa"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Wodinn_Riggs"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@bardsandsages"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TimOTak"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Flamingdragonfly"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@OldMommaDragon"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@chaoschild"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@ryanrognstad"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@TeamLadss"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Furious_Mudcrab"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@gertnerbot"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@king_nicnic"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Hello-Darkness"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@PrimtwinJD"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Preskit"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@LachrymalQuietus"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@LilRedBird"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Walrus360"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@joeggernaut"] = 
-                        {
-                            ["first_seen_ts"] = 1536382800,
-                        },
-                        ["@psi_rocker"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@DanceGavinDance66"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@orig_overbored"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Aruch0"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@jbag1489"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@Cuddlefishman"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                        ["@mayhemleaderaimee"] = 
-                        {
-                            ["first_seen_ts"] = 1535950800,
-                        },
-                    },
-                    [5] = 
-                    {
-                    },
-                    ["last_scan_ts"] = 1536469200,
-                },
-                ["guild_name"] = 
+                ["guild_name"] =
                 {
                 },
-                ["enable_guild"] = 
+                ["enable_guild"] =
                 {
-                    [1] = true,
-                    [2] = true,
-                    [3] = true,
-                    [4] = true,
+                    [1] = false,
+                    [2] = false,
+                    [3] = false,
+                    [4] = false,
                     [5] = false,
                 },
             },
