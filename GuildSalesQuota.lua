@@ -659,6 +659,28 @@ end
 --
 -- Happens nearly instantaneously.
 --
+-- 2019-04-07 MM UserNotes
+-- MM.salesData
+--[[
+    salesData
+        itemId          10,000+ keys here!
+            [1]
+                itemIcon
+                itemAdderText "cp160 blue superior weapon charged one-handed"
+                itemDesc      "rubedite sword of Frost^n"
+                sales
+                    [1]
+                        wasKiosk    false
+                        itemLink    <link>
+                        quant       1
+                        timestamp   1554643520
+                        seller      "@Nepson"
+                        buyer       "@jurassicpikeld"
+                        id          1076502817
+                        guild       "Eastmarch Trade Company"
+                        price       100
+]]
+--
 function GuildSalesQuota:MMScan()
     self:CalcSavedTS()
 
