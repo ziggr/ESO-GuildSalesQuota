@@ -695,7 +695,7 @@ function GuildSalesQuota:MMScan()
         for itemIndex,tt in pairs(t) do
             local sales = tt["sales"]
             if sales then
-                for i, mm_sales_record in ipairs(sales) do
+                for i, mm_sales_record in pairs(sales) do
                     local s = self:AddMMSale(mm_sales_record)
                     if s then
                         sale_ct = sale_ct + 1
